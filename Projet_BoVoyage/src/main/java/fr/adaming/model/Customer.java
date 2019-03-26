@@ -131,5 +131,4 @@ public class Customer implements Serializable {
 		return "Customer [idCus=" + idCus + ", name=" + name + ", firstName=" + firstName + ", civility=" + civility
 				+ ", phone=" + phone + ", mail=" + mail + ", password=" + password + ", address=" + address + "]";
 	}
-
 }
