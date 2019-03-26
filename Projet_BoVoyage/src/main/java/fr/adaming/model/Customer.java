@@ -1,39 +1,30 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customers")
 @SuppressWarnings("serial")
-public class Customer implements Serializable {
+@DiscriminatorValue(value = "Custo")
+public class Customer extends Attendant implements Serializable {
 
 	// Attributes
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_cus")
-	private int idCus;
-	private String name;
-	private String firstName;
-	private String civility;
-	private String phone;
-	private String mail;
 	private String password;
-
-	@Embedded
-	private Address address;
 
 	// Constructors
 	public Customer() {
 		super();
 	}
+
+	@OneToMany(mappedBy="customer", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+	private List<Trip> trips;
 
 	public Customer(String name, String firstName, String civility, String phone, String mail, String password,
 			Address address) {

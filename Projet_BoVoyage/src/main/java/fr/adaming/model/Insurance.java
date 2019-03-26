@@ -1,12 +1,15 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,10 @@ public class Insurance  implements Serializable{
 	private String name;
 	private double price; 
 	private String type;
+	
+	// UML To Java Association's Transformation
+	@OneToMany(mappedBy="insurance", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+	private List<FormulaTrip> formulaTrips;
 	
 	// Constructors
 	public Insurance() {

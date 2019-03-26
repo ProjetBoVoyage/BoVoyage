@@ -2,20 +2,23 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
 @Table(name = "accommodations")
 @SuppressWarnings("serial")
-public class Accommodation  implements Serializable{
+public class Accommodation implements Serializable {
 
 	// Attributes
 	@Id
@@ -23,12 +26,15 @@ public class Accommodation  implements Serializable{
 	@Column(name = "id_acc")
 	private int idAcc;
 	private String name;
-	private double price; 
+	private double price;
 	@Lob
 	private byte[] photo;
-	
 	@Transient
 	private String img;
+
+	// UML To Java Association's Transformation
+	@OneToMany(mappedBy = "accomodation", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	private List<FormulaTrip> formulaTrips;
 
 	// Constructors
 	public Accommodation() {
@@ -97,7 +103,5 @@ public class Accommodation  implements Serializable{
 		return "Accommodation [idAcc=" + idAcc + ", name=" + name + ", price=" + price + ", photo="
 				+ Arrays.toString(photo) + ", img=" + img + "]";
 	}
-	
-	
-	
+
 }

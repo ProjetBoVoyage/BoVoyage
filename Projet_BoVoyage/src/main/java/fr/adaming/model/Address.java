@@ -2,19 +2,24 @@ package fr.adaming.model;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Embeddable 
 @Access(AccessType.FIELD)
 public class Address {
+	
 	// Attributes
-
-	@Column(name="id_num")
 	private int number;
 	private String street;
 	private String city;
 	private String postalCode;
+	
+	// UML to Java Association's Transformation
+	@OneToOne
+	@JoinColumn(name="cus_id", referencedColumnName="id_cus")
+	private Attendant attendant;
 	
 	// Constructors
 	public Address() {
