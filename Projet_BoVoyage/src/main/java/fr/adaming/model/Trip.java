@@ -21,9 +21,6 @@ public class Trip implements Serializable {
 	private int idTrip;
 	
 	private Destination destination;
-	private 
-	
-	
 	
 
 }
