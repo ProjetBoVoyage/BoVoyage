@@ -20,6 +20,9 @@ public class Trip implements Serializable {
 	@Column(name="id_trip")
 	private int idTrip;
 	
+	private Destination destination;
+	private 
+	
 	
 	
 
