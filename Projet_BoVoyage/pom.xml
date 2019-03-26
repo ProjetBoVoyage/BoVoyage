@@ -5,7 +5,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   
-  
+    	<!-- Factoriser la déclaration des versions -->
+	<properties>
+		<spring.version>4.1.9.RELEASE</spring.version>
+	</properties>
+	
    <dependencies>
 		<!-- ============= Les libs de JSP Servlet -->
 		<!-- javax.servlet-api -->
