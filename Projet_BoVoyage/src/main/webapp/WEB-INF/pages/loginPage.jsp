@@ -11,15 +11,15 @@
 <body>
 
 	<form method="post" action="connexion">
-		Identifiant: <input type="text" name="j_username" />
+		Identifier: <input type="text" name="j_username" />
 		<br>
-		Mot de Passe: <input type="text" name="j_password" />
+		Password: <input type="text" name="j_password" />
 		<br>
 		<input type="submit" value="Se Connecter">
 	</form>
 	
-	<c:if test="${not empty erreur}">
-		<h1 style="color: red; text-align: center">La connexion a capoté</h1>
+	<c:if test="${not empty errorr}">
+		<h1 style="color: red; text-align: center">Authentication Failed</h1>
 	</c:if>
 </body>
 </html>

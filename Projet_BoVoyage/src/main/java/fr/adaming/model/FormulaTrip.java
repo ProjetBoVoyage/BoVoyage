@@ -24,6 +24,7 @@ public class FormulaTrip implements Serializable {
 	private int id;
 	private String nameFormTrip;
 	private double rate;
+	private boolean carRental;
 
 	// UML To Java Association's Transformation
 	@ManyToOne
@@ -48,7 +49,7 @@ public class FormulaTrip implements Serializable {
 	}
 
 	public FormulaTrip(String nameFormTrip, double rate, Accommodation accomodation, Destination destination,
-			FormulaAccomodation formulaAccomodation, Insurance insurance) {
+			FormulaAccomodation formulaAccomodation, Insurance insurance, boolean carRental) {
 		super();
 		this.nameFormTrip = nameFormTrip;
 		this.rate = rate;
@@ -56,10 +57,11 @@ public class FormulaTrip implements Serializable {
 		this.destination = destination;
 		this.formulaAccomodation = formulaAccomodation;
 		this.insurance = insurance;
+		this.carRental = carRental;
 	}
 
 	public FormulaTrip(int id, String nameFormTrip, double rate, Accommodation accomodation, Destination destination,
-			FormulaAccomodation formulaAccomodation, Insurance insurance) {
+			FormulaAccomodation formulaAccomodation, Insurance insurance, boolean carRental) {
 		super();
 		this.id = id;
 		this.nameFormTrip = nameFormTrip;
@@ -68,6 +70,7 @@ public class FormulaTrip implements Serializable {
 		this.destination = destination;
 		this.formulaAccomodation = formulaAccomodation;
 		this.insurance = insurance;
+		this.carRental = carRental;
 	}
 
 	public int getId() {
@@ -132,6 +135,14 @@ public class FormulaTrip implements Serializable {
 
 	public void setTrip(Trip trip) {
 		this.trip = trip;
+	}
+
+	public boolean isCarRental() {
+		return carRental;
+	}
+
+	public void setCarRental(boolean carRental) {
+		this.carRental = carRental;
 	}
 
 	@Override
