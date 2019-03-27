@@ -15,77 +15,74 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "insurances")
 @SuppressWarnings("serial")
-public class Insurance  implements Serializable{
-	
+public class Insurance implements Serializable {
+
 	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_insu")
 	private int idInsu;
 	private String name;
-	private double price; 
-	private String type;
-	
+	private double price;
+
 	// UML To Java Association's Transformation
-	@OneToMany(mappedBy="insurance", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+	@OneToMany(mappedBy = "insurance", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<FormulaTrip> formulaTrips;
-	
+
 	// Constructors
 	public Insurance() {
 		super();
 	}
-	public Insurance(String name, double price, String type) {
+
+	public Insurance(String name, double price) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.type = type;
 	}
-	public Insurance(int idInsu, String name, double price, String type) {
+
+	public Insurance(int idInsu, String name, double price) {
 		super();
 		this.idInsu = idInsu;
 		this.name = name;
 		this.price = price;
-		this.type = type;
 	}
-	
+
 	// Getters & Setters
 	public int getIdInsu() {
 		return idInsu;
 	}
+
 	public void setIdInsu(int idInsu) {
 		this.idInsu = idInsu;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+
 	public List<FormulaTrip> getFormulaTrips() {
 		return formulaTrips;
 	}
+
 	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
 		this.formulaTrips = formulaTrips;
 	}
+
 	@Override
 	public String toString() {
-		return "You chose the "+type+" insurance "+name + " at the cost of " + price + " euros";
-	} 
-	
-	
-	
-	
+		return "You chose the following: " + name + "Assurance, at the cost of " + price + " euros";
+	}
 
 }
