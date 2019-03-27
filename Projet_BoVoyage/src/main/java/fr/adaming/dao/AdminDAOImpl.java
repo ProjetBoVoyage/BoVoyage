@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Admin;
 
 @Repository
-public class AdminDAOImpl implements IClassDAO {
+public class AdminDAOImpl implements IAdminDAO {
 
 	@Autowired
 	private SessionFactory sf;
@@ -18,7 +18,6 @@ public class AdminDAOImpl implements IClassDAO {
 		this.sf = sf;
 	}
 
-	
 	@Override
 	public Admin getAdminByMail(String mailAd) {
 		// Open Session
