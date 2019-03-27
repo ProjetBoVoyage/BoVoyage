@@ -7,6 +7,7 @@
 <title>Admin Page</title>
 </head>
 <body>
-
+Je suis dans l'Admin Page
+<a href="${pageContext.request.contextPath}/logoutUrl">LogOut</a>
 </body>
 </html>

@@ -28,8 +28,9 @@
 		<!-- Spécifier les URLs à sécuriser avec la balise intercept-url via l'attribut 
 			pattern -->
 		<!-- Donner les autorisations avec l'attribut access de la balise intercept-url -->
-		<security:intercept-url pattern="/admin/**"
+		<security:intercept-url pattern="/start/admin/**"
 			access="ROLE_ADMIN" />
+			
 
 		<!-- Utilisation d'un formulaire personnalisé -->
 		<security:form-login login-page="/loginUrl"
@@ -52,7 +53,7 @@
 			<security:jdbc-user-service
 				data-source-ref="dataSourceBean1"
 				users-by-username-query="SELECT mail_ad, mdp_ad, active FROM admins WHERE mail_ad=?"
-				authorities-by-username-query="SELECT ad.mail, r.roleName FROM admins ad, roles r WHERE ad.mail_ad=? AND ad.id_ad=r.ad_id" />
+				authorities-by-username-query="SELECT ad.mail_ad, r.roleName FROM admins ad, roles r WHERE ad.mail_ad=? AND ad.id_ad=r.ad_id" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 

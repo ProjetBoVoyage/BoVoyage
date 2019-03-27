@@ -8,12 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
+<!-- Ajouter le fichier Bootstrap -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
 </head>
 <body>
-<h1 style="color:green; text-align:center;">Home Page</h1>
 
-<h4><a href="">Lien 1</a></h4>
-<h4><a href="">Lien 2</a></h4>
-
+	<nav class="navbar navbar-inverse">
+		<ul class="nav nav-tabs">
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/start/customerPage">My Account</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/start/admin/adminPage">Admin Page</a></li>
+		</ul>
+	</nav>
+	<h1 style="color:green; text-align:center;">Home Page</h1>
 </body>
 </html>

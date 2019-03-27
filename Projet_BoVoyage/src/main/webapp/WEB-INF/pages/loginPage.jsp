@@ -18,7 +18,7 @@
 		<input type="submit" value="Se Connecter">
 	</form>
 	
-	<c:if test="${not empty errorr}">
+	<c:if test="${not empty error}">
 		<h1 style="color: red; text-align: center">Authentication Failed</h1>
 	</c:if>
 </body>

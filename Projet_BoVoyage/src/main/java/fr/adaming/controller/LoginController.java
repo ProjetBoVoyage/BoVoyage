@@ -15,10 +15,10 @@ public class LoginController {
 	
 	@RequestMapping(value="/logoutUrl", method=RequestMethod.GET)
 	public String displayLogoutPage(){
-		return "loginPage";
+		return "homePage";
 	}
 	
-	@RequestMapping(value="/echecUrl", method=RequestMethod.GET)
+	@RequestMapping(value="/failUrl", method=RequestMethod.GET)
 	public String displayFailure(ModelMap modele) {
 		modele.addAttribute("error",true);
 		return "loginPage";

@@ -7,6 +7,6 @@
 <title>Index</title>
 </head>
 <body>
-<%response.sendRedirect("homepage/welcome"); %>
+<%response.sendRedirect("start/welcome"); %>
 </body>
 </html>
