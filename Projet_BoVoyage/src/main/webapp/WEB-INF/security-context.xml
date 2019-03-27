@@ -55,19 +55,21 @@
 			<!-- Utilisation de la database pour la déclaration des utilisateurs -->
 			<security:jdbc-user-service
 				data-source-ref="dataSourceBean1"
-				users-by-username-query="SELECT mail_ad, mdp_ad, active FROM admins WHERE mail_ad=?"
-				authorities-by-username-query="SELECT ad.mail_ad, r.roleName FROM admins ad, roles r WHERE ad.mail_ad=? AND ad.id_ad=r.ad_id" />
+				users-by-username-query="SELECT mail, mdp_ad, active FROM persons WHERE mail=?"
+				authorities-by-username-query="SELECT p.mail, r.roleName FROM persons p, roles r WHERE p.mail=? AND p.id=r.ad_id" />
+				
+			<security:jdbc-user-service
+				data-source-ref="dataSourceBean1"
+				users-by-username-query="SELECT mail, mdp_cus, active FROM persons WHERE mail=?"
+				authorities-by-username-query="SELECT p.mail, r.roleName FROM persons p, roles r WHERE p.mail=? AND p.id=r.cus_id" />
+				
+						<security:jdbc-user-service
+				data-source-ref="dataSourceBean1"
+				users-by-username-query="SELECT mail, mdp_co, active FROM persons WHERE mail=?"
+				authorities-by-username-query="SELECT p.mail, r.roleName FROM persons p, roles r WHERE p.mail=? AND p.id=r.co_id" />
+				
 		</security:authentication-provider>
 	</security:authentication-manager>
 	
-<!-- 	<security:authentication-manager> -->
-<!-- 		<security:authentication-provider> -->
-			<!-- Utilisation de la database pour la déclaration des utilisateurs -->
-<!-- 			<security:jdbc-user-service -->
-<!-- 				data-source-ref="dataSourceBean1" -->
-<!-- 				users-by-username-query="SELECT mail, password, active FROM customers WHERE mail=?" -->
-<!-- 				authorities-by-username-query="SELECT c.mail, r.roleName FROM customers c, roles r WHERE c.mail=? AND c.id_cus=r.cus_id" /> -->
-<!-- 		</security:authentication-provider> -->
-<!-- 	</security:authentication-manager> -->
-
-</beans>
+	
+	</beans>

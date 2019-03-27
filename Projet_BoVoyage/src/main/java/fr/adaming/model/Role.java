@@ -25,16 +25,16 @@ public class Role implements Serializable {
 	
 	// Transformation de l'association UML en Java
 	@ManyToOne
-	@JoinColumn(name="ad_id",referencedColumnName="id_ad")
-	private Admin admin;
+	@JoinColumn(name="ad_id",referencedColumnName="id")
+	private Person admin;
 	
 	@ManyToOne
-	@JoinColumn(name="cus_id",referencedColumnName="id_cus")
-	private Customer customer;
+	@JoinColumn(name="cus_id",referencedColumnName="id")
+	private Person customer;
 	
 	@ManyToOne
-	@JoinColumn(name="co_id",referencedColumnName="id_co")
-	private Counsellor counsellor;
+	@JoinColumn(name="co_id",referencedColumnName="id")
+	private Person counsellor;
 	
 
 	// Constructeur
@@ -42,17 +42,15 @@ public class Role implements Serializable {
 		super();
 	}
 
-	public Role(int idRole, String roleName, Admin admin) {
+	public Role(int idRole, String roleName) {
 		super();
 		this.idRole = idRole;
 		this.roleName = roleName;
-		this.admin = admin;
 	}
 
 	public Role(String roleName, Admin admin) {
 		super();
 		this.roleName = roleName;
-		this.admin = admin;
 	}
 	
 	// Getters & Setters
@@ -72,27 +70,27 @@ public class Role implements Serializable {
 		this.idRole = idRole;
 	}
 
-	public Admin getAdmin() {
+	public Person getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(Admin admin) {
+	public void setAdmin(Person admin) {
 		this.admin = admin;
 	}
 
-	public Customer getCustomer() {
+	public Person getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(Person customer) {
 		this.customer = customer;
 	}
 
-	public Counsellor getCounsellor() {
+	public Person getCounsellor() {
 		return counsellor;
 	}
 
-	public void setCounsellor(Counsellor counsellor) {
+	public void setCounsellor(Person counsellor) {
 		this.counsellor = counsellor;
 	}
 

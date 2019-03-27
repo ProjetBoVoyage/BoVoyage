@@ -27,7 +27,7 @@ public class Trip implements Serializable {
 	private int idTrip;
 	
 	@ManyToOne
-	@JoinColumn(name="cus_id", referencedColumnName="id_cus")
+	@JoinColumn(name="cus_id", referencedColumnName="id")
 	private Person customer;
 	@OneToOne
 	@JoinColumn(name="formtrip_id", referencedColumnName="id_formtrip")
