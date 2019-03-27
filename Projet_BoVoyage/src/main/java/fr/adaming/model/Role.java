@@ -27,6 +27,10 @@ public class Role implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ad_id",referencedColumnName="id_ad")
 	private Admin admin;
+	
+	@ManyToOne
+	@JoinColumn(name="cus_id",referencedColumnName="id_cus")
+	private Customer customer;
 
 	// Constructeur
 	public Role() {

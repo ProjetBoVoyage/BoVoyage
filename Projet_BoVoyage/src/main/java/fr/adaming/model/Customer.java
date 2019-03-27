@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,39 +13,39 @@ public class Customer extends Person {
 
 	// Attributes
 	private String password;
+	
+	@OneToMany(mappedBy="customer", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+	private List<Trip> trips;
+	
+	@OneToMany(mappedBy="customer")
+	private List<Role> roles;
 
 	// Constructors
 	public Customer() {
 		super();
 	}
 
-	@OneToMany(mappedBy="customer", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
-	private List<Trip> trips;
+	
 
-	public Customer(String name, String firstName, String civility, String phone, String mail, String password,
-			Address address) {
-		super();
-		this.name = name;
-		this.firstName = firstName;
-		this.civility = civility;
-		this.phone = phone;
-		this.mail = mail;
+	public Customer(String name, String firstName, String civility, String phone, String mail, Date dob,
+			Address address, String password, List<Trip> trips, List<Role> roles) {
+		super(name, firstName, civility, phone, mail, dob, address);
 		this.password = password;
-		this.address = address;
+		this.trips = trips;
+		this.roles = roles;
 	}
 
-	public Customer(int idCus, String name, String firstName, String civility, String phone, String mail,
-			String password, Address address) {
-		super();
-		this.idCus = idCus;
-		this.name = name;
-		this.firstName = firstName;
-		this.civility = civility;
-		this.phone = phone;
-		this.mail = mail;
+
+
+	public Customer(int idCus, String name, String firstName, String civility, String phone, String mail, Date dob,
+			Address address, String password, List<Trip> trips, List<Role> roles) {
+		super(idCus, name, firstName, civility, phone, mail, dob, address);
 		this.password = password;
-		this.address = address;
+		this.trips = trips;
+		this.roles = roles;
 	}
+
+
 
 	// Getters & Setters
 	public int getIdCus() {
@@ -118,11 +119,32 @@ public class Customer extends Person {
 	public void setTrips(List<Trip> trips) {
 		this.trips = trips;
 	}
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
 
 	// To String
 	@Override
 	public String toString() {
-		return "Customer [idCus=" + idCus + ", name=" + name + ", firstName=" + firstName + ", civility=" + civility
-				+ ", phone=" + phone + ", mail=" + mail + ", password=" + password + ", address=" + address + "]";
+		return "Customer [password=" + password + ", trips=" + trips + ", roles=" + roles + ", idCus=" + idCus
+				+ ", name=" + name + ", firstName=" + firstName + ", civility=" + civility + ", phone=" + phone
+				+ ", mail=" + mail + ", dob=" + dob + ", address=" + address + "]";
 	}
+
+
+
 }

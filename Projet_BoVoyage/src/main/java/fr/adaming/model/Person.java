@@ -1,6 +1,7 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @SuppressWarnings("serial")
 @Entity
@@ -29,6 +32,8 @@ public class Person implements Serializable {
 	protected String civility;
 	protected String phone;
 	protected String mail;
+	@Temporal(TemporalType.DATE)
+	protected Date dob;
 	
 	// UML to Java Association's Transformation
 	@Embedded
@@ -38,17 +43,22 @@ public class Person implements Serializable {
 	public Person() {
 		super();
 	}
-	
-	public Person(String name, String firstName, String civility, String phone, String mail) {
+
+	public Person(String name, String firstName, String civility, String phone, String mail, Date dob,
+			Address address) {
 		super();
 		this.name = name;
 		this.firstName = firstName;
 		this.civility = civility;
 		this.phone = phone;
 		this.mail = mail;
+		this.dob = dob;
+		this.address = address;
 	}
-	
-	public Person(int idCus, String name, String firstName, String civility, String phone, String mail) {
+
+
+	public Person(int idCus, String name, String firstName, String civility, String phone, String mail, Date dob,
+			Address address) {
 		super();
 		this.idCus = idCus;
 		this.name = name;
@@ -56,6 +66,8 @@ public class Person implements Serializable {
 		this.civility = civility;
 		this.phone = phone;
 		this.mail = mail;
+		this.dob = dob;
+		this.address = address;
 	}
 
 	// Getters & Setters
@@ -114,4 +126,14 @@ public class Person implements Serializable {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	
+	
 }	

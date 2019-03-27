@@ -19,7 +19,7 @@
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
 			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/start/customerPage">My Account</a></li>
+				href="${pageContext.request.contextPath}/start/customer/customerPage">My Account</a></li>
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/admin/adminPage">Admin Page</a></li>
 		</ul>
