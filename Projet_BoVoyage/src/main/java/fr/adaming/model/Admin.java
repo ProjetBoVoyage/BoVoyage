@@ -27,8 +27,10 @@ public class Admin implements Serializable{
 	
 	@Column(name="mdp_ad")
 	private String mdpAd;
+	
+	private boolean active;
 
-	@OneToMany(mappedBy="administrator")
+	@OneToMany(mappedBy="admin")
 	private List<Role> roles;
 	
 	// Constructors
@@ -36,17 +38,21 @@ public class Admin implements Serializable{
 		super();
 	}
 
-	public Admin(String mailAd, String mdpAd) {
+	public Admin(String mailAd, String mdpAd, boolean active, List<Role> roles) {
 		super();
 		this.mailAd = mailAd;
 		this.mdpAd = mdpAd;
+		this.active = active;
+		this.roles = roles;
 	}
 
-	public Admin(int idAd, String mailAd, String mdpAd) {
+	public Admin(int idAd, String mailAd, String mdpAd, boolean active, List<Role> roles) {
 		super();
 		this.idAd = idAd;
 		this.mailAd = mailAd;
 		this.mdpAd = mdpAd;
+		this.active = active;
+		this.roles = roles;
 	}
 
 	// Getters & Setters
@@ -72,6 +78,22 @@ public class Admin implements Serializable{
 
 	public void setMdpAd(String mdpAd) {
 		this.mdpAd = mdpAd;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 	@Override

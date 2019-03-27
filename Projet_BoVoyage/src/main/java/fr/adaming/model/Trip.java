@@ -28,27 +28,27 @@ public class Trip implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="cus_id", referencedColumnName="id_cus")
-	private Customer customer;
+	private Person customer;
 	@OneToOne
 	@JoinColumn(name="formtrip_id", referencedColumnName="id_formtrip")
 	private FormulaTrip formulaTrip;
 	
 	@ManyToMany
 	@JoinTable(name="tab_asso_attend_trip", joinColumns=@JoinColumn(name="trip_id"), inverseJoinColumns=@JoinColumn(name="attend_id"))
-	private List<Attendant> attendants;
+	private List<Person> attendants;
 
 	public Trip() {
 		super();
 	}
 
-	public Trip(Customer customer, FormulaTrip formulaTrip, List<Attendant> attendants) {
+	public Trip(Person customer, FormulaTrip formulaTrip, List<Person> attendants) {
 		super();
 		this.customer = customer;
 		this.formulaTrip = formulaTrip;
 		this.attendants = attendants;
 	}
 
-	public Trip(int idTrip, Customer customer, FormulaTrip formulaTrip, List<Attendant> attendants) {
+	public Trip(int idTrip, Person customer, FormulaTrip formulaTrip, List<Person> attendants) {
 		super();
 		this.idTrip = idTrip;
 		this.customer = customer;
@@ -64,11 +64,11 @@ public class Trip implements Serializable {
 		this.idTrip = idTrip;
 	}
 
-	public Customer getCustomer() {
+	public Person getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(Person customer) {
 		this.customer = customer;
 	}
 
@@ -80,11 +80,11 @@ public class Trip implements Serializable {
 		this.formulaTrip = formulaTrip;
 	}
 
-	public List<Attendant> getAttendants() {
+	public List<Person> getAttendants() {
 		return attendants;
 	}
 
-	public void setAttendants(List<Attendant> attendants) {
+	public void setAttendants(List<Person> attendants) {
 		this.attendants = attendants;
 	}
 	

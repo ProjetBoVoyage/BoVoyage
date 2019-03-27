@@ -33,13 +33,13 @@ public class FormulaTrip implements Serializable {
 	@JoinColumn(name = "dest_id", referencedColumnName = "id_dest")
 	private Destination destination;
 	@ManyToOne
-	@JoinColumn(name = "id_formacc", referencedColumnName = "formacc_id")
+	@JoinColumn(name = "formacc_id", referencedColumnName = "id_formacc")
 	private FormulaAccomodation formulaAccomodation;
 	@ManyToOne
-	@JoinColumn(name = "id_insu", referencedColumnName = "insu_id")
+	@JoinColumn(name = "insu_id", referencedColumnName = "id_insu")
 	private Insurance insurance;
 	@OneToOne
-	@JoinColumn(name="trip_id",referencedColumnName="id_trip")
+	@JoinColumn(name = "trip_id", referencedColumnName = "id_trip")
 	private Trip trip;
 
 	// Constructors
@@ -124,6 +124,14 @@ public class FormulaTrip implements Serializable {
 
 	public void setInsurance(Insurance insurance) {
 		this.insurance = insurance;
+	}
+
+	public Trip getTrip() {
+		return trip;
+	}
+
+	public void setTrip(Trip trip) {
+		this.trip = trip;
 	}
 
 	@Override

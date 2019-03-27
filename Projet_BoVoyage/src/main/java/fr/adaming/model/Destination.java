@@ -22,7 +22,7 @@ public class Destination implements Serializable {
 	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "destination")
+	@Column(name = "id_dest")
 	private int idDest;
 	private String continent;
 	private String country;
@@ -37,7 +37,7 @@ public class Destination implements Serializable {
 	private String img;
 
 	// UML To Java Association's Transformation
-	@OneToMany(mappedBy="dest_id", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+	@OneToMany(mappedBy="destination", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<FormulaTrip> formulaTrips;
 	
 	// Constructors
@@ -122,6 +122,15 @@ public class Destination implements Serializable {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+	
+	public List<FormulaTrip> getFormulaTrips() {
+		return formulaTrips;
+	}
+
+	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
+		this.formulaTrips = formulaTrips;
 	}
 
 	@Override

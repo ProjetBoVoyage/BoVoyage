@@ -72,6 +72,14 @@ public class FormulaAccomodation implements Serializable {
 		this.rate = rate;
 	}
 
+	public List<FormulaTrip> getFormulaTrips() {
+		return formulaTrips;
+	}
+
+	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
+		this.formulaTrips = formulaTrips;
+	}
+
 	@Override
 	public String toString() {
 		return "FormulaAccomodation [id=" + id + ", nameFormAcc=" + nameFormAcc + "]";

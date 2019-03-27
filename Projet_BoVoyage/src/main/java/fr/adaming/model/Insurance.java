@@ -73,6 +73,12 @@ public class Insurance  implements Serializable{
 	public void setType(String type) {
 		this.type = type;
 	}
+	public List<FormulaTrip> getFormulaTrips() {
+		return formulaTrips;
+	}
+	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
+		this.formulaTrips = formulaTrips;
+	}
 	@Override
 	public String toString() {
 		return "You chose the "+type+" insurance "+name + " at the cost of " + price + " euros";

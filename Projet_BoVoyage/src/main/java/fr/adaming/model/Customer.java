@@ -1,19 +1,14 @@
 package fr.adaming.model;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "customers")
 @SuppressWarnings("serial")
 @DiscriminatorValue(value = "Custo")
-public class Customer extends Attendant implements Serializable {
+public class Customer extends Person {
 
 	// Attributes
 	private String password;
@@ -114,6 +109,14 @@ public class Customer extends Attendant implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public List<Trip> getTrips() {
+		return trips;
+	}
+
+	public void setTrips(List<Trip> trips) {
+		this.trips = trips;
 	}
 
 	// To String
