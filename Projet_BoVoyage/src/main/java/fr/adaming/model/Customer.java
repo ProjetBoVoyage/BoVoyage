@@ -4,18 +4,18 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @SuppressWarnings("serial")
 @DiscriminatorValue(value = "Customer")
+@Entity
 public class Customer extends Attendant {
 
 	// Attributes
-	@Column(name="mdp_cus")
-	private String mdpCus;
+	private String password;
 	private boolean active;
 	
 	@Embedded
@@ -24,7 +24,7 @@ public class Customer extends Attendant {
 	@OneToMany(mappedBy="customer", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<Trip> trips;
 	
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="person")
 	private List<Role> roles;
 
 	// Constructors
@@ -34,16 +34,16 @@ public class Customer extends Attendant {
 
 	
 	public Customer(int id, String mail, String name, String firstname, String civility, Date dob, String phone,
-			String mdpCus, Address address) {
+			String password, Address address) {
 		super(id, mail, name, firstname, civility, dob, phone);
-		this.mdpCus = mdpCus;
+		this.password = password;
 		this.address = address;
 	}
 
-	public Customer(String mail, String name, String firstname, String civility, Date dob, String phone, String mdpCus,
+	public Customer(String mail, String name, String firstname, String civility, Date dob, String phone, String password,
 			Address address) {
 		super(mail, name, firstname, civility, dob, phone);
-		this.mdpCus = mdpCus;
+		this.password = password;
 		this.address = address;
 	}
 
@@ -55,13 +55,13 @@ public class Customer extends Attendant {
 		return active;
 	}
 
-	public String getMdpCus() {
-		return mdpCus;
+	public String getPassword() {
+		return password;
 	}
 
 
 	public void setMdpCus(String mdpCus) {
-		this.mdpCus = mdpCus;
+		this.password = password;
 	}
 
 
@@ -96,7 +96,7 @@ public class Customer extends Attendant {
 	// To String
 	@Override
 	public String toString() {
-		return "Customer [mdpCus=" + mdpCus + ", active=" + active + ", address=" + address + ", trips=" + trips
+		return "Customer [mdpCus=" + password + ", active=" + active + ", address=" + address + ", trips=" + trips
 				+ ", roles=" + roles + "]";
 	}
 

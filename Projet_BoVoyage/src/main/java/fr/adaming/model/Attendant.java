@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
@@ -12,8 +13,9 @@ import javax.persistence.ManyToMany;
 //Save values dans la même table
 @DiscriminatorValue(value="Attendant")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Entity
 public class Attendant extends Person {
-	
+	 
 	// Attributes
 	protected String name;
 	protected String firstname; 

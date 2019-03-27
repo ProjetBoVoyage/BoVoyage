@@ -4,13 +4,14 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
 
+import org.springframework.beans.factory.annotation.Required;
+
 @Embeddable
 @Access(AccessType.FIELD)
 public class Address {
 
 	// Attributes
-	private int number;
-	private String street;
+	private String adressName;
 	private String city;
 	private String postalCode;
 
@@ -19,36 +20,19 @@ public class Address {
 		super();
 	}
 
-	public Address(String street, String city, String postalCode) {
+	public Address(String adressName, String city, String postalCode) {
 		super();
-		this.street = street;
+		this.adressName = adressName;
 		this.city = city;
 		this.postalCode = postalCode;
 	}
 
-	public Address(int number, String street, String city, String postalCode) {
-		super();
-		this.number = number;
-		this.street = street;
-		this.city = city;
-		this.postalCode = postalCode;
+	public String getAdressName() {
+		return adressName;
 	}
 
-	// Getters & Setters
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
+	public void setAdressName(String adressName) {
+		this.adressName = adressName;
 	}
 
 	public String getCity() {
@@ -66,5 +50,5 @@ public class Address {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-
+	
 }

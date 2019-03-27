@@ -25,18 +25,9 @@ public class Role implements Serializable {
 	
 	// Transformation de l'association UML en Java
 	@ManyToOne
-	@JoinColumn(name="ad_id",referencedColumnName="id")
-	private Person admin;
+	@JoinColumn(name="p_id",referencedColumnName="id")
+	private Person person;
 	
-	@ManyToOne
-	@JoinColumn(name="cus_id",referencedColumnName="id")
-	private Person customer;
-	
-	@ManyToOne
-	@JoinColumn(name="co_id",referencedColumnName="id")
-	private Person counsellor;
-	
-
 	// Constructeur
 	public Role() {
 		super();
@@ -71,29 +62,11 @@ public class Role implements Serializable {
 	}
 
 	public Person getAdmin() {
-		return admin;
+		return person;
 	}
 
 	public void setAdmin(Person admin) {
-		this.admin = admin;
+		this.person = admin;
 	}
-
-	public Person getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Person customer) {
-		this.customer = customer;
-	}
-
-	public Person getCounsellor() {
-		return counsellor;
-	}
-
-	public void setCounsellor(Person counsellor) {
-		this.counsellor = counsellor;
-	}
-
-	
 	
 }

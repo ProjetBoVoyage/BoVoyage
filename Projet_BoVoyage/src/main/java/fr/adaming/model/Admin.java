@@ -2,22 +2,21 @@ package fr.adaming.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @SuppressWarnings("serial")
 //Save values dans la même table
 @DiscriminatorValue(value="Admin")
+@Entity
 public class Admin extends Person {
 
 	// Attributes
-	@Column(name="mdp_ad")
-	private String mdpAd;
-	
 	private boolean active;
+	private String password;
 
-	@OneToMany(mappedBy="admin")
+	@OneToMany(mappedBy="person")
 	private List<Role> roles;
 	
 	// Constructors
@@ -25,23 +24,23 @@ public class Admin extends Person {
 		super();
 	}
 
-	public Admin(int id, String mail, String mdpAd) {
+	public Admin(int id, String mail, String password) {
 		super(id, mail);
-		this.mdpAd = mdpAd;
+		this.password = password;
 	}
 
-	public Admin(String mail, String mdpAd) {
+	public Admin(String mail, String password) {
 		super(mail);
-		this.mdpAd = mdpAd;
+		this.password = password;
 	}
 
 	// Getters & Setters
-	public String getMdpAd() {
-		return mdpAd;
+	public String getpassword() {
+		return password;
 	}
 
-	public void setMdpAd(String mdpAd) {
-		this.mdpAd = mdpAd;
+	public void setpassword(String password) {
+		this.password = password;
 	}
 
 	public boolean isActive() {
