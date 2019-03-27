@@ -31,6 +31,11 @@ public class Role implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="cus_id",referencedColumnName="id_cus")
 	private Customer customer;
+	
+	@ManyToOne
+	@JoinColumn(name="co_id",referencedColumnName="id_co")
+	private Counsellor counsellor;
+	
 
 	// Constructeur
 	public Role() {
@@ -75,4 +80,22 @@ public class Role implements Serializable {
 		this.admin = admin;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Counsellor getCounsellor() {
+		return counsellor;
+	}
+
+	public void setCounsellor(Counsellor counsellor) {
+		this.counsellor = counsellor;
+	}
+
+	
+	
 }
