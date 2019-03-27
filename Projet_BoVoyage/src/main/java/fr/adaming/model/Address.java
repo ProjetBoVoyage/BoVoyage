@@ -3,7 +3,6 @@ package fr.adaming.model;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
-import javax.persistence.OneToOne;
 
 @Embeddable
 @Access(AccessType.FIELD)

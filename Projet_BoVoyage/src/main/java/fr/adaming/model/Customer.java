@@ -5,14 +5,17 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @SuppressWarnings("serial")
-@DiscriminatorValue(value = "Custo")
+@Entity
+@DiscriminatorValue(value = "Customer")
 public class Customer extends Person {
 
 	// Attributes
 	private String password;
+	private boolean active;
 	
 	@OneToMany(mappedBy="customer", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<Trip> trips;
@@ -28,24 +31,24 @@ public class Customer extends Person {
 	
 
 	public Customer(String name, String firstName, String civility, String phone, String mail, Date dob,
-			Address address, String password, List<Trip> trips, List<Role> roles) {
+			Address address, String password, List<Trip> trips, List<Role> roles, boolean active) {
 		super(name, firstName, civility, phone, mail, dob, address);
 		this.password = password;
 		this.trips = trips;
 		this.roles = roles;
+		this.active = active; 
 	}
 
 
 
 	public Customer(int idCus, String name, String firstName, String civility, String phone, String mail, Date dob,
-			Address address, String password, List<Trip> trips, List<Role> roles) {
+			Address address, String password, List<Trip> trips, List<Role> roles, boolean active) {
 		super(idCus, name, firstName, civility, phone, mail, dob, address);
 		this.password = password;
 		this.trips = trips;
 		this.roles = roles;
+		this.active = active; 
 	}
-
-
 
 	// Getters & Setters
 	public int getIdCus() {
@@ -135,7 +138,14 @@ public class Customer extends Person {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+	
+	public boolean isActive() {
+		return active;
+	}
 
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
 	// To String
 	@Override
@@ -144,7 +154,5 @@ public class Customer extends Person {
 				+ ", name=" + name + ", firstName=" + firstName + ", civility=" + civility + ", phone=" + phone
 				+ ", mail=" + mail + ", dob=" + dob + ", address=" + address + "]";
 	}
-
-
 
 }

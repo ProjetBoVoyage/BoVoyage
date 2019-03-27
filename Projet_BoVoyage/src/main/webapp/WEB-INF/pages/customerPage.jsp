@@ -9,6 +9,6 @@
 <body>
 
 Je suis dans la Customer Page
-
+<a href="${pageContext.request.contextPath}/logoutUrl">LogOut</a>
 </body>
 </html>

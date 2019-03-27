@@ -13,7 +13,7 @@ public class StartController {
 		return "homePage";
 	}
 	
-	@RequestMapping(value="/customerPage", method=RequestMethod.GET)
+	@RequestMapping(value="/custo/customerPage", method=RequestMethod.GET)
 	public String displayCustomerSpacePage() {
 		return "customerPage";
 	}
