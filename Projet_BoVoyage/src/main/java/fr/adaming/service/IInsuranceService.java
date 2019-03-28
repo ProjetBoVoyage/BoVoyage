@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.adaming.model.Insurance;
 
-public interface IInsruanceService {
+public interface IInsuranceService {
 
 	public Insurance getById(final int id);
 	 
