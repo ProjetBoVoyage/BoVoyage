@@ -11,12 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "destinations")
 public class Destination implements Serializable {
 
 	// Attributes

@@ -59,8 +59,8 @@
 			<!-- Utilisation de la database pour la déclaration des utilisateurs -->
 			<security:jdbc-user-service
 				data-source-ref="dataSourceBean1"
-				users-by-username-query="SELECT mail, password, active FROM persons WHERE mail=?"
-				authorities-by-username-query="SELECT p.mail, r.roleName FROM persons p, roles r WHERE p.mail=? AND p.id=r.p_id" />
+				users-by-username-query="SELECT mail, password, active FROM person WHERE mail=?"
+				authorities-by-username-query="SELECT p.mail, r.roleName FROM person p, role r WHERE p.mail=? AND p.id=r.p_id" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>

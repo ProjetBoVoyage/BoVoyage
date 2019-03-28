@@ -10,7 +10,7 @@ public interface IDestinationService {
 		 
 	   public List<Destination> getAll();
 	 
-	   public Destination add(final Destination destination);
+	   public void add(final Destination destination);
 	 
 	   public void update(final Destination destination);
 	 

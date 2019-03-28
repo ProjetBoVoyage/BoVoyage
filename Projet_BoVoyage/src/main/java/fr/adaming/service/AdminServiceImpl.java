@@ -21,9 +21,9 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public Admin getAdminByMail(String mailAd) {
+	public Admin getAdminByMail(String mail) {
 		// Calling DAO Method
-		return adDAO.getAdminByMail(mailAd);
+		return adDAO.getAdminByMail(mail);
 	}
 
 	

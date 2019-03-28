@@ -19,15 +19,15 @@ public class AdminDAOImpl implements IAdminDAO {
 	}
 
 	@Override
-	public Admin getAdminByMail(String mailAd) {
+	public Admin getAdminByMail(String mail) {
 		// Open Session
 		Session s = sf.getCurrentSession();
 		// HQL Request
-		String req = "FROM Admin AS ad WHERE ad.mailAd=:pMailAd";
+		String req = "FROM Person AS p WHERE p.mail=:pMail";
 		// Query object
 		Query query = s.createQuery(req);
 		// Parameters
-		query.setParameter("pMailAd", mailAd);
+		query.setParameter("pMail", mail);
 		return (Admin) query.uniqueResult();
 	}
 }

@@ -2,40 +2,40 @@ package fr.adaming.service;
 
 import java.util.List;
 
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.IGenericCRUDDao;
+import fr.adaming.dao.IDestinationDao;
+
 import fr.adaming.model.Destination;
 
-@Service("destService")
+@Service
 @Transactional
 public class DestinationServiceImpl implements IDestinationService {
-	
-	//Transformation de l'asso UML en JAVA
+
+
+	IDestinationDao destDao;
+
 	@Autowired
-	IGenericCRUDDao<Destination> destDao;
-	
-	// Setter
-	public void setDestDao(IGenericCRUDDao<Destination> destDao) {
-		this.destDao = destDao;
+	public void setDao(IDestinationDao daoToSet) {
+		destDao = daoToSet;
+		destDao.setClazz(Destination.class);
 	}
 
 	@Override
 	public Destination getById(int id) {
-		return destDao.getById(id);
+		return destDao.findOne(id);
 	}
 
 	@Override
 	public List<Destination> getAll() {
-		return destDao.getAll();
+		return destDao.findAll();
 	}
 
 	@Override
-	public Destination add(Destination destination) {
-		return destDao.add(destination);
+	public void add(Destination destination) {
+		destDao.create(destination);
 	}
 
 	@Override
@@ -46,7 +46,6 @@ public class DestinationServiceImpl implements IDestinationService {
 	@Override
 	public void delete(Destination destination) {
 		destDao.delete(destination);
-		
 	}
 
 }

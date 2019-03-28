@@ -20,7 +20,7 @@ import fr.adaming.service.IAdminService;
 import fr.adaming.service.IDestinationService;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/destination")
 @Scope("session")
 public class DestinationController {
 	
@@ -30,6 +30,7 @@ public class DestinationController {
 	@Autowired
 	private IAdminService adminService;
 	
+	@SuppressWarnings("unused")
 	private Admin admin;
 	
 	@PostConstruct
@@ -45,35 +46,29 @@ public class DestinationController {
 
 	}
 	
-	
 	// ---------- Fonctionnalité ajouter
 	
 	@RequestMapping(value="/viewAdd", method=RequestMethod.GET)
 	public String viewAdd(Model modele){
 		//Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("destAdd", new Destination());
-		return "homePage";
+		return "addDestinationPage";
 	}
 	
 	@RequestMapping(value="/submitAdd", method=RequestMethod.POST)
 	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra){
 		//Appel de la méthode service
-		Destination dOut = destService.add(dIn);
+		destService.add(dIn);
 		
-		if(dOut.getIdDest()!=0){
-			return "redirect:listDest";
-		}else{
-			ra.addFlashAttribute("msg", "L'ajout a échoué");
-			return "redirect:viewAdd";
-		}
+		return "redirect:viewDest";
 		
 	}
 	
 	// ---------- Fonctionnalité getAll
-	@RequestMapping(value="/listDest", method=RequestMethod.GET)
-	public ModelAndView viewList(){
+	@RequestMapping(value="/viewDest", method=RequestMethod.GET)
+	public ModelAndView viewListDest(){
 		
-		return new ModelAndView("adminPage", "listDest", destService.getAll());
+		return new ModelAndView("viewAllDestinationPage", "listDest", destService.getAll());
 	}
 
 	}
