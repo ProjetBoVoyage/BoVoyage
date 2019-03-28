@@ -36,7 +36,6 @@ public class InsuranceController {
 	// submit formulaire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
 	public String submitAdd(@ModelAttribute("insuAdd") Insurance iIn, RedirectAttributes ra) {
-		System.out.println(iIn.getName());
 		// appel method service
 		int test=insuService.add(iIn);
 
@@ -107,7 +106,7 @@ public class InsuranceController {
 		iIn.setIdInsu(id);
 		insuService.delete(iIn);
 
-		return "redirect:listInsu";
+		return "redirect:viewInsu";
 	}
 
 	/** METHODE RECHERCHER UNE DESTINATION */
@@ -133,7 +132,7 @@ public class InsuranceController {
 
 	/** METHODE AFFICHER TOUTES DESTINATIONS */
 	// Afficher le tableau
-	@RequestMapping(value = "/viewDest", method = RequestMethod.GET)
+	@RequestMapping(value = "/viewInsu", method = RequestMethod.GET)
 	public ModelAndView viewListDest() {
 		return new ModelAndView("viewAllInsurancePage", "listInsu", insuService.getAll());
 	}

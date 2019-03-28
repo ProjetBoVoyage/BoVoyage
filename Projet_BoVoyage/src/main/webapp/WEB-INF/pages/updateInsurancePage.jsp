@@ -14,6 +14,13 @@
 	<form:form method="POST" action="submitUpdate" commandName="insuUpdate"
 		cssClass="form-horizontal" enctype="multipart/form-data">
 		<div class="form-group">
+			<label for="idId" class="col-sm-2 control-label">ID: </label>
+			<div class="col-sm-5">
+			<form:input cssClass="form-control" id="idId" placeholder="Id"
+					path="idInsu" />
+			</div>
+		</div>
+		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idName" placeholder="Name"

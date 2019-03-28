@@ -2,6 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +14,8 @@ import fr.adaming.model.Insurance;
 public class InsuranceServiceImpl implements IInsuranceService {
 
 	IInsuranceDao insuDao;
-
+	
+	@Autowired
 	public void setDao(IInsuranceDao daoToSet) {
 		insuDao = daoToSet;
 		insuDao.setClazz(Insurance.class);
