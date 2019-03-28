@@ -27,7 +27,8 @@
 				<td>${d.city}</td>
 				<td>${d.country}</td>
 				<td>${d.continent}</td>
-				<td>  <img src="data:image/jpg;base64,${d.img}" width="240" height="300"/></td>
+				<td>  <img src="photoDest?idDest=${d.idDest}"/></td>
+							
 							</tr>
 		</c:forEach>
 

@@ -1,12 +1,20 @@
 package fr.adaming.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,16 +45,31 @@ public class DestinationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra) {
+	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra,
+			BindingResult bindingResult, Model model, MultipartFile file) throws Exception {
+
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("listDest", destService.getAll());
+			return "listDest";
+		}
+		if (!file.isEmpty()) {
+			dIn.setPhoto(file.getBytes());
+		} else {
+			if (dIn.getIdDest() != 0) {
+				Destination dOut = (Destination) model.asMap().get("destUpdate");
+				dIn.setPhoto(dOut.getPhoto());
+			}
+		}
+
 		// Appel de la méthode service
 		int test = destService.add(dIn);
 		if (test != 0) {
 			return "redirect:viewDest";
 		} else {
-			ra.addFlashAttribute("msg","Adding Destination Failed");
+			ra.addFlashAttribute("msg", "Adding Destination Failed");
 			return "redirect:viewAdd";
 		}
-		
+
 	}
 
 	/** METHODE MODIFIER UNE DESTINATION */
@@ -65,7 +88,7 @@ public class DestinationController {
 		if (test != 0) {
 			return "redirect:viewDest";
 		} else {
-			ra.addFlashAttribute("msg","Updating Destination Failed");
+			ra.addFlashAttribute("msg", "Updating Destination Failed");
 			return "redirect:viewUpdate";
 		}
 	}
@@ -86,7 +109,7 @@ public class DestinationController {
 		if (test != 0) {
 			return "redirect:viewDest";
 		} else {
-			ra.addFlashAttribute("msg","Deleting Destination Failed");
+			ra.addFlashAttribute("msg", "Deleting Destination Failed");
 			return "redirect:viewDelete";
 		}
 	}
@@ -107,7 +130,7 @@ public class DestinationController {
 		if (dOut != null) {
 			return "redirect:viewSearch";
 		} else {
-			ra.addFlashAttribute("msg","Searching Destination Failed");
+			ra.addFlashAttribute("msg", "Searching Destination Failed");
 			return "redirect:viewSearch";
 		}
 	}
@@ -117,6 +140,18 @@ public class DestinationController {
 	@RequestMapping(value = "/viewDest", method = RequestMethod.GET)
 	public ModelAndView viewListDest() {
 		return new ModelAndView("viewAllDestinationPage", "listDest", destService.getAll());
+	}
+
+	/** METHODE AFFICHER PHOTO */
+	@RequestMapping(value = "/photoDest", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ResponseBody
+	public byte[] getPhoto(int idDest) throws IOException {
+		Destination dOut = destService.getById(idDest);
+		if (dOut.getPhoto() == null) {
+			return new byte[0];
+		} else {
+			return IOUtils.toByteArray(new ByteArrayInputStream(dOut.getPhoto()));
+		}
 	}
 
 }
