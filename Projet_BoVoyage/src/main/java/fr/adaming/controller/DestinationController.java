@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Admin;
 import fr.adaming.model.Destination;
-import fr.adaming.model.Etudiant;
 import fr.adaming.service.IAdminService;
 import fr.adaming.service.IDestinationService;
 
