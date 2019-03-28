@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Admin;
 
 @Repository
-public class AdminDAOImpl implements IAdminDAO {
+public class PersonDAOImpl implements IPersonDAO {
 
 	@Autowired
 	private SessionFactory sf;
