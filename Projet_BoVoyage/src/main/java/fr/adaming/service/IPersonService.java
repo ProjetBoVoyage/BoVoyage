@@ -1,8 +1,7 @@
-package fr.adaming.dao;
-
+package fr.adaming.service;
 import fr.adaming.model.Person;
 
-public interface IPersonDAO {
+public interface IPersonService {
 
 	public Person getPersonByMail(String mailAd);
 	

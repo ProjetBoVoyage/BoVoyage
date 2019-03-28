@@ -4,26 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.IAdminDAO;
-import fr.adaming.model.Admin;
+import fr.adaming.dao.IPersonDAO;
+import fr.adaming.model.Person;
 
 @Service("adService")
 @Transactional
-public class AdminServiceImpl implements IAdminService {
+public class PersonServiceImpl implements IPersonService {
 
 	// UML to Java Association's Transformation
 	@Autowired
-	private IAdminDAO adDAO;
+	private IPersonDAO pDAO;
 	
 	// Setter for Dependency Injection
-	public void setAdDAO(IAdminDAO adDAO) {
-		this.adDAO = adDAO;
+	public void setAdDAO(IPersonDAO pDAO) {
+		this.pDAO = pDAO;
 	}
 
 	@Override
-	public Admin getAdminByMail(String mail) {
+	public Person getPersonByMail(String mail) {
 		// Calling DAO Method
-		return adDAO.getAdminByMail(mail);
+		return pDAO.getPersonByMail(mail);
 	}
 
 	

@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.adaming.model.Admin;
+import fr.adaming.model.Person;
 
 @Repository
 public class PersonDAOImpl implements IPersonDAO {
@@ -19,7 +19,7 @@ public class PersonDAOImpl implements IPersonDAO {
 	}
 
 	@Override
-	public Admin getAdminByMail(String mail) {
+	public Person getPersonByMail(String mail) {
 		// Open Session
 		Session s = sf.getCurrentSession();
 		// HQL Request
@@ -28,6 +28,6 @@ public class PersonDAOImpl implements IPersonDAO {
 		Query query = s.createQuery(req);
 		// Parameters
 		query.setParameter("pMail", mail);
-		return (Admin) query.uniqueResult();
+		return (Person) query.uniqueResult();
 	}
 }
