@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Admin;
 import fr.adaming.model.Destination;
+import fr.adaming.model.Etudiant;
 import fr.adaming.service.IAdminService;
 import fr.adaming.service.IDestinationService;
 
@@ -75,6 +76,25 @@ public class DestinationController {
 		
 		return new ModelAndView("adminPage", "listDest", destService.getAll());
 	}
+	// ---------- Fonctionnalité modifier
+	
+	@RequestMapping(value="/viewMod", method=RequestMethod.GET)
+	public String afficheMod(Model modele){
+		//Lier un étudiant au modele MVC afin de l'utiliser
+		modele.addAttribute("dModif", new Destination());
+		
+		return "adminPage";
+	}
+	
+	@RequestMapping(value="/submitMod", method=RequestMethod.POST)
+	public String soumettreMod(@ModelAttribute("dModif") Destination dIn, RedirectAttributes ra){
+		//Appel de la méthode service
+		destService.update(dIn);;
+	
+			return "redirect:listDest";
+		}
+		
+	}
 	
 
-}
+

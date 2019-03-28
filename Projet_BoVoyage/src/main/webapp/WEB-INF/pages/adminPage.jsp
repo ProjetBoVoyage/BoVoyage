@@ -63,7 +63,7 @@
 			<th>Image</th>
 		</tr>
 
-		<c:forEach items="${list}" var="d">
+		<c:forEach items="${listDest}" var="d">
 			<tr>
 				<td>${d.idDest}</td>
 				<td>${d.city}</td>
