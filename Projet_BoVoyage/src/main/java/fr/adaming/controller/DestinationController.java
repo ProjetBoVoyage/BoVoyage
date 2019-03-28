@@ -45,14 +45,15 @@ public class DestinationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra, MultipartFile file) throws Exception {
+	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra, MultipartFile file)
+			throws Exception {
 
 		// Lier la photo récupérée à la destination
 		dIn.setPhoto(file.getBytes());
-		
+
 		// Appel de la méthode service
 		int test = destService.add(dIn);
-		
+
 		if (test != 0) {
 			return "redirect:viewDest";
 		} else {
@@ -83,17 +84,17 @@ public class DestinationController {
 		}
 	}
 
-	@RequestMapping(value="/updateLink", method=RequestMethod.GET)
-	public String modifLien(Model modele, @RequestParam("pId") int id){
+	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
+	public String modifLien(Model modele, @RequestParam("pId") int id) {
 		Destination dIn = new Destination();
 		dIn.setIdDest(id);
 		Destination dOut = destService.getById(id);
-		
+
 		modele.addAttribute("destUpdate", dOut);
-		
+
 		return "updateDestinationPage";
 	}
-	
+
 	/** METHODE SUPPRIMER UNE DESTINATION */
 	@RequestMapping(value = "/viewDelete", method = RequestMethod.GET)
 	public String viewDelete(Model modele) {
@@ -114,17 +115,16 @@ public class DestinationController {
 			return "redirect:viewDelete";
 		}
 	}
-	
-	@RequestMapping(value="/deleteLink", method=RequestMethod.GET)
-	public String supprLien(@RequestParam("pId") int id){
+
+	@RequestMapping(value = "/deleteLink", method = RequestMethod.GET)
+	public String supprLien(@RequestParam("pId") int id) {
 		Destination dIn = new Destination();
-		dIn.setIdDest(id);	
+		dIn.setIdDest(id);
 		destService.delete(dIn);
-		
+
 		return "redirect:viewDest";
-		
+
 	}
-	
 
 	/** METHODE RECHERCHER UNE DESTINATION */
 	@RequestMapping(value = "/viewSearch", method = RequestMethod.GET)
