@@ -36,7 +36,7 @@
     <div class="form-group">
     <label for="idPhoto" class="col-sm-2 control-label">Photo: </label>
     <div class="col-sm-5">
-      <form:input type="file" id="idPhoto" placeholder="Photo" path="photo" name="file"/>
+      <input type="file" id="idPhoto" name="file"/>
     </div>
   </div>
     <div class="col-sm-6 col-md-1"></div>

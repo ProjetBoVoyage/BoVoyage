@@ -45,24 +45,14 @@ public class DestinationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra,
-			BindingResult bindingResult, Model model, MultipartFile file) throws Exception {
+	public String submitAdd(@ModelAttribute("destAdd") Destination dIn, RedirectAttributes ra, MultipartFile file) throws Exception {
 
-		if (bindingResult.hasErrors()) {
-			model.addAttribute("listDest", destService.getAll());
-			return "listDest";
-		}
-		if (!file.isEmpty()) {
-			dIn.setPhoto(file.getBytes());
-		} else {
-			if (dIn.getIdDest() != 0) {
-				Destination dOut = (Destination) model.asMap().get("destUpdate");
-				dIn.setPhoto(dOut.getPhoto());
-			}
-		}
-
+		// Lier la photo récupérée à la destination
+		dIn.setPhoto(file.getBytes());
+		
 		// Appel de la méthode service
 		int test = destService.add(dIn);
+		
 		if (test != 0) {
 			return "redirect:viewDest";
 		} else {
