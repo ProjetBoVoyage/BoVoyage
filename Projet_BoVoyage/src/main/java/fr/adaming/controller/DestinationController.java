@@ -121,7 +121,7 @@ public class DestinationController {
 		dIn.setIdDest(id);	
 		destService.delete(dIn);
 		
-		return "redirect:listDest";
+		return "redirect:viewDest";
 		
 	}
 	

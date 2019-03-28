@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Destination Page</title>
+<title>Update Destination Page</title>
 </head>
 <body>
 	<!-- Début formulaire -->
-	<form:form method="POST" action="submitAdd" commandName="destAdd" cssClass="form-horizontal" enctype="multipart/form-data">
+	<form:form method="POST" action="submitUpdate" commandName="destUpdate" cssClass="form-horizontal" enctype="multipart/form-data">
   <div class="form-group">
     <label for="idCity" class="col-sm-2 control-label">City: </label>
     <div class="col-sm-5">

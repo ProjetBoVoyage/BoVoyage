@@ -24,7 +24,7 @@
 			<th>Country</th>
 			<th>Continent</th>
 			<th>Image</th>
-				<th>Opérations</th>
+			<th>Opérations</th>
 		</tr>
 
 		<c:forEach items="${listDest}" var="d">
@@ -34,8 +34,11 @@
 				<td>${d.country}</td>
 				<td>${d.continent}</td>
 				<td><img src="photoDest?idDest=${d.idDest}" /></td>
-				<td><a  class="btn btn-danger" href="${pageContext.request.contextPath}/destination/deleteLink?pId=${c.id}" title="Supprimer">Supprimer</a> | <a
-					href="${pageContext.request.contextPath}/destination/updateLink?pId=${c.id}" title="Modifier">Modifier</a></td>
+				<td><a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/destination/deleteLink?pId=${d.idDest}"
+					title="Supprimer">Supprimer</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/destination/updateLink?pId=${d.idDest}"
+					title="Modifier">Modifier</a></td>
 
 			</tr>
 		</c:forEach>
