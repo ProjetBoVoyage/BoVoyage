@@ -3,6 +3,7 @@
 <!-- Ajouter la lib de jstl -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +45,8 @@
 			<label for="idDepartureTime" class="col-sm-2 control-label">DepartureTime:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" type="time" id="idDepartureTime"
+				<form:input cssClass="form-control" type="time"
+					pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]" id="idDepartureTime"
 					placeholder="DepartureTime" path="departureTime" />
 			</div>
 		</div>
@@ -61,8 +63,10 @@
 			<label for="idArrivalTime" class="col-sm-2 control-label">ArrivalTime:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" type="time" id="idArrivalTime"
+				<form:input cssClass="form-control" type="time"
+					pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]" id="idArrivalTime"
 					placeholder="ArrivalTime" path="arrivalTime" />
+				<fmt:formatDate type="time" value="${now}" />
 			</div>
 		</div>
 

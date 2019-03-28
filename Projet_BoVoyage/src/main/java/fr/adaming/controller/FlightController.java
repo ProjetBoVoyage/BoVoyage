@@ -28,8 +28,7 @@ public class FlightController {
 	// tranformation UML en JAVA
 	@Autowired
 	private IFlightService fligService;
-	
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 
@@ -37,11 +36,11 @@ public class FlightController {
 		DateFormat dt = new SimpleDateFormat("hh:mm");
 
 		df.setLenient(false);
+		dt.setLenient(false);
 
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(df, false));
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dt, false));
 	}
-
 
 	/** methode Add Flight */
 	// Affiche formulaire
