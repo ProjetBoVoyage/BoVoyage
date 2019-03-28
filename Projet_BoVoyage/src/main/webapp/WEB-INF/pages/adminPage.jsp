@@ -14,6 +14,8 @@
 	<a href="${pageContext.request.contextPath}/j_spring_security_logout">LogOut</a>
 	<a href="${pageContext.request.contextPath}/destination/viewDest">view</a>
 	<a href="${pageContext.request.contextPath}/destination/viewAdd">add</a>
+	<a href="${pageContext.request.contextPath}/destination/viewUpdate">update</a>
+		<a href="${pageContext.request.contextPath}/destination/viewSearch">search</a>
 	<br/><br/><br/>
 	
 
