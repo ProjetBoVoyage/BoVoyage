@@ -42,7 +42,7 @@
     <div class="col-sm-6 col-md-1"></div>
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-10">
-      <button type="submit" class="btn btn-primary">Ajouter la dest</button>
+      <button type="submit" class="btn btn-primary">Add destination</button>
     </div>
   </div>
 </form:form>

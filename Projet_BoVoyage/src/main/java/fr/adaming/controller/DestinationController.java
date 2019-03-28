@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -83,6 +83,17 @@ public class DestinationController {
 		}
 	}
 
+	@RequestMapping(value="/updateLink", method=RequestMethod.GET)
+	public String modifLien(Model modele, @RequestParam("pId") int id){
+		Destination dIn = new Destination();
+		dIn.setIdDest(id);
+		Destination dOut = destService.getById(id);
+		
+		modele.addAttribute("destUpdate", dOut);
+		
+		return "updateDestinationPage";
+	}
+	
 	/** METHODE SUPPRIMER UNE DESTINATION */
 	@RequestMapping(value = "/viewDelete", method = RequestMethod.GET)
 	public String viewDelete(Model modele) {
@@ -103,6 +114,17 @@ public class DestinationController {
 			return "redirect:viewDelete";
 		}
 	}
+	
+	@RequestMapping(value="/deleteLink", method=RequestMethod.GET)
+	public String supprLien(@RequestParam("pId") int id){
+		Destination dIn = new Destination();
+		dIn.setIdDest(id);	
+		destService.delete(dIn);
+		
+		return "redirect:listDest";
+		
+	}
+	
 
 	/** METHODE RECHERCHER UNE DESTINATION */
 	@RequestMapping(value = "/viewSearch", method = RequestMethod.GET)
