@@ -37,7 +37,7 @@ public class InsuranceController {
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
 	public String submitAdd(@ModelAttribute("insuAdd") Insurance iIn, RedirectAttributes ra) {
 		// appel method service
-		int test=insuService.add(iIn);
+		int test = insuService.add(iIn);
 
 		if (test != 0) {
 			return "redirect:viewInsu";
@@ -113,7 +113,7 @@ public class InsuranceController {
 	@RequestMapping(value = "/viewSearch", method = RequestMethod.GET)
 	public String viewSearch(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
-		modele.addAttribute("destSearch", new Insurance());
+		modele.addAttribute("insuSearch", new Insurance());
 		return "searchInsurancePage";
 	}
 
