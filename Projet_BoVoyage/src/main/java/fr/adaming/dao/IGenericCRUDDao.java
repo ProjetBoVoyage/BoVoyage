@@ -11,9 +11,9 @@ public interface IGenericCRUDDao<T extends Serializable> {
 		 
 		   public T add(final T entity);
 		 
-		   public int update(final T entity);
+		   public void update(final T entity);
 		 
-		   public int delete(final T entity);
+		   public void delete(final T entity);
 		 
 		}
 
