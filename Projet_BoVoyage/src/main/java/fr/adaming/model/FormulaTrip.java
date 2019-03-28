@@ -39,6 +39,9 @@ public class FormulaTrip implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "insu_id", referencedColumnName = "id_insu")
 	private Insurance insurance;
+	@ManyToOne
+	@JoinColumn(name = "flight_id", referencedColumnName = "id_flight")
+	private Flight flight;
 	@OneToOne
 	@JoinColumn(name = "trip_id", referencedColumnName = "id_trip")
 	private Trip trip;

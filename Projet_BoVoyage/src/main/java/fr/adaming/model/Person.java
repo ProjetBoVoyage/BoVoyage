@@ -16,9 +16,9 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "persons")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="function") 
-@DiscriminatorValue(value="Person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "function")
+@DiscriminatorValue(value = "Person")
 public class Person implements Serializable {
 
 	// Attributes
@@ -27,7 +27,7 @@ public class Person implements Serializable {
 	@Column(name = "id")
 	protected int id;
 	protected String mail;
-	
+
 	// Constructors
 	public Person() {
 		super();
@@ -38,15 +38,13 @@ public class Person implements Serializable {
 		this.mail = mail;
 	}
 
-
 	public Person(int id, String mail) {
 		super();
 		this.id = id;
 		this.mail = mail;
 	}
-	
-	// Getters & Setters
 
+	// Getters & Setters
 
 	public int getId() {
 		return id;

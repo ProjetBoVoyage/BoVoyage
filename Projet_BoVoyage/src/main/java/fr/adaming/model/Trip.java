@@ -17,24 +17,29 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="trips")
+@Table(name = "trips")
 public class Trip implements Serializable {
-	
+
 	// Attributes
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_trip")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_trip")
 	private int idTrip;
-	
+
 	@ManyToOne
-	@JoinColumn(name="cus_id", referencedColumnName="id")
+	@JoinColumn(name = "cus_id", referencedColumnName = "id")
 	private Person customer;
+
+	@ManyToOne
+	@JoinColumn(name = "rf_id", referencedColumnName = "id_rf")
+	private ReservationFile reservationFile;
+
 	@OneToOne
-	@JoinColumn(name="formtrip_id", referencedColumnName="id_formtrip")
+	@JoinColumn(name = "formtrip_id", referencedColumnName = "id_formtrip")
 	private FormulaTrip formulaTrip;
-	
+
 	@ManyToMany
-	@JoinTable(name="tab_asso_attend_trip", joinColumns=@JoinColumn(name="trip_id"), inverseJoinColumns=@JoinColumn(name="attend_id"))
+	@JoinTable(name = "tab_asso_attend_trip", joinColumns = @JoinColumn(name = "trip_id"), inverseJoinColumns = @JoinColumn(name = "attend_id"))
 	private List<Person> attendants;
 
 	public Trip() {
@@ -87,5 +92,5 @@ public class Trip implements Serializable {
 	public void setAttendants(List<Person> attendants) {
 		this.attendants = attendants;
 	}
-	
+
 }

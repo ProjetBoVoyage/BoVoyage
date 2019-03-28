@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @SuppressWarnings("serial")
-//Save values dans la même table
-@DiscriminatorValue(value="Admin")
+// Save values dans la même table
+@DiscriminatorValue(value = "Admin")
 @Entity
 public class Admin extends Person {
 
@@ -16,9 +16,9 @@ public class Admin extends Person {
 	private boolean active;
 	private String password;
 
-	@OneToMany(mappedBy="person")
+	@OneToMany(mappedBy = "person")
 	private List<Role> roles;
-	
+
 	// Constructors
 	public Admin() {
 		super();
@@ -59,6 +59,4 @@ public class Admin extends Person {
 		this.roles = roles;
 	}
 
-
-	
 }

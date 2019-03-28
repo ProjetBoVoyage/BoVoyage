@@ -13,21 +13,21 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="roles")
+@Table(name = "roles")
 public class Role implements Serializable {
 
 	// Attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_r")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_r")
 	private int idRole;
 	private String roleName;
-	
+
 	// Transformation de l'association UML en Java
 	@ManyToOne
-	@JoinColumn(name="p_id",referencedColumnName="id")
+	@JoinColumn(name = "p_id", referencedColumnName = "id")
 	private Person person;
-	
+
 	// Constructeur
 	public Role() {
 		super();
@@ -43,7 +43,7 @@ public class Role implements Serializable {
 		super();
 		this.roleName = roleName;
 	}
-	
+
 	// Getters & Setters
 	public String getRoleName() {
 		return roleName;
@@ -68,5 +68,5 @@ public class Role implements Serializable {
 	public void setAdmin(Person admin) {
 		this.person = admin;
 	}
-	
+
 }

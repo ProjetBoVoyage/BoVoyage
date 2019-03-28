@@ -4,8 +4,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
 
-import org.springframework.beans.factory.annotation.Required;
-
 @Embeddable
 @Access(AccessType.FIELD)
 public class Address {
@@ -50,5 +48,5 @@ public class Address {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-	
+
 }

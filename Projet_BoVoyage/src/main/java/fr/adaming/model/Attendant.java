@@ -8,25 +8,27 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @SuppressWarnings("serial")
-//Save values dans la même table
-@DiscriminatorValue(value="Attendant")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+// Save values dans la même table
+@DiscriminatorValue(value = "Attendant")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
 public class Attendant extends Person {
-	 
+
 	// Attributes
 	protected String name;
-	protected String firstname; 
+	protected String firstname;
 	protected String civility;
+	@Temporal(TemporalType.DATE)
 	protected Date dob;
 	protected String phone;
-	
-	@ManyToMany(mappedBy="attendants")
+
+	@ManyToMany(mappedBy = "attendants")
 	private List<Trip> trips;
 
-	
 	// Constructors
 	public Attendant() {
 		super();
@@ -106,6 +108,4 @@ public class Attendant extends Person {
 				+ ", phone=" + phone + ", id=" + id + ", mail=" + mail + "]";
 	}
 
-
-	
 }

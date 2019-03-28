@@ -17,14 +17,14 @@ public class Customer extends Attendant {
 	// Attributes
 	private String password;
 	private boolean active;
-	
+
 	@Embedded
 	protected Address address;
-	
-	@OneToMany(mappedBy="customer", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+
+	@OneToMany(mappedBy = "customer", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<Trip> trips;
-	
-	@OneToMany(mappedBy="person")
+
+	@OneToMany(mappedBy = "person")
 	private List<Role> roles;
 
 	// Constructors
@@ -32,7 +32,6 @@ public class Customer extends Attendant {
 		super();
 	}
 
-	
 	public Customer(int id, String mail, String name, String firstname, String civility, Date dob, String phone,
 			String password, Address address) {
 		super(id, mail, name, firstname, civility, dob, phone);
@@ -40,16 +39,14 @@ public class Customer extends Attendant {
 		this.address = address;
 	}
 
-	public Customer(String mail, String name, String firstname, String civility, Date dob, String phone, String password,
-			Address address) {
+	public Customer(String mail, String name, String firstname, String civility, Date dob, String phone,
+			String password, Address address) {
 		super(mail, name, firstname, civility, dob, phone);
 		this.password = password;
 		this.address = address;
 	}
 
-
 	// Getters & Setters
-	
 
 	public boolean isActive() {
 		return active;
@@ -59,11 +56,9 @@ public class Customer extends Attendant {
 		return password;
 	}
 
-
 	public void setMdpCus(String mdpCus) {
 		this.password = password;
 	}
-
 
 	public void setActive(boolean active) {
 		this.active = active;
@@ -99,13 +94,5 @@ public class Customer extends Attendant {
 		return "Customer [mdpCus=" + password + ", active=" + active + ", address=" + address + ", trips=" + trips
 				+ ", roles=" + roles + "]";
 	}
-
-
-
-
-
-	
-	
-	
 
 }

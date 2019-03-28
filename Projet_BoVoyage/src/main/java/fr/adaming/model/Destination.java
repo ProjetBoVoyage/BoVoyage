@@ -37,9 +37,9 @@ public class Destination implements Serializable {
 	private String img;
 
 	// UML To Java Association's Transformation
-	@OneToMany(mappedBy="destination", cascade= {CascadeType.REMOVE, CascadeType.PERSIST})
+	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<FormulaTrip> formulaTrips;
-	
+
 	// Constructors
 	public Destination() {
 		super();
@@ -124,7 +124,6 @@ public class Destination implements Serializable {
 		this.img = img;
 	}
 
-	
 	public List<FormulaTrip> getFormulaTrips() {
 		return formulaTrips;
 	}
