@@ -75,24 +75,7 @@ public class DestinationController {
 		
 		return new ModelAndView("adminPage", "listDest", destService.getAll());
 	}
-	// ---------- Fonctionnalité modifier
-	
-	@RequestMapping(value="/viewMod", method=RequestMethod.GET)
-	public String afficheMod(Model modele){
-		//Lier un étudiant au modele MVC afin de l'utiliser
-		modele.addAttribute("destModif", new Destination());
-		
-		return "adminPage";
-	}
-	
-	@RequestMapping(value="/submitMod", method=RequestMethod.POST)
-	public String soumettreMod(@ModelAttribute("destModif") Destination dIn, RedirectAttributes ra){
-		//Appel de la méthode service
-		destService.update(dIn);;
-	
-			return "redirect:listDest";
-		}
-		
+
 	}
 	
 
