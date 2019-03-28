@@ -14,6 +14,7 @@ import fr.adaming.model.Destination;
 import fr.adaming.service.IAccommodationService;
 import fr.adaming.service.IAdminService;
 import fr.adaming.service.IDestinationService;
+import fr.adaming.service.IPersonService;
 
 @Controller
 @RequestMapping("/accommodation")
@@ -23,8 +24,6 @@ public class AccommodationController {
 	// Transformation de l'asso UML en JAVA
 	@Autowired
 	private IAccommodationService accService;
-	@Autowired
-	private IAdminService adminService;
 	
 	@RequestMapping(value = "/viewAdd", method = RequestMethod.GET)
 	public String viewAdd(Model modele) {
