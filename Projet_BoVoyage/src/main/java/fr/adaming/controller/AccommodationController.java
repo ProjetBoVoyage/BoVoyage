@@ -37,7 +37,7 @@ public class AccommodationController {
 //	public String submitAdd(@ModelAttribute("accAdd") Accommodation accIn, RedirectAttributes ra) {
 //		// Appel de la méthode service
 //		accService.add(accIn);
-//		return "redirect:viewAcc";
+//		return "redirect:viewAcc"; 
 //	}
 
 
