@@ -1,6 +1,5 @@
 package fr.adaming.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -32,21 +31,31 @@ public abstract class AbstractGenericDao<T> implements IGenericDao<T> {
 		return getCurrentSession().createQuery("from " + clazz.getName()).list();
 	}
 
-	public void create(T entity) {
-		getCurrentSession().persist(entity);
+	public int create(T entity) {
+		try {
+			getCurrentSession().persist(entity);
+			return 1;
+		} catch (Exception e1) {
+			return 0;
+		}
 	}
 
-	public void update(T entity) {
-		getCurrentSession().merge(entity);
+	public int update(T entity) {
+		try{
+			getCurrentSession().merge(entity);
+			return 1;
+		} catch (Exception e1) {
+			return 0;
+		}
 	}
 
-	public void delete(T entity) {
-		getCurrentSession().delete(entity);
-	}
-
-	public void deleteById(int entityId) {
-		T entity = findOne(entityId);
-		delete(entity);
+	public int delete(T entity) {
+		try{
+			getCurrentSession().delete(entity);
+			return 1;
+		} catch (Exception e1) {
+			return 0;
+		}
 	}
 
 }

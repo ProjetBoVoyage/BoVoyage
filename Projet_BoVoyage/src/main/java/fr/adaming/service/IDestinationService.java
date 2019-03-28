@@ -10,10 +10,10 @@ public interface IDestinationService {
 		 
 	   public List<Destination> getAll();
 	 
-	   public void add(final Destination destination);
+	   public int add(final Destination destination);
 	 
-	   public void update(final Destination destination);
+	   public int update(final Destination destination);
 	 
-	   public void delete(final Destination destination);
+	   public int delete(final Destination destination);
 
 }

@@ -10,13 +10,11 @@ public interface IGenericDao<T> {
 	 
 	   List<T> findAll();
 	 
-	   void create(final T entity);
+	   int create(final T entity);
 	 
-	   void update(final T entity);
+	   int update(final T entity);
 	 
-	   void delete(final T entity);
+	   int delete(final T entity);
 	 
-	   void deleteById(final int entityId);
-
 	   void setClazz(Class<T> class1);
 	}

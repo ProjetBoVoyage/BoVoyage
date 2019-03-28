@@ -34,18 +34,18 @@ public class DestinationServiceImpl implements IDestinationService {
 	}
 
 	@Override
-	public void add(Destination destination) {
-		destDao.create(destination);
+	public int add(Destination destination) {
+		return destDao.create(destination);
 	}
 
 	@Override
-	public void update(Destination destination) {
-		destDao.update(destination);
+	public int update(Destination destination) {
+		return destDao.update(destination);
 	}
 
 	@Override
-	public void delete(Destination destination) {
-		destDao.delete(destination);
+	public int delete(Destination destination) {
+		return destDao.delete(destination);
 	}
 
 }
