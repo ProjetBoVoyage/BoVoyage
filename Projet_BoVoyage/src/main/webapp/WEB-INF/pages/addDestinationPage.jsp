@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- Début formulaire -->
-	<form:form method="POST" action="submitAdd" commandName="destAdd" cssClass="form-horizontal">
+	<form:form method="POST" action="submitAdd" commandName="destAdd" cssClass="form-horizontal" enctype="multipart/form-data">
   <div class="form-group">
     <label for="idCity" class="col-sm-2 control-label">City: </label>
     <div class="col-sm-5">
@@ -36,7 +36,7 @@
     <div class="form-group">
     <label for="idPhoto" class="col-sm-2 control-label">Photo: </label>
     <div class="col-sm-5">
-      <form:input type="file" id="idPhoto" placeholder="Photo" path="img"/>
+      <form:input type="file" id="idPhoto" placeholder="Photo" path="photo" name="file"/>
     </div>
   </div>
     <div class="col-sm-6 col-md-1"></div>
