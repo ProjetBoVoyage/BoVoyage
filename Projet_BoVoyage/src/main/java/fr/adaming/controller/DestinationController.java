@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Admin;
 import fr.adaming.model.Destination;
-import fr.adaming.service.IAdminService;
 import fr.adaming.service.IDestinationService;
 
 @Controller
@@ -23,22 +22,9 @@ public class DestinationController {
 	// Transformation de l'asso UML en JAVA
 	@Autowired
 	private IDestinationService destService;
-	// @Autowired
-	// private IAdminService adminService;
 
 	@SuppressWarnings("unused")
 	private Admin admin;
-
-	// @PostConstruct
-	// public void init() {
-	// // Récupérer le contexte de Spring Security
-	// // Le j_username est stocké dans le contexte
-	// Authentication authCxt =
-	// SecurityContextHolder.getContext().getAuthentication();
-	// // Récupérer le mail à partir du context
-	// String mail = authCxt.getName();
-	// this.admin = adminService.getAdminByMail(mail);
-	// }
 
 	/** METHODE AJOUTER DESTINATION */
 	// Afficher le Formulaire
@@ -114,7 +100,7 @@ public class DestinationController {
 	}
 
 	// Soumettre le formulauire
-	@RequestMapping(value = "/submitDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
 	public String submitSearch(@ModelAttribute("destDelete") Destination dIn, RedirectAttributes ra) {
 		// Appel de la méthode service
 		Destination dOut = destService.getById(dIn.getIdDest());
