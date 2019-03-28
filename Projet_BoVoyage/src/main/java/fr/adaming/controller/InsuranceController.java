@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Destination;
 import fr.adaming.model.Insurance;
 import fr.adaming.service.IInsuranceService;
 
@@ -118,17 +119,12 @@ public class InsuranceController {
 	}
 
 	// Soumettre le formulauire
-	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
-	public String submitSearch(@ModelAttribute("insuDelete") Insurance iIn, RedirectAttributes ra) {
-		// Appel de la méthode service
-		Insurance iOut = insuService.getById(iIn.getIdInsu());
-		if (iOut != null) {
-			return "redirect:viewSearch";
-		} else {
-			ra.addFlashAttribute("msg", "Searching Insurance Failed");
-			return "redirect:viewSearch";
+		@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
+		public ModelAndView submitSearch(@ModelAttribute("insuSearch") Insurance iIn) {
+
+			return new ModelAndView("searchInsurancePage", "insurance", insuService.getById(iIn.getIdInsu()));
+
 		}
-	}
 
 	/** METHODE AFFICHER TOUTES DESTINATIONS */
 	// Afficher le tableau

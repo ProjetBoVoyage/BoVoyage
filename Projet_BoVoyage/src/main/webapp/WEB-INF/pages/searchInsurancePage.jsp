@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Search Destination Page</title>
+<title>Search Insurance Page</title>
 </head>
 <body>
 
@@ -15,12 +15,12 @@
 		destination</h1>
 
 	<form:form class="form-horizontal" method="post" action="submitSearch"
-		commandName="destSearch">
+		commandName="insuSearch">
 		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-5">
 				<form:input class="form-control" id="idId" placeholder="Id"
-					name="pId" path="idDest" />
+					name="pId" path="idInsu" />
 			</div>
 		</div>
 
@@ -34,21 +34,14 @@
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>City</th>
-			<th>Country</th>
-			<th>Continent</th>
-			<th>Image</th>
+			<th>Name</th>
+			<th>Price</th>
 		</tr>
 		<tr>
-			<td>${destination.idDest}</td>
-			<td>${destination.city}</td>
-			<td>${destination.country}</td>
-			<td>${destination.continent}</td>
-			<td><img src="photoDest?idDest=${destination.idDest}" /></td>
-
+			<td>${insurance.idInsu}</td>
+			<td>${insurance.name}</td>
+			<td>${insurance.price}</td>
 		</tr>
-
-
 	</table>
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
