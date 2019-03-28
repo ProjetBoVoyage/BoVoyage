@@ -73,10 +73,11 @@ public class DestinationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitUpdate", method = RequestMethod.POST)
-	public String submitUpdate(@ModelAttribute("destUpdate") Destination dIn, RedirectAttributes ra, MultipartFile file) throws Exception  {
+	public String submitUpdate(@ModelAttribute("destUpdate") Destination dIn, RedirectAttributes ra, MultipartFile file)
+			throws Exception {
 		// Lier la photo récupérée à la destination
 		dIn.setPhoto(file.getBytes());
-		
+
 		// Appel de la méthode service
 		int test = destService.update(dIn);
 		if (test != 0) {
@@ -138,11 +139,11 @@ public class DestinationController {
 	}
 
 	// Soumettre le formulauire
-	@RequestMapping(value="/submitSearch", method=RequestMethod.POST)
-	public ModelAndView submitSearch(@ModelAttribute("destSearch") Destination dIn){
-		
+	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
+	public ModelAndView submitSearch(@ModelAttribute("destSearch") Destination dIn) {
+
 		return new ModelAndView("searchDestinationPage", "destination", destService.getById(dIn.getIdDest()));
-		
+
 	}
 
 	/** METHODE AFFICHER TOUTES DESTINATIONS */
