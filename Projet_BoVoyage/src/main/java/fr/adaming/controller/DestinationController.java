@@ -52,7 +52,7 @@ public class DestinationController {
 	public String viewAdd(Model modele){
 		//Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("destAdd", new Destination());
-		return "adminPage";
+		return "homePage";
 	}
 	
 	@RequestMapping(value="/submitAdd", method=RequestMethod.POST)
@@ -80,13 +80,13 @@ public class DestinationController {
 	@RequestMapping(value="/viewMod", method=RequestMethod.GET)
 	public String afficheMod(Model modele){
 		//Lier un étudiant au modele MVC afin de l'utiliser
-		modele.addAttribute("dModif", new Destination());
+		modele.addAttribute("destModif", new Destination());
 		
 		return "adminPage";
 	}
 	
 	@RequestMapping(value="/submitMod", method=RequestMethod.POST)
-	public String soumettreMod(@ModelAttribute("dModif") Destination dIn, RedirectAttributes ra){
+	public String soumettreMod(@ModelAttribute("destModif") Destination dIn, RedirectAttributes ra){
 		//Appel de la méthode service
 		destService.update(dIn);;
 	
