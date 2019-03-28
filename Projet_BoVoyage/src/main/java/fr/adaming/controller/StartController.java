@@ -8,17 +8,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/start")
 public class StartController {
 
-	@RequestMapping(value="/welcome", method=RequestMethod.GET)
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String displayWelcomePage() {
 		return "homePage";
 	}
-	
-	@RequestMapping(value="/custo/customerPage", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/custo/customerPage", method = RequestMethod.GET)
 	public String displayCustomerSpacePage() {
 		return "customerPage";
 	}
-	@RequestMapping(value="/admin/adminPage", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/admin/adminPage", method = RequestMethod.GET)
 	public String displayAdminSpacePage() {
 		return "adminPage";
+	}
+
+	@RequestMapping(value = "/couns/counsellorPage", method = RequestMethod.GET)
+	public String displayCounsellorSpacePage() {
+		return "counsellorPage";
 	}
 }

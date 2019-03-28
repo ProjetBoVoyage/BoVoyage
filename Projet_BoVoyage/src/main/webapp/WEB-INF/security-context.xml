@@ -34,6 +34,9 @@
 		<security:intercept-url pattern="/start/custo/**"
 			access="ROLE_CUSTO" />
 
+		<security:intercept-url pattern="/start/couns/**"
+			access="ROLE_COUNS" />
+
 
 		<!-- Utilisation d'un formulaire personnalisé -->
 		<security:form-login login-page="/loginUrl"
