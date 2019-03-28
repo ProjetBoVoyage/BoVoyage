@@ -10,15 +10,15 @@ import fr.adaming.model.Insurance;
 
 @Service
 @Transactional
-public class InsuranceServiceImpl implements IInsruanceService {
+public class InsuranceServiceImpl implements IInsuranceService {
 
 	IInsuranceDao insuDao;
-	
+
 	public void setDao(IInsuranceDao daoToSet) {
 		insuDao = daoToSet;
 		insuDao.setClazz(Insurance.class);
 	}
-	
+
 	@Override
 	public Insurance getById(int id) {
 		return insuDao.findOne(id);
