@@ -2,6 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ public class AccommodationServiceImpl implements IAccommodationService{
 
 	IAccommodationDao accomDao;
 	
+	@Autowired
 	public void setDao(IAccommodationDao daoToSet) {
 		accomDao = daoToSet;
 		accomDao.setClazz(Accommodation.class);
