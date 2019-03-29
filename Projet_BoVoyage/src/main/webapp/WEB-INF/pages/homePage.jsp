@@ -15,6 +15,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -82,7 +83,7 @@ href
 				<div class="item active">
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/grandes-viajes/europa/grecia/slidergrecia2lg.jpg"
-						alt="SALE" id="img">
+						alt="Santorino" id="img">
 
 					<div class="carousel-caption d-none d-md-block">
 					
@@ -94,7 +95,7 @@ href
 				<div class="item">
 					<img class="img-responsive center-block"
 						src="https://www.ijsexpress.nl/wp-content/uploads/amsterdam_banner.jpg"
-						alt="WOMEN CLOTHING" id="img">
+						alt="Amsterdam" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>AMSTERDAM - Holland</h1>
 						<h4>Flight + hotel from 269 Eur *</h4>
@@ -104,7 +105,7 @@ href
 				<div class="item">
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/viajes/china/sliderchinalg.jpg"
-						alt="MENS CLOTHING" id="img">
+						alt="Kawazy" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>KAWAZY - Japan</h1>
 						<h4>Flight + hotel from 929 Eur *</h4>
@@ -114,7 +115,7 @@ href
 				<div class="item">
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/grandes-viajes/africa/egipto/niloclasico/sliderniloclasicolg1.jpg"
-						alt="KIDS CLOTHING" id="img">
+						alt="Cairo" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>CAIRO - Egypt</h1>
 						<h4>Flight + hotel from 455 Eur *</h4>
@@ -123,7 +124,7 @@ href
 
 				<div class="item">
 					<img class="img-responsive center-block"
-						src="https://i.ibb.co/PCvCg0Y/photo.jpg" alt="KIDS CLOTHING"
+						src="https://i.ibb.co/PCvCg0Y/photo.jpg" alt="Havana"
 						id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>LA HAVANA - Cuba</h1>
@@ -133,7 +134,7 @@ href
 
 				<div class="item">
 					<img class="center-block" src="https://i.ibb.co/w0hywQJ/india3.jpg"
-						alt="KIDS CLOTHING" id="img">
+						alt="Vrindavan" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>VRINDAVAN - India</h1>
 						<h4>Flight + hotel from 679 Eur *</h4>
@@ -149,10 +150,12 @@ href
 		<br>
 	</section>
 
+
 	<div style="border-color:gray; border-radius: 70px; text-align: center; ">
-	<h1>Welcome to Holy-Days</h1>
-	<h3>High Trips for Low Prices</h3>
+	<h1 style="font-family:Amatic SC, sursive; font-size:1000%; ">Welcome to Holy-Days</h1>
+	<h3 style="font-family:Amatic SC, sursive; font-size:500%; ">High Trips for Low Prices</h3>
 	<br/>
+
 	
 	</div>
 
