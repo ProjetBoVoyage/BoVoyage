@@ -64,8 +64,8 @@
 						alt="SALE" id="img">
 
 					<div class="carousel-caption d-none d-md-block">
-						<h1>First Slide Test</h1>
-						<h3>Bonjour je suis le test de la slide 1</h3>
+						<h1>SANTORINI - Greece</h1>
+						<h4>Flight + hotel from 349Eur*</h4>
 					</div>
 
 				</div>
@@ -73,30 +73,49 @@
 					<img class="img-responsive center-block"
 						src="https://www.ijsexpress.nl/wp-content/uploads/amsterdam_banner.jpg"
 						alt="WOMEN CLOTHING" id="img">
+					<div class="carousel-caption d-none d-md-block">
+						<h1>AMSTERDAM - Holland</h1>
+						<h4>Flight + hotel from 269Eur*</h4>
+					</div>
 				</div>
 
 				<div class="item">
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/viajes/china/sliderchinalg.jpg"
 						alt="MENS CLOTHING" id="img">
+						<div class="carousel-caption d-none d-md-block">
+						<h1>KAWAZY - Japan</h1>
+						<h4>Flight + hotel from 929Eur*</h4>
+					</div>
 				</div>
 
 				<div class="item">
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/grandes-viajes/africa/egipto/niloclasico/sliderniloclasicolg1.jpg"
 						alt="KIDS CLOTHING" id="img">
+						<div class="carousel-caption d-none d-md-block">
+						<h1>CAIRO - Egypt</h1>
+						<h4>Flight + hotel from 455Eur*</h4>
+					</div>
 				</div>
 
 				<div class="item">
 					<img class="img-responsive center-block"
 						src="https://i.ibb.co/PCvCg0Y/photo.jpg" alt="KIDS CLOTHING"
 						id="img">
+						<div class="carousel-caption d-none d-md-block">
+						<h1>LA HAVANA - Cuba</h1>
+						<h4>Flight + hotel from 819Eur*</h4>
+					</div>
 				</div>
 
 				<div class="item">
-					<img class="center-block"
-						src="https://i.ibb.co/w0hywQJ/india3.jpg"
-						alt="KIDS CLOTHING" id="img" >
+					<img class="center-block" src="https://i.ibb.co/w0hywQJ/india3.jpg"
+						alt="KIDS CLOTHING" id="img">
+						<div class="carousel-caption d-none d-md-block">
+						<h1>VRINDAVAN - India</h1>
+						<h4>Flight + hotel from 679Eur*</h4>
+					</div>
 				</div>
 			</div>
 
