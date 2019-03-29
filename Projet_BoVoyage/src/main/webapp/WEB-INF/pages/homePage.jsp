@@ -15,13 +15,28 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 
+
 <script
-	src="${pageContext.request.contextPath}/assets/JS/jquery.min.js" type="text/javascript"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+	type="text/javascript"></script>
 <script
-	src="${pageContext.request.contextPath}/assets/JS/bootstrap.min.js" type="text/javascript"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	type="text/javascript"></script>
+
 <base href="resources\" target="_parent">
 <style type="text/css">
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+<
+link
+ 
+rel
+="stylesheet"
+ 
+href
+="assets/css/myStyleSheet
+.css
+"
+/
+>
 </style>
 
 
@@ -30,7 +45,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-fixed-top" po>
 		<ul class="nav nav-tabs">
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
@@ -42,12 +57,12 @@
 					Page</a></li>
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/couns/counsellorPage">Counsellor
-					Page</a></li>	
-					
+					Page</a></li>
+
 		</ul>
 	</nav>
 
-
+<br/><br/>
 	<section>
 		<!-- Carousel code 1-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -70,8 +85,9 @@
 						alt="SALE" id="img">
 
 					<div class="carousel-caption d-none d-md-block">
+					
 						<h1>SANTORINI - Greece</h1>
-						<h4>Flight + hotel from 349Eur*</h4>
+						<h4>Flight + hotel from 349 Eur *</h4>
 					</div>
 
 				</div>
@@ -81,7 +97,7 @@
 						alt="WOMEN CLOTHING" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>AMSTERDAM - Holland</h1>
-						<h4>Flight + hotel from 269Eur*</h4>
+						<h4>Flight + hotel from 269 Eur *</h4>
 					</div>
 				</div>
 
@@ -91,7 +107,7 @@
 						alt="MENS CLOTHING" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>KAWAZY - Japan</h1>
-						<h4>Flight + hotel from 929Eur*</h4>
+						<h4>Flight + hotel from 929 Eur *</h4>
 					</div>
 				</div>
 
@@ -101,7 +117,7 @@
 						alt="KIDS CLOTHING" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>CAIRO - Egypt</h1>
-						<h4>Flight + hotel from 455Eur*</h4>
+						<h4>Flight + hotel from 455 Eur *</h4>
 					</div>
 				</div>
 
@@ -111,7 +127,7 @@
 						id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>LA HAVANA - Cuba</h1>
-						<h4>Flight + hotel from 819Eur*</h4>
+						<h4>Flight + hotel from 819 Eur *</h4>
 					</div>
 				</div>
 
@@ -120,31 +136,34 @@
 						alt="KIDS CLOTHING" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>VRINDAVAN - India</h1>
-						<h4>Flight + hotel from 679Eur*</h4>
+						<h4>Flight + hotel from 679 Eur *</h4>
 					</div>
 				</div>
 			</div>
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev">
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> 
-			</a>
+				data-slide="prev"> </a> <a class="right carousel-control"
+				href="#myCarousel" role="button" data-slide="next"> </a>
 		</div>
 		<br>
 	</section>
 
-	<h1 style="color: green; text-align: center;">Home Page</h1>
-
+	<div style="border-color:gray; border-radius: 70px; text-align: center; ">
+	<h1>Welcome to Holy-Days</h1>
+	<h3>High Trips for Low Prices</h3>
+	<br/>
+	
+	</div>
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-4">
-						<div class="card">
-							<img class="card-img-top" alt="Bootstrap Thumbnail First"
+						<div class="card img-thumbnail">
+							<img class="card-img-top img-thumbnail"
+								alt="Bootstrap Thumbnail First"
 								src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg">
 							<div class="card-block">
 								<h5 class="card-title">Card title</h5>
@@ -160,8 +179,9 @@
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="card">
-							<img class="card-img-top" alt="Bootstrap Thumbnail Second"
+						<div class="card img-thumbnail">
+							<img class="card-img-top img-thumbnail"
+								alt="Bootstrap Thumbnail Second"
 								src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg">
 							<div class="card-block">
 								<h5 class="card-title">Card title</h5>
@@ -177,8 +197,9 @@
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="card">
-							<img class="card-img-top" alt="Bootstrap Thumbnail Third"
+						<div class="card img-thumbnail">
+							<img class="card-img-top img-thumbnail"
+								alt="Bootstrap Thumbnail Third"
 								src="https://www.layoutit.com/img/sports-q-c-600-200-1.jpg">
 							<div class="card-block">
 								<h5 class="card-title">Card title</h5>
@@ -198,9 +219,6 @@
 		</div>
 	</div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
 </body>
 
 
