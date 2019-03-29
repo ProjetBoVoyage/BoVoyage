@@ -18,7 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<base href="resources\" target="_parent">
+<base href="resources\" target="_blank">
 <style type="text/css">
 </style>
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
@@ -95,7 +95,7 @@
 
 				<div class="item">
 					<img class="center-block"
-						src="https://i.ibb.co/941nwGS/india.jpg"
+						src="https://i.ibb.co/w0hywQJ/india3.jpg"
 						alt="KIDS CLOTHING" id="img" >
 				</div>
 			</div>
