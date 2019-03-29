@@ -148,3 +148,8 @@ li a:hover {
     background-color: red;
     
 }
+.card{
+	left: 10px;
+	right:10px;
+	border-radius:50%
+}

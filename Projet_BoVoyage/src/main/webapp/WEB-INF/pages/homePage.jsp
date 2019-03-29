@@ -13,15 +13,43 @@
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <base href="resources\" target="_blank">
 <style type="text/css">
+<
+link
+
+ 
+
+rel
+
+
+="
+stylesheet
+"
+
+ 
+
+href
+
+
+="
+assets
+/css/myStyleSheet
+
+
+.css
+
+
+"
+/
+>
 </style>
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+
 
 
 
@@ -37,6 +65,9 @@
 					Account</a></li>
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/admin/adminPage">Admin
+					Page</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/start/couns/counsellorPage">Counsellor
 					Page</a></li>
 		</ul>
 	</nav>
@@ -83,7 +114,7 @@
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/viajes/china/sliderchinalg.jpg"
 						alt="MENS CLOTHING" id="img">
-						<div class="carousel-caption d-none d-md-block">
+					<div class="carousel-caption d-none d-md-block">
 						<h1>KAWAZY - Japan</h1>
 						<h4>Flight + hotel from 929Eur*</h4>
 					</div>
@@ -93,7 +124,7 @@
 					<img class="img-responsive center-block"
 						src="https://d2wl5ewipdp1qd.cloudfront.net/resize/2000x300/filters:quality(65):max_age(1209600)/s3/bthetravelbrand/grandes-viajes/africa/egipto/niloclasico/sliderniloclasicolg1.jpg"
 						alt="KIDS CLOTHING" id="img">
-						<div class="carousel-caption d-none d-md-block">
+					<div class="carousel-caption d-none d-md-block">
 						<h1>CAIRO - Egypt</h1>
 						<h4>Flight + hotel from 455Eur*</h4>
 					</div>
@@ -103,7 +134,7 @@
 					<img class="img-responsive center-block"
 						src="https://i.ibb.co/PCvCg0Y/photo.jpg" alt="KIDS CLOTHING"
 						id="img">
-						<div class="carousel-caption d-none d-md-block">
+					<div class="carousel-caption d-none d-md-block">
 						<h1>LA HAVANA - Cuba</h1>
 						<h4>Flight + hotel from 819Eur*</h4>
 					</div>
@@ -112,7 +143,7 @@
 				<div class="item">
 					<img class="center-block" src="https://i.ibb.co/w0hywQJ/india3.jpg"
 						alt="KIDS CLOTHING" id="img">
-						<div class="carousel-caption d-none d-md-block">
+					<div class="carousel-caption d-none d-md-block">
 						<h1>VRINDAVAN - India</h1>
 						<h4>Flight + hotel from 679Eur*</h4>
 					</div>
@@ -121,19 +152,80 @@
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+				data-slide="prev"> </a> <a class="right carousel-control"
+				href="#myCarousel" role="button" data-slide="next"> </a>
 		</div>
 		<br>
 	</section>
 
 	<h1 style="color: green; text-align: center;">Home Page</h1>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card">
+							<img class="card-img-top" alt="Bootstrap Thumbnail First"
+								src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg">
+							<div class="card-block">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Cras justo odio, dapibus ac facilisis
+									in, egestas eget quam. Donec id elit non mi porta gravida at
+									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
+									elit.</p>
+								<p>
+									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
+										href="#">Action</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card">
+							<img class="card-img-top" alt="Bootstrap Thumbnail Second"
+								src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg">
+							<div class="card-block">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Cras justo odio, dapibus ac facilisis
+									in, egestas eget quam. Donec id elit non mi porta gravida at
+									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
+									elit.</p>
+								<p>
+									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
+										href="#">Action</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card">
+							<img class="card-img-top" alt="Bootstrap Thumbnail Third"
+								src="https://www.layoutit.com/img/sports-q-c-600-200-1.jpg">
+							<div class="card-block">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Cras justo odio, dapibus ac facilisis
+									in, egestas eget quam. Donec id elit non mi porta gravida at
+									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
+									elit.</p>
+								<p>
+									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
+										href="#">Action</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+
 
 </body>
 </html>
