@@ -14,40 +14,14 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	src="${pageContext.request.contextPath}/assets/JS/jquery.min.js" type="text/javascript"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<base href="resources\" target="_blank">
+	src="${pageContext.request.contextPath}/assets/JS/bootstrap.min.js" type="text/javascript"></script>
+<base href="resources\" target="_parent">
 <style type="text/css">
-<
-link
-
- 
-
-rel
-
-
-="
-stylesheet
-"
-
- 
-
-href
-
-
-="
-assets
-/css/myStyleSheet
-
-
-.css
-
-
-"
-/
->
+<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </style>
 
 
@@ -68,7 +42,8 @@ assets
 					Page</a></li>
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/couns/counsellorPage">Counsellor
-					Page</a></li>
+					Page</a></li>	
+					
 		</ul>
 	</nav>
 
@@ -152,8 +127,10 @@ assets
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> </a> <a class="right carousel-control"
-				href="#myCarousel" role="button" data-slide="next"> </a>
+				data-slide="prev">
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> 
+			</a>
 		</div>
 		<br>
 	</section>
