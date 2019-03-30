@@ -26,7 +26,7 @@ public class PayPalSuccess {
 			String authToken = pc.getAuthToken(); 
 			String query = "cmd=_notify-synch&tx="+transId+"&at="+ authToken;
 			String url= pc.getPosturl();
-			URL u= new URL(url);
+			URL u= new URL(url); 
 			HttpURLConnection req=(HttpURLConnection) u.openConnection();
 			req.setRequestMethod("POST");
 			req.setDoOutput(true);
