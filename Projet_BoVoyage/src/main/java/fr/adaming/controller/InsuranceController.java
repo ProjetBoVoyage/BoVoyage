@@ -52,7 +52,7 @@ public class InsuranceController {
 	@RequestMapping(value = "/viewUpdate", method = RequestMethod.GET)
 	public String viewUpdate(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
-		modele.addAttribute("destUpdate", new Insurance());
+		modele.addAttribute("insuUpdate", new Insurance());
 		return "updateInsurancePage";
 	}
 
@@ -119,12 +119,12 @@ public class InsuranceController {
 	}
 
 	// Soumettre le formulauire
-		@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
-		public ModelAndView submitSearch(@ModelAttribute("insuSearch") Insurance iIn) {
+	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
+	public ModelAndView submitSearch(@ModelAttribute("insuSearch") Insurance iIn) {
 
-			return new ModelAndView("searchInsurancePage", "insurance", insuService.getById(iIn.getIdInsu()));
+		return new ModelAndView("searchInsurancePage", "insurance", insuService.getById(iIn.getIdInsu()));
 
-		}
+	}
 
 	/** METHODE AFFICHER TOUTES DESTINATIONS */
 	// Afficher le tableau

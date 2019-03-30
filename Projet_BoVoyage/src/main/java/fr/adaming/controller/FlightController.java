@@ -51,12 +51,13 @@ public class FlightController {
 
 	// submit formulaire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("fligAdd") Flight fIn,@RequestParam("datetimeDepart")  String heureDepart,@RequestParam("datetimeArrive") String heureArrive, RedirectAttributes ra) {
+	public String submitAdd(@ModelAttribute("fligAdd") Flight fIn, @RequestParam("datetimeDepart") String heureDepart,
+			@RequestParam("datetimeArrive") String heureArrive, RedirectAttributes ra) {
 		// appel method service
 		fIn.setArrivalTime(convertHour(heureArrive));
 		fIn.setDepartureTime(convertHour(heureDepart));
 		int test = fligService.add(fIn);
-System.out.println( heureArrive     +"   "+heureDepart);
+		System.out.println(heureArrive + "   " + heureDepart);
 		if (test != 0) {
 			return "redirect:viewFlig";
 		} else {
@@ -64,37 +65,38 @@ System.out.println( heureArrive     +"   "+heureDepart);
 			return "redirect:viewAdd";
 		}
 	}
-	
-	
-	public Date convertHour(String hourTime) {
-		
-		
-		  SimpleDateFormat simpleDateFormat = 
-	                new SimpleDateFormat("hh:mm:ss");
 
-		  try {
-				
+	public Date convertHour(String hourTime) {
+
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
+
+		try {
+
 			return simpleDateFormat.parse(hourTime);
-			
-				
-		  } catch (ParseException e) {
+
+		} catch (ParseException e) {
 			e.printStackTrace();
-		  }
-			return null;
 		}
+		return null;
+	}
 
 	/** METHODE MODIFIER UN Flight */
 	@RequestMapping(value = "/viewUpdate", method = RequestMethod.GET)
 	public String viewUpdate(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
-		modele.addAttribute("destUpdate", new Flight());
+		modele.addAttribute("fligUpdate", new Flight());
 		return "updateFlightPage";
 	}
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitUpdate", method = RequestMethod.POST)
-	public String submitUpdate(@ModelAttribute("fligUpdate") Flight fIn, RedirectAttributes ra) {
+	public String submitUpdate(@ModelAttribute("fligUpdate") Flight fIn,
+			@RequestParam("datetimeDepart") String heureDepart, @RequestParam("datetimeArrive") String heureArrive,
+			RedirectAttributes ra) {
 		// Appel de la méthode service
+		fIn.setArrivalTime(convertHour(heureArrive));
+		fIn.setDepartureTime(convertHour(heureDepart));
+
 		int test = fligService.update(fIn);
 		if (test != 0) {
 			return "redirect:viewFlig";
@@ -108,6 +110,7 @@ System.out.println( heureArrive     +"   "+heureDepart);
 	public String modifLien(Model modele, @RequestParam("pId") int id) {
 		Flight fIn = new Flight();
 		fIn.setIdFlight(id);
+
 		Flight fOut = fligService.getById(id);
 
 		modele.addAttribute("fligUpdate", fOut);
@@ -142,7 +145,7 @@ System.out.println( heureArrive     +"   "+heureDepart);
 		fIn.setIdFlight(id);
 		fligService.delete(fIn);
 
-		return "redirect:viewInsu";
+		return "redirect:viewFlig";
 	}
 
 	/** METHODE RECHERCHER UN FLIGHT */
@@ -150,7 +153,7 @@ System.out.println( heureArrive     +"   "+heureDepart);
 	public String viewSearch(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("fligSearch", new Flight());
-		return "searchInsurancePage";
+		return "searchFlightPage";
 	}
 
 	// Soumettre le formulauire
