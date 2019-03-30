@@ -22,10 +22,23 @@
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idPrice" class="col-sm-2 control-label">Price: </label>
+			<label for="idPrice" class="col-sm-2 control-label">Price per night (&euro;): </label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idPrice"
 					placeholder="Price per Night" path="price" type="number" />
+			</div>
+		</div>
+			<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idStars" class="col-sm-2 control-label">Number of stars: </label>
+			<div class="col-sm-5">
+				<form:select path="stars">
+   <option value="&#9733;">&#9733;</option>
+   <option value="&#9733;&#9733;">&#9733;&#9733;</option>
+   <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;</option>
+   <option value="&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;</option>
+      <option value="&#9733;&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+</form:select> 
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>

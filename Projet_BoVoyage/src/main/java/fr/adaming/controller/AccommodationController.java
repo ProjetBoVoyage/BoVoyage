@@ -2,6 +2,7 @@ package fr.adaming.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import fr.adaming.model.Admin;
 import fr.adaming.model.Accommodation;
+import fr.adaming.model.Admin;
 import fr.adaming.service.IAccommodationService;
 
 @Controller
@@ -91,7 +92,7 @@ public class AccommodationController {
 	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
 	public String modifLien(Model modele, @RequestParam("pId") int id) {
 		Accommodation acIn = new Accommodation();
-		acIn.setIdAcc(id);;
+		acIn.setIdAcc(id);
 		Accommodation acOut = accService.getById(id);
 
 		modele.addAttribute("accUpdate", acOut);
@@ -99,7 +100,7 @@ public class AccommodationController {
 		return "updateAccommodationPage";
 	}
 
-	/** METHODE SUPPRIMER UNE DESTINATION */
+	/** METHODE SUPPRIMER UN HOTEL */
 	@RequestMapping(value = "/viewDelete", method = RequestMethod.GET)
 	public String viewDelete(Model modele) {
 		// Lier la accination au modele MVC afin de l'utiliser
@@ -130,18 +131,23 @@ public class AccommodationController {
 
 	}
 
-	/** METHODE RECHERCHER UNE DESTINATION */
+	/** METHODE RECHERCHER UN HOTEL */
 	@RequestMapping(value = "/viewSearch", method = RequestMethod.GET)
 	public String viewSearch(Model modele) {
-		// Lier la accination au modele MVC afin de l'utiliser
+		// Lier la accommodation au modele MVC afin de l'utiliser
 		modele.addAttribute("accSearch", new Accommodation());
+		
+		List<Accommodation> accommodations = accService.getAll();
+		modele.addAttribute("accommodations", accommodations);
 		return "searchAccommodationPage";
 	}
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
-	public ModelAndView submitSearch(@ModelAttribute("accSearch") Accommodation acIn) {
-
+	public ModelAndView submitSearch(@ModelAttribute("accSearch") Accommodation acIn, Model modele) {
+		List<Accommodation> accommodations = accService.getAll();
+		modele.addAttribute("accommodations", accommodations);
+		
 		return new ModelAndView("searchAccommodationPage", "accommodation", accService.getById(acIn.getIdAcc()));
 
 	}

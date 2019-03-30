@@ -16,11 +16,15 @@
 
 	<form:form class="form-horizontal" method="post" action="submitSearch"
 		commandName="accSearch">
-		<div class="form-group">
+			<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-5">
-				<form:input class="form-control" id="idId" placeholder="Id"
-					name="pId" path="idAcc" />
+							<form:select class="col-md-3 form-control" path="idAcc">
+				<option value="1">Choose an accommodation</option>
+					<c:forEach items="${accommodations}" var="a">
+						<option value="${a.idAcc}">${a.name}</option>
+					</c:forEach>
+				</form:select>
 			</div>
 		</div>
 
@@ -36,13 +40,15 @@
 			<th>ID</th>
 			<th>Accommodation's Name</th>
 			<th>Price</th>
+				<th>Stars</th>
 			<th>Quantity</th>
 			<th>Image</th>
 		</tr>
 		<tr>
-			<td>${accommodation.idacc}</td>
+			<td>${accommodation.idAcc}</td>
 			<td>${accommodation.name}</td>
 			<td>${accommodation.price}</td>
+			<td>${accommodation.stars}</td>
 			<td>${accommodation.quantity}</td>
 			<td><img src="photoAcc?idAcc=${accommodation.idAcc}" /></td>
 

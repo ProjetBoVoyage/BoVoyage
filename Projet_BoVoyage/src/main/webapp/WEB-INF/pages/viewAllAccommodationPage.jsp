@@ -15,13 +15,14 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
-	<h1 style="color: gray; text-align: center">Accommodation's List</h1>
+	<h1 style="color: gray; text-align: center">Accommodations' List</h1>
 
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
 			<th>Price</th>
+			<th>Stars</th>
 			<th>Available</th>
 			<th>Image</th>
 			<th>Operations</th>
@@ -32,12 +33,13 @@
 				<td>${a.idAcc}</td>
 				<td>${a.name}</td>
 				<td>${a.price}</td>
+				<td>${a.stars}</td>
 				<td>${a.quantity}</td>
 				<td><img src="photoAcc?idAcc=${a.idAcc}" /></td>
 				<td><a class="btn btn-danger"
 					href="${pageContext.request.contextPath}/accommodation/deleteLink?pId=${a.idAcc}"
 					title="Supprimer">Supprimer</a> | <a class="btn btn-danger"
-					href="${pageContext.request.contextPath}/accommodation/updateLink?pId=${d.idAcc}"
+					href="${pageContext.request.contextPath}/accommodation/updateLink?pId=${a.idAcc}"
 					title="Modifier">Modifier</a></td>
 
 			</tr>
