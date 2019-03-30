@@ -14,7 +14,7 @@ import fr.adaming.model.Flight;
 public class FlightServiceImpl implements IFlightService {
 
 	IFlightDao flDao;
-	
+
 	@Autowired
 	public void setDao(IFlightDao daoToSet) {
 		flDao = daoToSet;
@@ -38,12 +38,12 @@ public class FlightServiceImpl implements IFlightService {
 
 	@Override
 	public int update(Flight flight) {
-		return update(flight);
+		return flDao.update(flight);
 	}
 
 	@Override
 	public int delete(Flight flight) {
 		return flDao.delete(flight);
 	}
-	
+
 }
