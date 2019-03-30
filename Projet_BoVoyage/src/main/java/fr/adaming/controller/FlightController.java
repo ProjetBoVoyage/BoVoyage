@@ -1,6 +1,7 @@
 package fr.adaming.controller;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,13 +34,10 @@ public class FlightController {
 	public void initBinder(WebDataBinder binder) {
 
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		DateFormat dt = new SimpleDateFormat("hh:mm");
 
 		df.setLenient(false);
-		dt.setLenient(false);
 
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(df, false));
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dt, false));
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(df, true));
 	}
 
 	/** methode Add Flight */
@@ -53,10 +51,12 @@ public class FlightController {
 
 	// submit formulaire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("fligAdd") Flight fIn, RedirectAttributes ra) {
+	public String submitAdd(@ModelAttribute("fligAdd") Flight fIn,@RequestParam("datetimeDepart")  String heureDepart,@RequestParam("datetimeArrive") String heureArrive, RedirectAttributes ra) {
 		// appel method service
+		fIn.setArrivalTime(convertHour(heureArrive));
+		fIn.setDepartureTime(convertHour(heureDepart));
 		int test = fligService.add(fIn);
-
+System.out.println( heureArrive     +"   "+heureDepart);
 		if (test != 0) {
 			return "redirect:viewFlig";
 		} else {
@@ -64,6 +64,24 @@ public class FlightController {
 			return "redirect:viewAdd";
 		}
 	}
+	
+	
+	public Date convertHour(String hourTime) {
+		
+		
+		  SimpleDateFormat simpleDateFormat = 
+	                new SimpleDateFormat("hh:mm:ss");
+
+		  try {
+				
+			return simpleDateFormat.parse(hourTime);
+			
+				
+		  } catch (ParseException e) {
+			e.printStackTrace();
+		  }
+			return null;
+		}
 
 	/** METHODE MODIFIER UN Flight */
 	@RequestMapping(value = "/viewUpdate", method = RequestMethod.GET)

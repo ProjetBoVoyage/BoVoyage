@@ -25,13 +25,17 @@ public class Flight implements Serializable {
 	private int idFlight;
 	private String departureAirport;
 	private String arrivalAirport;
-	@Temporal(TemporalType.DATE)
+	
+	@Temporal(value = TemporalType.DATE)
 	private Date departureDate;
-	@Temporal(TemporalType.DATE)
+	
+	@Temporal(value = TemporalType.DATE)
 	private Date arrivalDate;
-	@Temporal(TemporalType.TIME)
+
+	@Temporal(value = TemporalType.TIME)
 	private Date departureTime;
-	@Temporal(TemporalType.TIME)
+
+	@Temporal(value = TemporalType.TIME)
 	private Date arrivalTime;
 	private String company;
 	private int quantity;

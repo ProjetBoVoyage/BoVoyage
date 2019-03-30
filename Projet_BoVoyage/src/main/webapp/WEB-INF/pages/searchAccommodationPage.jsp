@@ -7,32 +7,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Search Destination Page</title>
+<title>Search Accommodation Page</title>
 </head>
 <body>
 
-	<h1 style="color: red; text-align: center">Search for a
-		destination</h1>
+	<h1 style="color: red; text-align: center">Search for an
+		accommodation</h1>
 
 	<form:form class="form-horizontal" method="post" action="submitSearch"
-		commandName="destSearch">
-		
+		commandName="accSearch">
 		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-5">
-							<form:select class="col-md-3 form-control" path="idDest">
-				<option value="1">Choose a destination</option>
-					<c:forEach items="${destinations}" var="d">
-						<option value="${d.idDest}">${d.city}, ${d.country}</option>
-					</c:forEach>
-				</form:select>
+				<form:input class="form-control" id="idId" placeholder="Id"
+					name="pId" path="idAcc" />
 			</div>
 		</div>
-    
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-success">Search</button>
+				<button type="submit" class="btn btn-success">Rechercher</button>
 			</div>
 		</div>
 	</form:form>
@@ -40,17 +34,17 @@
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>City</th>
-			<th>Country</th>
-			<th>Continent</th>
+			<th>Accommodation's Name</th>
+			<th>Price</th>
+			<th>Quantity</th>
 			<th>Image</th>
 		</tr>
 		<tr>
-			<td>${destination.idDest}</td>
-			<td>${destination.city}</td>
-			<td>${destination.country}</td>
-			<td>${destination.continent}</td>
-			<td><img src="photoDest?idDest=${destination.idDest}" /></td>
+			<td>${accommodation.idacc}</td>
+			<td>${accommodation.name}</td>
+			<td>${accommodation.price}</td>
+			<td>${accommodation.quantity}</td>
+			<td><img src="photoAcc?idAcc=${accommodation.idAcc}" /></td>
 
 		</tr>
 

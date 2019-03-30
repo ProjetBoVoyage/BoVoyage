@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 @Entity
 @SuppressWarnings("serial")
@@ -25,10 +24,9 @@ public class Accommodation implements Serializable {
 	private int idAcc;
 	private String name;
 	private double price;
+	private String stars; 
 	@Lob
 	private byte[] photo;
-	@Transient
-	private String img;
 	private int quantity;
 
 	// UML To Java Association's Transformation
@@ -40,19 +38,22 @@ public class Accommodation implements Serializable {
 		super();
 	}
 
-	public Accommodation(String name, double price, byte[] photo, int quantity) {
+	public Accommodation(String name, double price, String stars, byte[] photo, int quantity) {
 		super();
 		this.name = name;
 		this.price = price;
+		this.stars = stars;
 		this.photo = photo;
 		this.quantity = quantity;
 	}
 
-	public Accommodation(int idAcc, String name, double price, byte[] photo, int quantity) {
+
+	public Accommodation(int idAcc, String name, double price, String stars, byte[] photo, int quantity) {
 		super();
 		this.idAcc = idAcc;
 		this.name = name;
 		this.price = price;
+		this.stars = stars;
 		this.photo = photo;
 		this.quantity = quantity;
 	}
@@ -90,14 +91,6 @@ public class Accommodation implements Serializable {
 		this.photo = photo;
 	}
 
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -113,12 +106,23 @@ public class Accommodation implements Serializable {
 	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
 		this.formulaTrips = formulaTrips;
 	}
+	
+	public String getStars() {
+		return stars;
+	}
+
+	public void setStars(String stars) {
+		this.stars = stars;
+	}
 
 	// To String
 	@Override
 	public String toString() {
-		return "Accommodation [idAcc=" + idAcc + ", name=" + name + ", price=" + price + ", photo="
-				+ Arrays.toString(photo) + ", img=" + img + "]";
+		return "Accommodation [idAcc=" + idAcc + ", name=" + name + ", price=" + price + ", stars=" + stars
+				+ ", photo=" + Arrays.toString(photo) + ", quantity=" + quantity + "]";
 	}
+
+
+
 
 }

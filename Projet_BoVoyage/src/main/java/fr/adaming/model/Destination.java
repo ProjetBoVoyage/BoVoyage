@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
 @Entity
@@ -25,14 +24,12 @@ public class Destination implements Serializable {
 	private String continent;
 	private String country;
 	private String city;
+	private String description;
 	private Boolean available;
 
 	@Column(name = "photo_dest")
 	@Lob
 	private byte[] photo;
-
-	@Transient
-	private String img;
 
 	// UML To Java Association's Transformation
 	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
@@ -43,27 +40,34 @@ public class Destination implements Serializable {
 		super();
 	}
 
-	public Destination(String continent, String country, String city, Boolean available, byte[] photo, String img) {
+
+
+	public Destination(String continent, String country, String city, String description, Boolean available,
+			byte[] photo) {
 		super();
 		this.continent = continent;
 		this.country = country;
 		this.city = city;
+		this.description = description;
 		this.available = available;
 		this.photo = photo;
-		this.img = img;
 	}
 
-	public Destination(int idDest, String continent, String country, String city, Boolean available, byte[] photo,
-			String img) {
+
+
+	public Destination(int idDest, String continent, String country, String city, String description, Boolean available,
+			byte[] photo) {
 		super();
 		this.idDest = idDest;
 		this.continent = continent;
 		this.country = country;
 		this.city = city;
+		this.description = description;
 		this.available = available;
 		this.photo = photo;
-		this.img = img;
 	}
+
+
 
 	// Getters & Setters
 	public int getIdDest() {
@@ -114,14 +118,6 @@ public class Destination implements Serializable {
 		this.photo = photo;
 	}
 
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
 	public List<FormulaTrip> getFormulaTrips() {
 		return formulaTrips;
 	}
@@ -129,6 +125,19 @@ public class Destination implements Serializable {
 	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
 		this.formulaTrips = formulaTrips;
 	}
+	
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
 
 	@Override
 	public String toString() {

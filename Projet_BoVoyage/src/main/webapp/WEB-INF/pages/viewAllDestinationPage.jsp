@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Destinations</title>
 
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
-	<h1 style="color: red; text-align: center">Liste des destinations</h1>
+	<h1 style="color: gray; text-align: center">Destinations' List</h1>
 
 	<table class="table table-striped">
 		<tr>
@@ -24,7 +24,7 @@
 			<th>Country</th>
 			<th>Continent</th>
 			<th>Image</th>
-			<th>Opérations</th>
+			<th>Operations</th>
 		</tr>
 
 		<c:forEach items="${listDest}" var="d">
@@ -44,5 +44,41 @@
 		</c:forEach>
 
 	</table>
+	
+	
+	
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+				<c:forEach items="${listDest}" var="d">
+					<div class="col-md-4">
+						<div class="card">
+						<img class="card-img-top" src="photoDest?idDest=${d.idDest}" style="width:300px; height:100px" />
+							<div class="card-block">
+								<h5 class="card-title">${d.city}</h5>
+								<p class="card-text">Cras justo odio, dapibus ac facilisis
+									in, egestas eget quam. Donec id elit non mi porta gravida at
+									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
+									elit.</p>
+								<p>
+									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
+										href="#">Action</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					</c:forEach>
+					</div>
+					
+					</div>
+					</div>
+					</div>
+	
+	
+	
+	
+	
 </body>
 </html>

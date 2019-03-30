@@ -41,13 +41,13 @@
 					path="departureDate" />
 			</div>
 		</div>
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idDepartureTime" class="col-sm-2 control-label">DepartureTime:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" type="time"
-					pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]" id="idDepartureTime"
-					placeholder="DepartureTime" path="departureTime" />
+				<input class="form-control" type="time" id="idDepartureTime"
+					step="2" placeholder="DepartureTime" name="datetimeDepart" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -59,14 +59,13 @@
 					id="idArrivalDate" placeholder="ArrivalDate" path="arrivalDate" />
 			</div>
 		</div>
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idArrivalTime" class="col-sm-2 control-label">ArrivalTime:
+			<label for="idArrivalTime" class="col-sm-2 control-label">DepartureTime:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" type="time"
-					pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]" id="idArrivalTime"
-					placeholder="ArrivalTime" path="arrivalTime" />
-				<fmt:formatDate type="time" value="${now}" />
+				<input class="form-control" type="time" id="idArrivalTime"
+					step="2" placeholder="ArrivalTime" name="datetimeArrive" />
 			</div>
 		</div>
 

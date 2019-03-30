@@ -34,8 +34,9 @@
 			<label for="idContinent" class="col-sm-2 control-label">Continent:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idContinent"
-					placeholder="Continent" path="continent" />
+			<form:select path="continent">
+					  <form:options items="${continentList}" />
+				       </form:select>
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>

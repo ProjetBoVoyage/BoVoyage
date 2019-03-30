@@ -2,6 +2,9 @@ package fr.adaming.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +43,17 @@ public class DestinationController {
 	public String viewAdd(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("destAdd", new Destination());
+
+		Map<String, String> continentList = new HashMap<String, String>();
+		continentList.put("Europe", "Europe");
+		continentList.put("Asia", "Asia");
+		continentList.put("Africa", "Africa");
+		continentList.put("Oceania", "Oceania");
+		continentList.put("South America", "South America");
+		continentList.put("North America", "North America");
+		continentList.put("Antarctica", "Antarctica");
+		modele.addAttribute("continentList", continentList);
+
 		return "addDestinationPage";
 	}
 
@@ -68,6 +82,17 @@ public class DestinationController {
 	public String viewUpdate(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("destUpdate", new Destination());
+		
+		Map<String, String> continentList = new HashMap<String, String>();
+		continentList.put("Europe", "Europe");
+		continentList.put("Asia", "Asia");
+		continentList.put("Africa", "Africa");
+		continentList.put("Oceania", "Oceania");
+		continentList.put("South America", "South America");
+		continentList.put("North America", "North America");
+		continentList.put("Antarctica", "Antarctica");
+		modele.addAttribute("continentList", continentList);
+		
 		return "updateDestinationPage";
 	}
 
@@ -94,6 +119,17 @@ public class DestinationController {
 		dIn.setIdDest(id);
 		Destination dOut = destService.getById(id);
 
+		Map<String, String> continentList = new HashMap<String, String>();
+		continentList.put("Europe", "Europe");
+		continentList.put("Asia", "Asia");
+		continentList.put("Africa", "Africa");
+		continentList.put("Oceania", "Oceania");
+		continentList.put("South America", "South America");
+		continentList.put("North America", "North America");
+		continentList.put("Antarctica", "Antarctica");
+		modele.addAttribute("continentList", continentList);
+		
+		
 		modele.addAttribute("destUpdate", dOut);
 
 		return "updateDestinationPage";
@@ -135,14 +171,34 @@ public class DestinationController {
 	public String viewSearch(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("destSearch", new Destination());
+		
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
 		return "searchDestinationPage";
 	}
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
-	public ModelAndView submitSearch(@ModelAttribute("destSearch") Destination dIn) {
-
+	public ModelAndView submitSearch(@ModelAttribute("destSearch") Destination dIn, Model modele) {
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
+		
 		return new ModelAndView("searchDestinationPage", "destination", destService.getById(dIn.getIdDest()));
+
+	}
+
+	/** METHODE RECHERCHER UNE DESTINATION PAR CONTINENT */
+	@RequestMapping(value = "/viewSearchCont", method = RequestMethod.GET)
+	public String viewSearchCont(Model modele) {
+		// Lier la destination au modele MVC afin de l'utiliser
+		modele.addAttribute("destSearch", new Destination());
+		return "searchMapPage";
+	}
+
+	@RequestMapping(value = "/searchCont", method = RequestMethod.GET)
+	public ModelAndView searchCont(@RequestParam("pCont") @ModelAttribute("destSearch") String continent) {
+
+		return new ModelAndView("searchMapPage", "listDestCont", destService.getDestinationByContinent(continent));
 
 	}
 
@@ -164,5 +220,6 @@ public class DestinationController {
 			return IOUtils.toByteArray(new ByteArrayInputStream(dOut.getPhoto()));
 		}
 	}
+
 
 }

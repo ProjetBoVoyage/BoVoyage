@@ -7,43 +7,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Update Destination Page</title>
+<title>Update Accommodation Page</title>
 </head>
 <body>
 	<!-- Début formulaire -->
-	<form:form method="POST" action="submitUpdate" commandName="destUpdate"
+	<form:form method="POST" action="submitUpdate" commandName="accUpdate"
 		cssClass="form-horizontal" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">ID: </label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idId" placeholder="Id"
-					path="idDest" />
+					path="idAcc" />
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="idCity" class="col-sm-2 control-label">City: </label>
+			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idCity" placeholder="City"
-					path="city" />
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-1"></div>
-		<div class="form-group">
-			<label for="idCountry" class="col-sm-2 control-label">Country:
-			</label>
-			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idCountry"
-					placeholder="Country" path="country" />
+				<form:input cssClass="form-control" id="idCity"
+					placeholder="Accommodation's Name" path="name" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idContinent" class="col-sm-2 control-label">Continent:
-			</label>
+			<label for="idPrice" class="col-sm-2 control-label">Price: </label>
 			<div class="col-sm-5">
-				<form:select path="continent">
-					<form:options items="${continentList}" />
-				</form:select>
+				<form:input cssClass="form-control" id="idPrice"
+					placeholder="Price per Night" path="price" type="number" />
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idQuantity" class="col-sm-2 control-label">Rooms
+				Available: </label>
+			<div class="col-sm-5">
+				<form:input cssClass="form-control" id="idQuantity"
+					placeholder="Quantity" path="quantity" type="number" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -56,8 +54,7 @@
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<div class="col-sm-offset-4 col-sm-10">
-				<button type="submit" class="btn btn-primary">Update
-					destination</button>
+				<button type="submit" class="btn btn-primary">Update</button>
 			</div>
 		</div>
 	</form:form>
