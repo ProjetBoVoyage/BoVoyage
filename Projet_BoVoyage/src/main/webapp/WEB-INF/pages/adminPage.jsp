@@ -20,8 +20,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <base href="resources\" target="_parent">
 <style type="text/css">
+	<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </style>
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+
 
 </head>
 <body>
@@ -77,6 +78,8 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/destination/viewSearch">Search</a></li>
+															<li><a
+								href="${pageContext.request.contextPath}/destination/viewSearchCont">Search by continent</a></li>
 						</ul>
 					</li>
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -95,6 +98,23 @@
 							<li><a
 								href="${pageContext.request.contextPath}/insurance/viewSearch">Search</a></li>
 						</ul>
+						
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Flight<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a
+								href="${pageContext.request.contextPath}/flight/viewFlig">View
+									All</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a
+								href="${pageContext.request.contextPath}/flight/viewAdd">Add</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/flight/viewUpdate">Update</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a
+								href="${pageContext.request.contextPath}/flight/viewSearch">Search</a></li>
+						</ul>
 					</li>
 				</ul>
 				<form class="navbar-form navbar-left">
@@ -106,16 +126,6 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a
 						href="${pageContext.request.contextPath}/j_spring_security_logout">Logout</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Dropdown <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-						</ul></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
