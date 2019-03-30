@@ -23,7 +23,7 @@ public class PayPalSuccess {
 		
 		try{
 			String transId = request.getParameter("tx");
-			String authToken = pc.getAuthToken();
+			String authToken = pc.getAuthToken(); 
 			String query = "cmd=_notify-synch&tx="+transId+"&at="+ authToken;
 			String url= pc.getPosturl();
 			URL u= new URL(url);
