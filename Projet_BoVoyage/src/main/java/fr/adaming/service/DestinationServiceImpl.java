@@ -48,4 +48,9 @@ public class DestinationServiceImpl implements IDestinationService {
 		return destDao.delete(destination);
 	}
 
+	@Override
+	public List<Destination> getDestinationByContinent(String continent) {
+		return destDao.getDestinationByContinent(continent);
+	}
+
 }
