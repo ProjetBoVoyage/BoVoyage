@@ -16,7 +16,7 @@ public class PayPalSuccess {
 	public PayPalResult getPayPal(HttpServletRequest request){
 		PayPalResult ppr = new PayPalResult();
 		PayPalConfig pc = new PayPalConfig();
-		
+		 
 		pc=pc.getConfig(request);
 		String [] temp = null;
 		String res = "";
