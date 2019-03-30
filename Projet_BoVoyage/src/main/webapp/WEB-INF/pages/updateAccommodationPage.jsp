@@ -10,6 +10,7 @@
 <title>Update Accommodation Page</title>
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitUpdate" commandName="accUpdate"
 		cssClass="form-horizontal" enctype="multipart/form-data">
@@ -71,6 +72,7 @@
 			</div>
 		</div>
 	</form:form>
-
+<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>

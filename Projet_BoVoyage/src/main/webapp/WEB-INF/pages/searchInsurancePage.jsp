@@ -45,5 +45,7 @@
 	</table>
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
+	<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>

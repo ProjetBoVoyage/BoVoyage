@@ -157,3 +157,10 @@ li a:hover {
 .h1{
 	
 }
+.footerSticky {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+
+}

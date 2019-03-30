@@ -39,5 +39,7 @@
 	<c:if test="${not empty error}">
 		<h1 style="color: red; text-align: center">Authentication Failed</h1>
 	</c:if>
+	<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>

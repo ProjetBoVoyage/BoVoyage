@@ -10,7 +10,7 @@
 <title>Search Accommodation Page</title>
 </head>
 <body>
-
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<h1 style="color: red; text-align: center">Search for an
 		accommodation</h1>
 
@@ -58,5 +58,7 @@
 	</table>
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
+	<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>

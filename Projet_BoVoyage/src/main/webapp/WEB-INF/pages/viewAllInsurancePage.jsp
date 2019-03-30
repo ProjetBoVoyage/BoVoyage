@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
-<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
+	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<h1 style="color: red; text-align: center">Insurances list</h1>
 
 	<table class="table table-striped">
@@ -41,5 +41,7 @@
 		</c:forEach>
 
 	</table>
+	<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 </html>

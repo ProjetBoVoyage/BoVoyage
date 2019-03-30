@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<h1 style="color: gray; text-align: center">Accommodations' List</h1>
 
 	<table class="table table-striped">
@@ -44,7 +45,8 @@
 
 			</tr>
 		</c:forEach>
-
+<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 	</table>
 </body>
 </html>

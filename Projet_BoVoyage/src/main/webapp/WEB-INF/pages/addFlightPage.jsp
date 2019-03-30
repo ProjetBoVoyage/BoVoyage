@@ -96,6 +96,7 @@
 			</div>
 		</div>
 	</form:form>
-
+<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>

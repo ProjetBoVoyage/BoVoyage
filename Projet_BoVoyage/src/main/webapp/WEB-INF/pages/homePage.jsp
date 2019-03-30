@@ -221,7 +221,8 @@ href
 			</div>
 		</div>
 	</div>
-
+<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 
 

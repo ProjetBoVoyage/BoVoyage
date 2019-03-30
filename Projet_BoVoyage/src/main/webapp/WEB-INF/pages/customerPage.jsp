@@ -10,5 +10,7 @@
 
 	Je suis dans la Customer Page
 	<a href="${pageContext.request.contextPath}/j_spring_security_logout">LogOut</a>
+	<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>

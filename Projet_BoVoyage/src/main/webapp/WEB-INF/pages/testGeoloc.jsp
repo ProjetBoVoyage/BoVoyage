@@ -144,6 +144,7 @@
 					})(marker, i));
 		}
 	</script>
-
+<%@include file="footer.jsp"%>
+<%@include file="footerSticky.jsp"%>
 </body>
 </html>
