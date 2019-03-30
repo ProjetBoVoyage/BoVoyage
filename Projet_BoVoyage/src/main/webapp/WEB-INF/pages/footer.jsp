@@ -8,7 +8,8 @@
 <title>footer</title>
 </head>
 <body>
-
+<br/>
+<br/>
 	<!-- Footer -->
 	<footer class=" footer page-footer font-small indigo">
 

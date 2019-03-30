@@ -8,6 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
+
+<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
@@ -21,11 +24,12 @@
 <base href="resources\" target="_parent">
 <style type="text/css">
 	<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+	
 </style>
 
 
 </head>
-<body>
+<body class="admin">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->

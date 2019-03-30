@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Accommodation Page</title>
+<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
 <%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>

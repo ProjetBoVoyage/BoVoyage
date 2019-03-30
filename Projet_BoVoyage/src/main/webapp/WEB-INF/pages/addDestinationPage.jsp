@@ -9,9 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Destination Page</title>
+<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
-<body>
-<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
+<body class="login">
+	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitAdd" commandName="destAdd"
@@ -37,9 +38,9 @@
 			<label for="idContinent" class="col-sm-2 control-label">Continent:
 			</label>
 			<div class="col-sm-5">
-			<form:select path="continent">
-					  <form:options items="${continentList}" />
-				       </form:select>
+				<form:select path="continent">
+					<form:options items="${continentList}" />
+				</form:select>
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -57,7 +58,7 @@
 			</div>
 		</div>
 	</form:form>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
+	<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 </html>

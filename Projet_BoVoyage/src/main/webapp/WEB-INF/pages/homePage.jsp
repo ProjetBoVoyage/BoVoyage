@@ -152,8 +152,8 @@ href
 
 
 	<div style="border-color:gray; border-radius: 70px; text-align: center; ">
-	<h1 style="font-family:Amatic SC, sursive; font-size:1000%; ">Welcome to Holy-Days</h1>
-	<h3 style="font-family:Amatic SC, sursive; font-size:500%; ">High Trips for Low Prices</h3>
+	<h1 style="font-family:Amatic SC, sursive; font-size:7.5vw;">Welcome to Holy-Days</h1>
+	<h3 style="font-family:Amatic SC, sursive; font-size:5vw; ">High Trips for Low Prices</h3>
 	<br/>
 
 	

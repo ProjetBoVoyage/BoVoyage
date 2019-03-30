@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <!-- Ajouter la librairie de jstl -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +11,11 @@
 
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 
+
+
 <title>Login</title>
+
+
 </head>
 
 
@@ -20,26 +24,24 @@
 
 	<div class="loginBox">
 		<form method="post" action="connexion">
-			<img src="https://i.ibb.co/3Wdv1Hf/standby.png" class="user" >
+			<img src="https://i.ibb.co/3Wdv1Hf/standby.png" class="user">
 			<p>Mail</p>
 			<input type="text" name="j_username" placeholder="Enter Mail"
 				required /> <br>
 			<p>Password</p>
-			<input type="password" name="j_password" placeholder="*********" required />
+			<input type="password" name="j_password" placeholder="*********"
+				required /> <br> <br> <input type="submit" value="Log In">
 			<br>
-			<br> <input type="submit" value="Log In"> <br>
 		</form>
 	</div>
 
-
-
-
-
+	
+	
 
 	<c:if test="${not empty error}">
 		<h1 style="color: red; text-align: center">Authentication Failed</h1>
 	</c:if>
-	<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
+
+
 </body>
 </html>

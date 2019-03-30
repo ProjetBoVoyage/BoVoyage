@@ -7,6 +7,15 @@ body.login
 	background-repeat: repeat-y;
 	font-family: sans-serif;
 }
+body.admin
+{
+	margin: 0;
+	padding: 0;
+	background: url(https://cdn.pixabay.com/photo/2017/01/12/13/23/colorful-1974699_1280.png);
+	background-size: 100%;
+	background-repeat: repeat-y;
+	font-family: sans-serif;
+}
 .loginBox
 {
 	position: absolute;
