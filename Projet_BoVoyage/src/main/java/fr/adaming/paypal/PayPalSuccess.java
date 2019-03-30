@@ -2,13 +2,14 @@ package fr.adaming.paypal;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.itextpdf.text.pdf.codec.Base64.OutputStream;
+
 
 public class PayPalSuccess {
 
