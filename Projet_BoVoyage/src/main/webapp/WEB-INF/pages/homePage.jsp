@@ -25,10 +25,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	type="text/javascript"></script>
 
-<base href="resources\" target="_parent">
-
-
-
+<base href="" target="_parent">
 
 </head>
 <body>

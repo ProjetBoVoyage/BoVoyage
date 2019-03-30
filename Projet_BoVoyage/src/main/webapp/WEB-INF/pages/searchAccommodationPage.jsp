@@ -10,17 +10,17 @@
 <title>Search Accommodation Page</title>
 </head>
 <body>
-<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
-	<h1 style="color: red; text-align: center">Search for an
+	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
+	<h1 style="color: gray; text-align: center">Search for an
 		accommodation</h1>
 
 	<form:form class="form-horizontal" method="post" action="submitSearch"
 		commandName="accSearch">
-			<div class="form-group">
+		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-5">
-							<form:select class="col-md-3 form-control" path="idAcc">
-				<option value="1">Choose an accommodation</option>
+				<form:select class="col-md-3 form-control" path="idAcc">
+					<option value="1">Choose an accommodation</option>
 					<c:forEach items="${accommodations}" var="a">
 						<option value="${a.idAcc}">${a.name}</option>
 					</c:forEach>
@@ -40,7 +40,7 @@
 			<th>ID</th>
 			<th>Accommodation's Name</th>
 			<th>Price</th>
-				<th>Stars</th>
+			<th>Stars</th>
 			<th>Quantity</th>
 			<th>Image</th>
 		</tr>
@@ -59,6 +59,6 @@
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
 	<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 </html>

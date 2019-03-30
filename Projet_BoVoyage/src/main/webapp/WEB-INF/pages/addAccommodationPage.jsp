@@ -11,10 +11,12 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
-<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
+	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitAdd" commandName="accAdd"
-		cssClass="form-horizontal" enctype="multipart/form-data">
+		cssClass="form-horizontal" cssStyle="margin-top:100px;"
+		enctype="multipart/form-data">
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
@@ -24,23 +26,25 @@
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idPrice" class="col-sm-2 control-label">Price per night (&euro;): </label>
+			<label for="idPrice" class="col-sm-2 control-label">Price per
+				night (&euro;): </label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idPrice"
 					placeholder="Price per Night" path="price" type="number" />
 			</div>
 		</div>
-			<div class="col-sm-6 col-md-1"></div>
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idStars" class="col-sm-2 control-label">Number of stars: </label>
+			<label for="idStars" class="col-sm-2 control-label">Number of
+				stars: </label>
 			<div class="col-sm-5">
 				<form:select path="stars">
-   <option value="&#9733;">&#9733;</option>
-   <option value="&#9733;&#9733;">&#9733;&#9733;</option>
-   <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;</option>
-   <option value="&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;</option>
-      <option value="&#9733;&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-</form:select> 
+					<option value="&#9733;">&#9733;</option>
+					<option value="&#9733;&#9733;">&#9733;&#9733;</option>
+					<option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;</option>
+					<option value="&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;</option>
+					<option value="&#9733;&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+				</form:select>
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -66,7 +70,7 @@
 			</div>
 		</div>
 	</form:form>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
+	<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 </html>
