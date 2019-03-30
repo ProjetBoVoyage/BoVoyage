@@ -15,14 +15,14 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<base href="resources\" target="_parent">
+<base href="" target="_parent">
 <style type="text/css">
 	<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </style>
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse ">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -128,6 +128,6 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
+<br/><br/>
 </body>
 </html>

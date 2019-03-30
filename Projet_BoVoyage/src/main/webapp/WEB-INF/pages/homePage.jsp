@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
+<link rel="stylesheet" href ="assets/css/myStyleSheet.css"/>
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
@@ -25,20 +26,6 @@
 	type="text/javascript"></script>
 
 <base href="resources\" target="_parent">
-<style type="text/css">
-<
-link
- 
-rel
-="stylesheet"
- 
-href
-="assets/css/myStyleSheet
-.css
-"
-/
->
-</style>
 
 
 
@@ -46,7 +33,7 @@ href
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top" po>
+	<nav class="navbar navbar-inverse navbar-fixed-top" >
 		<ul class="nav nav-tabs">
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/start/welcome">Home</a></li>

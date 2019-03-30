@@ -16,21 +16,20 @@
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<base href="resources\" target="_parent">
-<style type="text/css">
-	<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
-	
-</style>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+
 
 
 </head>
-<body class="admin">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+<body class="login">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -82,11 +81,11 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/destination/viewSearch">Search</a></li>
-															<li><a
-								href="${pageContext.request.contextPath}/destination/viewSearchCont">Search by continent</a></li>
-						</ul>
-					</li>
-						<li class="dropdown"><a class="dropdown-toggle"
+							<li><a
+								href="${pageContext.request.contextPath}/destination/viewSearchCont">Search
+									by continent</a></li>
+						</ul></li>
+					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Insurance<span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -102,8 +101,7 @@
 							<li><a
 								href="${pageContext.request.contextPath}/insurance/viewSearch">Search</a></li>
 						</ul>
-						
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Flight<span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -118,8 +116,7 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/flight/viewSearch">Search</a></li>
-						</ul>
-					</li>
+						</ul></li>
 				</ul>
 				<form class="navbar-form navbar-left">
 					<div class="form-group">
@@ -138,7 +135,7 @@
 	</nav>
 
 
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
+	<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 </html>
