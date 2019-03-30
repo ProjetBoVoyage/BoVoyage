@@ -10,6 +10,7 @@
 <title>Add Insurance Page</title>
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitAdd" commandName="insuAdd"
 		cssClass="form-horizontal">

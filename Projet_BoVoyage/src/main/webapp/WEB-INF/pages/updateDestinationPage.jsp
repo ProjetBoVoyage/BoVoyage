@@ -10,6 +10,7 @@
 <title>Update Destination Page</title>
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitUpdate" commandName="destUpdate"
 		cssClass="form-horizontal" enctype="multipart/form-data">

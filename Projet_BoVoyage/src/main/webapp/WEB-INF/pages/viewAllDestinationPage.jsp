@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<h1 style="color: gray; text-align: center">Destinations' List</h1>
 
 	<table class="table table-striped">

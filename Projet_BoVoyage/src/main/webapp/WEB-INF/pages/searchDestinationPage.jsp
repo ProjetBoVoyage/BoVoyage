@@ -10,7 +10,7 @@
 <title>Search Destination Page</title>
 </head>
 <body>
-
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<h1 style="color: red; text-align: center">Search for a
 		destination</h1>
 
