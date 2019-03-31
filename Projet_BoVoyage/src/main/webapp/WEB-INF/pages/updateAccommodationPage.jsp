@@ -33,6 +33,18 @@
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
+			<label for="idId" class="col-sm-2 control-label">Destination: </label>
+			<div class="col-sm-5">
+							<form:select class="col-md-3 form-control" path="destination">
+				<option value="1">Choose a destination</option>
+					<c:forEach items="${destinations}" var="d">
+						<option value="${d.idDest}">${d.city}, ${d.country}</option>
+					</c:forEach>
+				</form:select>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
 			<label for="idPrice" class="col-sm-2 control-label">Price per night (&euro;): </label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idPrice"

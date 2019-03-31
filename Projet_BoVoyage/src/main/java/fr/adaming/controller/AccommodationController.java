@@ -21,7 +21,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
 import fr.adaming.model.Admin;
+import fr.adaming.model.Destination;
 import fr.adaming.service.IAccommodationService;
+import fr.adaming.service.IDestinationService;
 
 @Controller
 @RequestMapping("/accommodation")
@@ -32,27 +34,40 @@ public class AccommodationController {
 	@Autowired
 	private IAccommodationService accService;
 	
-	@SuppressWarnings("unused")
-	private Admin admin;
+	@Autowired
+	private IDestinationService destService;
+	
+	private int idDest;
+	
+	public int getIdDest() {
+		return idDest;
+	}
 
-	/** METHODE AJOUTER DESTINATION */
+	public void setIdDest(int idDest) {
+		this.idDest = idDest;
+	}
+
+	/** METHODE AJOUTER ACCOMMODATION */
 	// Afficher le Formulaire
 	@RequestMapping(value = "/viewAdd", method = RequestMethod.GET)
 	public String viewAdd(Model modele) {
 		// Lier la accination au modele MVC afin de l'utiliser
 		modele.addAttribute("accAdd", new Accommodation());
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
+		modele.addAttribute("idDest", new Integer(idDest));
 		return "addAccommodationPage";
 	}
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("accAdd") Accommodation acIn, RedirectAttributes ra, MultipartFile file)
+	public String submitAdd(@ModelAttribute("accAdd") Accommodation acIn, RedirectAttributes ra, MultipartFile file,Model modele)
 			throws Exception {
-
 		// Lier la photo récupérée à la accination
 		acIn.setPhoto(file.getBytes());
 
 		// Appel de la méthode service
+		acIn.setDestination(destService.getById(this.idDest));
 		int test = accService.add(acIn);
 
 		if (test != 0) {
@@ -67,6 +82,8 @@ public class AccommodationController {
 	/** METHODE MODIFIER UNE DESTINATION */
 	@RequestMapping(value = "/viewUpdate", method = RequestMethod.GET)
 	public String viewUpdate(Model modele) {
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
 		// Lier la accination au modele MVC afin de l'utiliser
 		modele.addAttribute("accUpdate", new Accommodation());
 		return "updateAccommodationPage";
@@ -74,12 +91,13 @@ public class AccommodationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitUpdate", method = RequestMethod.POST)
-	public String submitUpdate(@ModelAttribute("accUpdate") Accommodation acIn, RedirectAttributes ra, MultipartFile file)
+	public String submitUpdate(@ModelAttribute("accUpdate") Accommodation acIn,@ModelAttribute("idDest")int idDest, RedirectAttributes ra, MultipartFile file, Model modele)
 			throws Exception {
 		// Lier la photo récupérée à la accination
 		acIn.setPhoto(file.getBytes());
 
 		// Appel de la méthode service
+		acIn.setDestination(destService.getById(idDest));
 		int test = accService.update(acIn);
 		if (test != 0) {
 			return "redirect:viewAcc";
@@ -96,7 +114,8 @@ public class AccommodationController {
 		Accommodation acOut = accService.getById(id);
 
 		modele.addAttribute("accUpdate", acOut);
-
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
 		return "updateAccommodationPage";
 	}
 

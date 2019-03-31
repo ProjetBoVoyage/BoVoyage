@@ -34,6 +34,9 @@ public class Destination implements Serializable {
 	// UML To Java Association's Transformation
 	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<FormulaTrip> formulaTrips;
+	
+	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	private List<Accommodation> accomodations;
 
 	// Constructors
 	public Destination() {

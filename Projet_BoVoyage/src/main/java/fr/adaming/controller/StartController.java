@@ -23,6 +23,7 @@ public class StartController {
 	@Autowired
 	private IDestinationService destService;
 
+	/** AFFICHER HOME PAGE AVEC DESTINATIONS DEDANS*/
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String displayWelcomePage(Model modele) {
 		modele.addAttribute("listDest",destService.getAll());

@@ -8,13 +8,14 @@ public class Cart implements Serializable {
 
 	// Attibutes
 	private List<Trip> trips;
-
+	private Customer customer;
+	
 	// Constructors
 	public Cart() {
 		super();
 	}
 
-	public Cart(List<Trip> trips) {
+	public Cart(List<Trip> trips, Customer customer) {
 		super();
 		this.trips = trips;
 	}
@@ -28,4 +29,12 @@ public class Cart implements Serializable {
 		this.trips = trips;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	
 }
