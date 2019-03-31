@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IAccommodationDao;
 import fr.adaming.model.Accommodation;
+import fr.adaming.model.Destination;
 
 @Service
 @Transactional
@@ -43,6 +44,10 @@ public class AccommodationServiceImpl implements IAccommodationService{
 	@Override
 	public int delete(Accommodation accommodation) {
 		return accomDao.delete(accommodation);
+	}
+	@Override
+	public List<Accommodation> getAccByDestination(Destination destination) {
+		return accomDao.getAccByDestination(destination);
 	}
 
 }

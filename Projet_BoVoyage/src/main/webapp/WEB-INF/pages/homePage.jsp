@@ -144,12 +144,11 @@
 								<div class="card-block">
 									<h3 class="card-title">${d.city}</h3>
 									<p class="card-text">
-										Interested in travelling to ${d.city} ? <br /> Book a trip
+										Interested in traveling to ${d.city} ? <br /> Book a trip
 										Now !
 									</p>
 									<p>
-										<a class="btn btn-primary" href="#">Action</a> <a class="btn"
-											href="#">Action</a>
+										<a class="btn btn-primary" href="${pageContext.request.contextPath}/destination/searchFullDest?pDest=${d.idDest}">Learn more</a>
 									</p>
 								</div>
 							</div>

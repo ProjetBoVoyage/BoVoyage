@@ -60,7 +60,7 @@
 			</label>
 			<div class="col-sm-5">
 				<input class="form-control" type="time" id="idDepartureTime"
-					placeholder="DepartureTime" name="datetimeDepart" />
+					step="2" placeholder="DepartureTime" name="datetimeDepart" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -74,10 +74,10 @@
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idArrivalTime" class="col-sm-2 control-label">DepartureTime:
+			<label for="idArrivalTime" class="col-sm-2 control-label">ArrivalTime:
 			</label>
 			<div class="col-sm-5">
-				<input class="form-control" type="time" id="idArrivalTime"
+				<input class="form-control" type="time" id="idArrivalTime" step="2"
 					placeholder="ArrivalTime" name="datetimeArrive" />
 			</div>
 		</div>

@@ -21,9 +21,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Accommodation;
 import fr.adaming.model.Admin;
 import fr.adaming.model.Destination;
+import fr.adaming.model.Flight;
+import fr.adaming.service.IAccommodationService;
 import fr.adaming.service.IDestinationService;
+import fr.adaming.service.IFlightService;
 
 @Controller
 @RequestMapping("/destination")
@@ -33,6 +37,10 @@ public class DestinationController {
 	// Transformation de l'asso UML en JAVA
 	@Autowired
 	private IDestinationService destService;
+	@Autowired
+	private IAccommodationService accService;
+	@Autowired
+	private IFlightService fliService;
 
 	@SuppressWarnings("unused")
 	private Admin admin;
@@ -219,6 +227,19 @@ public class DestinationController {
 		} else {
 			return IOUtils.toByteArray(new ByteArrayInputStream(dOut.getPhoto()));
 		}
+	}
+	
+	/** METHODE POUR VOIR LA DESTINATION (COTE CLIENT) */
+	@RequestMapping(value = "/searchFullDest", method = RequestMethod.GET)
+	public ModelAndView searchFullDest(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
+		List<Accommodation> listAcc = accService.getAccByDestination(destService.getById(idDest));
+		modele.addAttribute("listAccDest", listAcc);
+		
+		List<Flight> listFli = fliService.getFliByDestination(destService.getById(idDest));
+		modele.addAttribute("listFliDest", listFli);
+		
+		return new ModelAndView("fullDestinationPage", "destination", destService.getById(idDest));
+
 	}
 
 

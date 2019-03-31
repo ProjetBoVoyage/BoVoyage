@@ -2,6 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import fr.adaming.model.Destination;
 import fr.adaming.model.Flight;
 
 public interface IFlightService {
@@ -15,5 +16,7 @@ public interface IFlightService {
 	public int update(final Flight flight);
 
 	public int delete(final Flight flight);
+	
+	public List<Flight> getFliByDestination(Destination destination);
 
 }

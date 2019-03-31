@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IFlightDao;
+import fr.adaming.model.Destination;
 import fr.adaming.model.Flight;
 
 @Service
@@ -44,6 +45,11 @@ public class FlightServiceImpl implements IFlightService {
 	@Override
 	public int delete(Flight flight) {
 		return flDao.delete(flight);
+	}
+
+	@Override
+	public List<Flight> getFliByDestination(Destination destination) {
+		return flDao.getFliByDestination(destination);
 	}
 
 }

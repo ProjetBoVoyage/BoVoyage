@@ -3,6 +3,7 @@ package fr.adaming.service;
 import java.util.List;
 
 import fr.adaming.model.Accommodation;
+import fr.adaming.model.Destination;
 
 public interface IAccommodationService {
 
@@ -15,4 +16,6 @@ public interface IAccommodationService {
 	   public int update(final Accommodation accommodation);
 	 
 	   public int delete(final Accommodation accommodation);
+	   
+		public List<Accommodation> getAccByDestination(Destination destination);
 }
