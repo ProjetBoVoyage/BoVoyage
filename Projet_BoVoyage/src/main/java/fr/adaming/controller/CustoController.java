@@ -18,7 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Customer;
+import fr.adaming.model.Person;
 import fr.adaming.service.ICustomerService;
+import fr.adaming.service.IPersonService;
 
 @Controller
 @RequestMapping("/custo")
@@ -29,7 +31,9 @@ public class CustoController {
 	@Autowired
 	private ICustomerService custoService;
 
-	private Customer customer;
+	private IPersonService persService;
+
+	private Person person;
 
 	@PostConstruct
 	public void init() {
@@ -37,9 +41,9 @@ public class CustoController {
 		Authentication authCxt = SecurityContextHolder.getContext().getAuthentication();
 
 		// recup mail dans ctx
-		int idCu = authCxt.hashCode();
+		String mail = authCxt.getName();
 
-		this.customer = custoService.getById(idCu);
+		this.person = persService.getPersonByMail(mail);
 	}
 
 	/** methode Add custo */
@@ -77,7 +81,7 @@ public class CustoController {
 	@RequestMapping(value = "/submitUpdateCusto", method = RequestMethod.POST)
 	public String submitUpdateCusto(@ModelAttribute("custoUpdate") Customer cuIn, RedirectAttributes ra) {
 		// Appel de la méthode service
-		int test = custoService.update(this.customer);
+		int test = custoService.update(cuIn, this.person);
 		if (test != 0) {
 			return "redirect:viewCusto";
 		} else {
@@ -89,8 +93,8 @@ public class CustoController {
 	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
 	public String modifLien(Model modele, @RequestParam("pId") int id) {
 		Customer cIn = new Customer();
-		cIn.setId(this.customer.getId());
-		Customer cOut = custoService.getById(this.customer.getId());
+		cIn.setId(id);
+		Customer cOut = custoService.getById2(id, this.person);
 
 		modele.addAttribute("custoUpdate", cOut);
 
@@ -129,13 +133,16 @@ public class CustoController {
 	}
 
 	// Soumettre le formulauire
-	@RequestMapping(value = "/submitSearchCusto", method = RequestMethod.POST)
-	public ModelAndView submitSearchCusto(@ModelAttribute("custoSearch") Customer cuIn, Model modele) {
-		List<Customer> customers = custoService.getAll();
-		modele.addAttribute("customers", customers);
-		return new ModelAndView("searchCustomerPage", "customers", custoService.getById(cuIn.getId()));
-
-	}
+	// @RequestMapping(value = "/submitSearchCusto", method =
+	// RequestMethod.POST)
+	// public ModelAndView submitSearchCusto(@ModelAttribute("custoSearch")
+	// Customer cuIn, Model modele) {
+	// List<Customer> customers = custoService.getAll();
+	// modele.addAttribute("customers", customers);
+	// return new ModelAndView("searchCustomerPage", "customers",
+	// custoService.getById(cuIn.getId()));
+	//
+	// }
 
 	/** METHODE AFFICHER TOUS CUSTOMERS */
 	// Afficher le tableau

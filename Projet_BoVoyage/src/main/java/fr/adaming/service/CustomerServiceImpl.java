@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.ICustomerDao;
 import fr.adaming.model.Customer;
+import fr.adaming.model.Person;
 
 @Service
 @Transactional
@@ -23,7 +24,12 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer getById(int id) {
-		return cusDao.getCustomerById(id);
+		return cusDao.findOne(id);
+	}
+	@Override
+	public Customer getById2(int id, Person pIn) {
+		
+		return cusDao.findOne(id);
 	}
 
 	@Override
@@ -37,7 +43,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public int update(Customer customer) {
+	public int update(Customer customer, Person pIn) {
 		return cusDao.update(customer);
 	}
 

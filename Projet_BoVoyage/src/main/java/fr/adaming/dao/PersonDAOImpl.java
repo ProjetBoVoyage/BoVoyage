@@ -13,7 +13,7 @@ public class PersonDAOImpl implements IPersonDAO {
 
 	@Autowired
 	private SessionFactory sf;
-	
+
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
@@ -23,7 +23,7 @@ public class PersonDAOImpl implements IPersonDAO {
 		// Open Session
 		Session s = sf.getCurrentSession();
 		// HQL Request
-		String req = "FROM Person AS p WHERE p.mail=:pMail";
+		String req = "FROM Person p WHERE p.mail=:pMail";
 		// Query object
 		Query query = s.createQuery(req);
 		// Parameters
