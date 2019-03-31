@@ -47,7 +47,7 @@
 			error-page="/deniedUrl" />
 		<!-- Déconnexion -->
 		<security:logout invalidate-session="true"
-			logout-success-url="/logoutUrl" />
+			logout-success-url="/start/welcome" />
 	</security:http>
 
 	<!-- ========================== -->

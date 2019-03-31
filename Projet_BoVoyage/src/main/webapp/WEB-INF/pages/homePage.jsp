@@ -72,7 +72,7 @@
 					<div class="carousel-caption d-none d-md-block">
 					
 						<h1>SANTORINI - Greece</h1>
-						<h4>Flight + hotel from 349 Eur *</h4>
+						<h4>Flight + hotel from 349&euro;</h4>
 					</div>
 
 				</div>
@@ -82,7 +82,7 @@
 						alt="Amsterdam" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>AMSTERDAM - Holland</h1>
-						<h4>Flight + hotel from 269 Eur *</h4>
+						<h4>Flight + hotel from 269&euro;</h4>
 					</div>
 				</div>
 
@@ -92,7 +92,7 @@
 						alt="Kawazy" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>KAWAZY - Japan</h1>
-						<h4>Flight + hotel from 929 Eur *</h4>
+						<h4>Flight + hotel from 929&euro;</h4>
 					</div>
 				</div>
 
@@ -102,7 +102,7 @@
 						alt="Cairo" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>CAIRO - Egypt</h1>
-						<h4>Flight + hotel from 455 Eur *</h4>
+						<h4>Flight + hotel from 455&euro;</h4>
 					</div>
 				</div>
 
@@ -112,7 +112,7 @@
 						id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>LA HAVANA - Cuba</h1>
-						<h4>Flight + hotel from 819 Eur *</h4>
+						<h4>Flight + hotel from 819&euro;</h4>
 					</div>
 				</div>
 
@@ -121,7 +121,7 @@
 						alt="Vrindavan" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>VRINDAVAN - India</h1>
-						<h4>Flight + hotel from 679 Eur *</h4>
+						<h4>Flight + hotel from 679&euro;</h4>
 					</div>
 				</div>
 			</div>
@@ -146,62 +146,25 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card img-thumbnail">
-							<img class="card-img-top img-thumbnail"
-								alt="Bootstrap Thumbnail First"
-								src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg">
-							<div class="card-block">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">Cras justo odio, dapibus ac facilisis
-									in, egestas eget quam. Donec id elit non mi porta gravida at
-									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
-									elit.</p>
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
-										href="#">Action</a>
-								</p>
+				<div class="row" >
+					<c:forEach items="${listDest}" var="d">
+						<div class="col-md-4">
+							<div class="card">
+								<img class="card-img-top" src="photoDest?idDest=${d.idDest}"
+									style="width: 300px; height: 150px" />
+								<div class="card-block">
+									<h3 class="card-title" >${d.city}</h3>
+									<p class="card-text">Interested in travelling to ${d.city} ? <br/> Book a trip Now ! </p>
+									<p>
+										<a class="btn btn-primary" href="#">Action</a> <a class="btn"
+											href="#">Action</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card img-thumbnail">
-							<img class="card-img-top img-thumbnail"
-								alt="Bootstrap Thumbnail Second"
-								src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg">
-							<div class="card-block">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">Cras justo odio, dapibus ac facilisis
-									in, egestas eget quam. Donec id elit non mi porta gravida at
-									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
-									elit.</p>
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
-										href="#">Action</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card img-thumbnail">
-							<img class="card-img-top img-thumbnail"
-								alt="Bootstrap Thumbnail Third"
-								src="https://www.layoutit.com/img/sports-q-c-600-200-1.jpg">
-							<div class="card-block">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">Cras justo odio, dapibus ac facilisis
-									in, egestas eget quam. Donec id elit non mi porta gravida at
-									eget metus. Nullam id dolor id nibh ultricies vehicula ut id
-									elit.</p>
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn"
-										href="#">Action</a>
-								</p>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
+
 			</div>
 		</div>
 	</div>
