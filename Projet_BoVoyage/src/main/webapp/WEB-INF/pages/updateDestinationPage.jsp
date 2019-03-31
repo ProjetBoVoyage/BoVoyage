@@ -49,6 +49,14 @@
 				</form:select>
 			</div>
 		</div>
+					<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idDesc" class="col-sm-2 control-label">Description: </label>
+			<div class="col-sm-5">
+								<form:textarea cssClass="form-control" id="idDesc"
+					placeholder="Description" path="description" />
+			</div>
+		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idPhoto" class="col-sm-2 control-label">Photo: </label>
