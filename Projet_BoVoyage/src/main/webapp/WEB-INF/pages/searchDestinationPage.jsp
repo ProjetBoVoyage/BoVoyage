@@ -18,7 +18,7 @@
 		commandName="destSearch">
 		
 		<div class="form-group">
-			<label for="idId" class="col-sm-2 control-label">Destination: </label>
+			<label for="idId" class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-5">
 							<form:select class="col-md-3 form-control" path="idDest">
 				<option value="1">Choose a destination</option>
