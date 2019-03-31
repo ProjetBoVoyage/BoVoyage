@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
 		<ul class="nav nav-tabs">
-			<li role="presentation"><a href="">Home</a></li>
+			<li role="presentation"><a href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
 			<li role="presentation"><a href="">Flights</a></li>
 			<li role="presentation"><a href="">Countries</a></li>
 			<li role="presentation"><a href="">Accomodations</a></li>
@@ -37,6 +37,6 @@
 
 		</ul>
 	</nav>
-
+<br>
 </body>
 </html>
