@@ -136,31 +136,14 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		
-		        <!-- All Mail Related Stuff + Much more -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>4.1.9.RELEASE</version>
-        </dependency>
-        <!-- Java Mail Dependency -->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.5.5</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.7</version>
-        </dependency>
 
-		<!-- javax.activation/activation -->
+		<!-- All Mail Related Stuff + Much more -->
 		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>4.1.9.RELEASE</version>
 		</dependency>
+
 		<!-- ===================== Librairies de Hibernate (Dao) ======================= -->
 		<!-- hibernate-core -->
 		<dependency>
@@ -235,6 +218,11 @@
 			<version>1.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.5</version>
+		</dependency>
 
 		<!-- ======== PDF iTEXT =========== -->
 
