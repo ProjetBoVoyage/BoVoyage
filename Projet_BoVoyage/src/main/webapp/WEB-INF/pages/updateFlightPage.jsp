@@ -10,9 +10,11 @@
 <title>Update Flight Page</title>
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitUpdate" commandName="fligUpdate"
-		cssClass="form-horizontal">
+		cssClass="form-horizontal" cssStyle="margin-top:100px;">
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">ID: </label>
 			<div class="col-sm-5">
@@ -20,7 +22,7 @@
 					path="idFlight" />
 			</div>
 		</div>
-
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idDepartureAirport" class="col-sm-2 control-label">DepartureAirport:
 			</label>
@@ -75,7 +77,7 @@
 					placeholder="ArrivalTime" name="datetimeArrive" />
 			</div>
 		</div>
-
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idCompany" class="col-sm-2 control-label">Company:
 			</label>
@@ -84,6 +86,7 @@
 					placeholder="Company" path="company" />
 			</div>
 		</div>
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idQuantity" class="col-sm-2 control-label">Quantity:
 			</label>
@@ -92,9 +95,6 @@
 					placeholder="Quantity" path="quantity" />
 			</div>
 		</div>
-
-
-
 
 
 		<div class="col-sm-6 col-md-1"></div>

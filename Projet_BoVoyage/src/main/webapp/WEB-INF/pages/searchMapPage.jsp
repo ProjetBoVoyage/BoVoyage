@@ -15,9 +15,9 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
-
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 <!-- Début de la map /à éviter de modifier -->
-    <div align="center">
+    <div align="center" style="margin-top: 50px;">
       <img src="https://i.ibb.co/K0HvNMS/worldmap1.png" alt="worldmap" 
       usemap="#worldmap" style="border: 0; width:50%" id="wp"/>
       <map name="worldmap">
@@ -39,6 +39,7 @@
 			<th>Country</th>
 			<th>Continent</th>
 			<th>Image</th>
+			<th>Operations</th>
 		</tr>
 			<c:forEach items="${listDestCont}" var="d">
 			<tr>
@@ -46,7 +47,12 @@
 				<td>${d.city}</td>
 				<td>${d.country}</td>
 				<td>${d.continent}</td>
-				<td><img src="photoDest?idDest=${d.idDest}" /></td>
+				<td><img src="photoDest?idDest=${d.idDest}" width="300px;" /></td>
+				<td><a class="btn btn-info"
+					href="${pageContext.request.contextPath}/destination/updateLink?pId=${d.idDest}"
+					title="Modifier">Update</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/destination/deleteLink?pId=${d.idDest}"
+					title="Supprimer">Delete</a></td>
 			</tr>
 		</c:forEach>
 
@@ -64,7 +70,5 @@
 
 	</script>
 
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 </body>
 </html>

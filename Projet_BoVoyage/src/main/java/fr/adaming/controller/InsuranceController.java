@@ -1,5 +1,7 @@
 package fr.adaming.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -113,6 +115,8 @@ public class InsuranceController {
 	/** METHODE RECHERCHER UNE DESTINATION */
 	@RequestMapping(value = "/viewSearch", method = RequestMethod.GET)
 	public String viewSearch(Model modele) {
+		List<Insurance> insurances = insuService.getAll();
+		modele.addAttribute("insurances", insurances);
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("insuSearch", new Insurance());
 		return "searchInsurancePage";
@@ -120,8 +124,9 @@ public class InsuranceController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
-	public ModelAndView submitSearch(@ModelAttribute("insuSearch") Insurance iIn) {
-
+	public ModelAndView submitSearch(@ModelAttribute("insuSearch") Insurance iIn, Model modele) {
+		List<Insurance> insurances = insuService.getAll();
+		modele.addAttribute("insurances", insurances);
 		return new ModelAndView("searchInsurancePage", "insurance", insuService.getById(iIn.getIdInsu()));
 
 	}

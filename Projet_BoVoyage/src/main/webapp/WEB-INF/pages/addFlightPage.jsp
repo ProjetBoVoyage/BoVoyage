@@ -11,9 +11,11 @@
 <title>Add Flight Page</title>
 </head>
 <body>
+<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitAdd" commandName="fligAdd"
-		cssClass="form-horizontal">
+		cssClass="form-horizontal" cssStyle="margin-top:100px;">
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idDepartureAirport" class="col-sm-2 control-label">DepartureAirport:
 			</label>
@@ -68,7 +70,7 @@
 					step="2" placeholder="ArrivalTime" name="datetimeArrive" />
 			</div>
 		</div>
-
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idCompany" class="col-sm-2 control-label">Company:
 			</label>
@@ -77,6 +79,7 @@
 					placeholder="Company" path="company" />
 			</div>
 		</div>
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idQuantity" class="col-sm-2 control-label">Quantity:
 			</label>
@@ -96,7 +99,5 @@
 			</div>
 		</div>
 	</form:form>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 </body>
 </html>

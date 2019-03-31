@@ -36,18 +36,16 @@
 				<td>${a.price}</td>
 				<td>${a.stars}</td>
 				<td>${a.quantity}</td>
-				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px;  "  /></td>
+				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px;" /></td>
 				<td><a class="btn btn-info"
 					href="${pageContext.request.contextPath}/accommodation/updateLink?pId=${a.idAcc}"
-					title="Modifier">Modifier</a> | <a class="btn btn-danger"
+					title="Modifier">Update</a> | <a class="btn btn-danger"
 					href="${pageContext.request.contextPath}/accommodation/deleteLink?pId=${a.idAcc}"
-					title="Supprimer">Supprimer</a></td>
+					title="Supprimer">Delete</a></td>
 
 			</tr>
 		</c:forEach>
 	</table>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 
 </body>
 </html>

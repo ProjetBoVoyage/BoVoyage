@@ -16,7 +16,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
-	<h1 style="color: red; text-align: center">Insurances list</h1>
+	<h1 style="color: gray; text-align: center">Insurances list</h1>
 
 	<table class="table table-striped">
 		<tr>
@@ -31,17 +31,14 @@
 				<td>${i.idInsu}</td>
 				<td>${i.name}</td>
 				<td>${i.price}</td>
-				<td><a class="btn btn-danger"
-					href="${pageContext.request.contextPath}/insurance/deleteLink?pId=${i.idInsu}"
-					title="Supprimer">Delete</a> | <a class="btn btn-danger"
+				<td><a class="btn btn-info"
 					href="${pageContext.request.contextPath}/insurance/updateLink?pId=${i.idInsu}"
-					title="Modifier">Update</a></td>
+					title="Modifier">Update</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/insurance/deleteLink?pId=${i.idInsu}"
+					title="Supprimer">Delete</a></td>
 
 			</tr>
 		</c:forEach>
-
 	</table>
-	<%@include file="footer.jsp"%>
-	<%@include file="footerSticky.jsp"%>
 </body>
 </html>

@@ -11,7 +11,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
-	<h1 style="color: red; text-align: center">Search for a
+	<h1 style="color: gray; text-align: center">Search for a
 		destination</h1>
 
 	<form:form class="form-horizontal" method="post" action="submitSearch"
@@ -44,21 +44,24 @@
 			<th>Country</th>
 			<th>Continent</th>
 			<th>Image</th>
+			<th>Operations</th>
 		</tr>
 		<tr>
 			<td>${destination.idDest}</td>
 			<td>${destination.city}</td>
 			<td>${destination.country}</td>
 			<td>${destination.continent}</td>
-			<td><img src="photoDest?idDest=${destination.idDest}" /></td>
-
+			<td><img src="photoDest?idDest=${destination.idDest}" width="300px;" /></td>
+			<td><a class="btn btn-info"
+					href="${pageContext.request.contextPath}/destination/updateLink?pId=${destination.idDest}"
+					title="Modifier">Update</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/destination/deleteLink?pId=${destination.idDest}"
+					title="Supprimer">Delete</a></td>
 		</tr>
 
 
 	</table>
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
-	<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 </body>
 </html>

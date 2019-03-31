@@ -13,7 +13,8 @@
 <%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitUpdate" commandName="insuUpdate"
-		cssClass="form-horizontal" enctype="multipart/form-data">
+		cssClass="form-horizontal" enctype="multipart/form-data" cssStyle="margin-top:100px;">
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">ID: </label>
 			<div class="col-sm-5">
@@ -21,6 +22,7 @@
 					path="idInsu" />
 			</div>
 		</div>
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
@@ -44,7 +46,5 @@
 			</div>
 		</div>
 	</form:form>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 </body>
 </html>

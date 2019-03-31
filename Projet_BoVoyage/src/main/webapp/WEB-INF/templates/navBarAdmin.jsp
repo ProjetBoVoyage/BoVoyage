@@ -41,8 +41,6 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a
-						href="${pageContext.request.contextPath}/start/admin/adminPage">Home</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Accommodations<span class="caret"></span></a>
@@ -53,8 +51,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/accommodation/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/accommodation/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/accommodation/viewSearch">Search</a></li>
@@ -69,8 +65,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/destination/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/destination/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/destination/viewSearch">Search</a></li>
@@ -88,8 +82,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/insurance/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/insurance/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/insurance/viewSearch">Search</a></li>
@@ -105,8 +97,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/flight/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/flight/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/flight/viewSearch">Search</a></li>

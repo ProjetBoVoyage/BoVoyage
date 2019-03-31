@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 </head>
 <body>
+	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<h1 style="color: gray; text-align: center">Flights' List</h1>
 
 	<table class="table table-striped">
@@ -42,20 +43,14 @@
 				<td>${f.arrivalTime}</td>
 				<td>${f.company}</td>
 				<td>${f.quantity}</td>
-				<td><a class="btn btn-danger"
-					href="${pageContext.request.contextPath}/flight/deleteLink?pId=${f.idFlight}"
-					title="Supprimer">Delete</a> | <a class="btn btn-danger"
+				<td><a class="btn btn-info"
 					href="${pageContext.request.contextPath}/flight/updateLink?pId=${f.idFlight}"
-					title="Modifier">Update</a></td>
+					title="Update">Update</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/flight/deleteLink?pId=${f.idFlight}"
+					title="Delete">Delete</a></td>
 
 			</tr>
 		</c:forEach>
-
 	</table>
-
-
-
-
-
 </body>
 </html>

@@ -43,6 +43,7 @@
 			<th>Stars</th>
 			<th>Quantity</th>
 			<th>Image</th>
+			<th>Operations</th>
 		</tr>
 		<tr>
 			<td>${accommodation.idAcc}</td>
@@ -50,7 +51,12 @@
 			<td>${accommodation.price}</td>
 			<td>${accommodation.stars}</td>
 			<td>${accommodation.quantity}</td>
-			<td><img src="photoAcc?idAcc=${accommodation.idAcc}" /></td>
+			<td><img src="photoAcc?idAcc=${accommodation.idAcc}" width="300px;"/></td>
+			<td><a class="btn btn-info"
+					href="${pageContext.request.contextPath}/accommodation/updateLink?pId=${accommodation.idAcc}"
+					title="Modifier">Update</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/accommodation/deleteLink?pId=${accommodation.idAcc}"
+					title="Supprimer">Delete</a></td>
 
 		</tr>
 
@@ -58,7 +64,5 @@
 	</table>
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
-	<%@include file="footer.jsp"%>
-	<%@include file="footerSticky.jsp"%>
 </body>
 </html>

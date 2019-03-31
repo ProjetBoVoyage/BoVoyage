@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HomePage</title>
+<title>AdminPage</title>
 
 <link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 
@@ -17,19 +17,18 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC"
+	rel="stylesheet">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+	type="text/javascript"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-
-
-
-
-
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	type="text/javascript"></script>
 
 </head>
 <body class="login">
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -48,8 +47,6 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a
-						href="${pageContext.request.contextPath}/start/admin/adminPage">Home</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Accommodations<span class="caret"></span></a>
@@ -60,8 +57,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/accommodation/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/accommodation/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/accommodation/viewSearch">Search</a></li>
@@ -76,8 +71,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/destination/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/destination/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/destination/viewSearch">Search</a></li>
@@ -95,8 +88,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/insurance/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/insurance/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/insurance/viewSearch">Search</a></li>
@@ -111,8 +102,6 @@
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/flight/viewAdd">Add</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/flight/viewUpdate">Update</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/flight/viewSearch">Search</a></li>
@@ -133,9 +122,15 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+	<div
+		style="border-color: gray; border-radius: 70px; text-align: center; margin-top: 150px;">
+		<h1 style="font-family: Amatic SC, sursive; font-size: 9vw;">Administrator
+			Page</h1>
+		<h3 style="font-family: Amatic SC, sursive; font-size: 5vw;">Manage
+			Holy-Days Website</h3>
+		<br />
+	</div>
 
 
-	<%@include file="footer.jsp"%>
-	<%@include file="footerSticky.jsp"%>
 </body>
 </html>

@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Accommodation;
 import fr.adaming.model.Flight;
 import fr.adaming.service.IFlightService;
 
@@ -153,20 +155,17 @@ public class FlightController {
 	public String viewSearch(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("fligSearch", new Flight());
+		List<Flight> flights = fligService.getAll();
+		modele.addAttribute("flights", flights);
 		return "searchFlightPage";
 	}
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitSearch", method = RequestMethod.POST)
-	public String submitSearch(@ModelAttribute("fligSearch") Flight fIn, RedirectAttributes ra) {
-		// Appel de la méthode service
-		Flight fOut = fligService.getById(fIn.getIdFlight());
-		if (fOut != null) {
-			return "redirect:viewSearch";
-		} else {
-			ra.addFlashAttribute("msg", "Searching Flight Failed");
-			return "redirect:viewSearch";
-		}
+	public ModelAndView submitSearch(@ModelAttribute("fligSearch") Flight fIn, RedirectAttributes ra, Model modele) {
+		List<Flight> flights = fligService.getAll();
+		modele.addAttribute("flights", flights);
+		return new ModelAndView("searchFlightPage","flight",fligService.getById(fIn.getIdFlight()));
 	}
 
 	/** METHODE AFFICHER TOUS Flight */

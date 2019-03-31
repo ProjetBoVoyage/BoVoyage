@@ -13,7 +13,8 @@
 <%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitAdd" commandName="insuAdd"
-		cssClass="form-horizontal">
+		cssClass="form-horizontal" cssStyle="margin-top:100px;">
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
@@ -36,7 +37,5 @@
 			</div>
 		</div>
 	</form:form>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 </body>
 </html>

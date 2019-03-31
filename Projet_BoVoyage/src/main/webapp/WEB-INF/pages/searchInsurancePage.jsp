@@ -11,16 +11,20 @@
 </head>
 <body>
 <%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
-	<h1 style="color: red; text-align: center">Search for a
-		destination</h1>
+	<h1 style="color: gray; text-align: center">Search for an
+		insurance</h1>
 
 	<form:form class="form-horizontal" method="post" action="submitSearch"
 		commandName="insuSearch">
 		<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-5">
-				<form:input class="form-control" id="idId" placeholder="Id"
-					name="pId" path="idInsu" />
+				<form:select class="col-md-3 form-control" path="idInsu">
+				<option value="1">Choose an Insurance</option>
+					<c:forEach items="${insurances}" var="i">
+						<option value="${i.idInsu}">${i.idInsu}, ${i.name}</option>
+					</c:forEach>
+				</form:select>
 			</div>
 		</div>
 
@@ -36,16 +40,20 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Price</th>
+			<th>Operations</th>
 		</tr>
 		<tr>
 			<td>${insurance.idInsu}</td>
 			<td>${insurance.name}</td>
 			<td>${insurance.price}</td>
+			<td><a class="btn btn-info"
+					href="${pageContext.request.contextPath}/insurance/updateLink?pId=${insurance.idInsu}"
+					title="Modifier">Update</a> | <a class="btn btn-danger"
+					href="${pageContext.request.contextPath}/insurance/deleteLink?pId=${insurance.idInsu}"
+					title="Supprimer">Delete</a></td>
 		</tr>
 	</table>
 
 	<h1 style="color: red; text-align: center">${msg}</h1>
-	<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
 </body>
 </html>
