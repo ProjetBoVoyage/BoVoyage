@@ -21,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
+import fr.adaming.model.Destination;
 import fr.adaming.model.Flight;
+import fr.adaming.service.IDestinationService;
 import fr.adaming.service.IFlightService;
 
 @Controller
@@ -31,6 +33,9 @@ public class FlightController {
 	// tranformation UML en JAVA
 	@Autowired
 	private IFlightService fligService;
+
+	@Autowired
+	private IDestinationService destService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -48,6 +53,8 @@ public class FlightController {
 	public String viewAdd(Model modele) {
 		// link Insurance to model MVC
 		modele.addAttribute("fligAdd", new Flight());
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
 		return "addFlightPage";
 	}
 
@@ -87,6 +94,8 @@ public class FlightController {
 	public String viewUpdate(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("fligUpdate", new Flight());
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
 		return "updateFlightPage";
 	}
 
@@ -110,6 +119,10 @@ public class FlightController {
 
 	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
 	public String modifLien(Model modele, @RequestParam("pId") int id) {
+
+		List<Destination> destinations = destService.getAll();
+		modele.addAttribute("destinations", destinations);
+
 		Flight fIn = new Flight();
 		fIn.setIdFlight(id);
 
@@ -165,7 +178,7 @@ public class FlightController {
 	public ModelAndView submitSearch(@ModelAttribute("fligSearch") Flight fIn, RedirectAttributes ra, Model modele) {
 		List<Flight> flights = fligService.getAll();
 		modele.addAttribute("flights", flights);
-		return new ModelAndView("searchFlightPage","flight",fligService.getById(fIn.getIdFlight()));
+		return new ModelAndView("searchFlightPage", "flight", fligService.getById(fIn.getIdFlight()));
 	}
 
 	/** METHODE AFFICHER TOUS Flight */

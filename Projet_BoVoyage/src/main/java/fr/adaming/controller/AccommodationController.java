@@ -36,16 +36,6 @@ public class AccommodationController {
 	@Autowired
 	private IDestinationService destService;
 	
-	private int idDest;
-	
-	public int getIdDest() {
-		return idDest;
-	}
-
-	public void setIdDest(int idDest) {
-		this.idDest = idDest;
-	}
-
 	/** METHODE AJOUTER ACCOMMODATION */
 	// Afficher le Formulaire
 	@RequestMapping(value = "/viewAdd", method = RequestMethod.GET)

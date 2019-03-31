@@ -22,7 +22,7 @@
 							<form:select class="col-md-3 form-control" path="idFlight">
 				<option value="1">Choose a flight</option>
 					<c:forEach items="${flights}" var="f">
-						<option value="${f.idFlight}">${f.departureAirport}, ${f.arrivalAirport}</option>
+						<option value="${f.idFlight}">${f.departureAirport}, ${f.destination.city}</option>
 					</c:forEach>
 				</form:select>
 			</div>
@@ -39,12 +39,12 @@
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>DepartureAirport</th>
-			<th>DepartureDate</th>
-			<th>DepartureTime</th>
-			<th>ArrivalAirport</th>
-			<th>ArrivalDate</th>
-			<th>ArrivalTime</th>
+			<th>Departure Airport</th>
+			<th>Departure Date</th>
+			<th>Departure Time</th>
+			<th>Arrival Airport</th>
+			<th>Arrival Date</th>
+			<th>Arrival Time</th>
 			<th>Company</th>
 			<th>Quantity</th>
 			<th>Operations</th>
@@ -55,7 +55,7 @@
 			<td>${flight.departureAirport}</td>
 			<td>${flight.departureDate}</td>
 			<td>${flight.departureTime}</td>
-			<td>${flight.arrivalAirport}</td>
+			<td>${flight.destination.city}</td>
 			<td>${flight.arrivalDate}</td>
 			<td>${flight.arrivalTime}</td>
 			<td>${flight.company}</td>

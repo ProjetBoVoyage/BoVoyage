@@ -11,26 +11,30 @@
 <title>Add Flight Page</title>
 </head>
 <body>
-<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
+	<%@include file="/WEB-INF/templates/navBarAdmin.jsp"%>
 	<!-- Début formulaire -->
 	<form:form method="POST" action="submitAdd" commandName="fligAdd"
 		cssClass="form-horizontal" cssStyle="margin-top:100px;">
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idDepartureAirport" class="col-sm-2 control-label">DepartureAirport:
+			<label for="idDepartureAirport" class="col-sm-2 control-label">Departure Airport:
 			</label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idDepartureAirport"
-					placeholder="DepartureAirport" path="departureAirport" />
+					placeholder="Departure Airport" path="departureAirport" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idArrivalAirport" class="col-sm-2 control-label">ArrivalAirport:
+			<label for="idId" class="col-sm-2 control-label">Destination:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idArrivalAirport"
-					placeholder="ArrivalAirport" path="arrivalAirport" />
+				<form:select class="col-md-3 form-control" path="destination.idDest">
+					<option value="1">Choose a destination</option>
+					<c:forEach items="${destinations}" var="d">
+						<option value="${d.idDest}">${d.city},${d.country}</option>
+					</c:forEach>
+				</form:select>
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -66,8 +70,8 @@
 			<label for="idArrivalTime" class="col-sm-2 control-label">DepartureTime:
 			</label>
 			<div class="col-sm-5">
-				<input class="form-control" type="time" id="idArrivalTime"
-					step="2" placeholder="ArrivalTime" name="datetimeArrive" />
+				<input class="form-control" type="time" id="idArrivalTime" step="2"
+					placeholder="ArrivalTime" name="datetimeArrive" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>

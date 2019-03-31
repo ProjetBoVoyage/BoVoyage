@@ -34,7 +34,7 @@
 			<tr>
 				<td>${a.idAcc}</td>
 				<td>${a.name}</td>
-				<td>${a.destination.city}</td>
+				<td>${a.destination.city}, ${a.destination.country}</td>
 				<td>${a.price}</td>
 				<td>${a.stars}</td>
 				<td>${a.quantity}</td>

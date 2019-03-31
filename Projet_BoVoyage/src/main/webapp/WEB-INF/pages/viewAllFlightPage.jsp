@@ -21,12 +21,12 @@
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>DepartureAirport</th>
-			<th>DepartureDate</th>
-			<th>DepartureTime</th>
-			<th>ArrivalAirport</th>
-			<th>ArrivalDate</th>
-			<th>ArrivalTime</th>
+			<th>Departure Airport</th>
+			<th>Departure Date</th>
+			<th>Departure Time</th>
+			<th>Arrival Airport</th>
+			<th>Arrival Date</th>
+			<th>Arrival Time</th>
 			<th>Company</th>
 			<th>Quantity</th>
 			<th>Operations</th>
@@ -38,7 +38,7 @@
 				<td>${f.departureAirport}</td>
 				<td>${f.departureDate}</td>
 				<td>${f.departureTime}</td>
-				<td>${f.arrivalAirport}</td>
+				<td>${f.destination.city}, ${f.destination.country}</td>
 				<td>${f.arrivalDate}</td>
 				<td>${f.arrivalTime}</td>
 				<td>${f.company}</td>

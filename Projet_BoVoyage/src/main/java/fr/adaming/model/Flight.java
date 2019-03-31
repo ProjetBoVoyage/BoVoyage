@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,7 +26,6 @@ public class Flight implements Serializable {
 	@Column(name = "id_flight")
 	private int idFlight;
 	private String departureAirport;
-	private String arrivalAirport;
 	
 	@Temporal(value = TemporalType.DATE)
 	private Date departureDate;
@@ -43,37 +44,43 @@ public class Flight implements Serializable {
 	// UML to Java Association's Transformation
 	@OneToMany(mappedBy = "flight", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<FormulaTrip> formulaTrips;
+	
+	@ManyToOne
+	@JoinColumn(name = "dest_id", referencedColumnName = "id_dest")
+	private Destination destination;
 
 	// Constructors
 	public Flight() {
 		super();
 	}
 
-	public Flight(String departureAirport, String arrivalAirport, Date departureDate, Date arrivalDate,
-			Date departureTime, Date arrivalTime, String company, int quantity) {
+	public Flight(String departureAirport, Date departureDate, Date arrivalDate, Date departureTime, Date arrivalTime,
+			String company, int quantity, List<FormulaTrip> formulaTrips, Destination destination) {
 		super();
 		this.departureAirport = departureAirport;
-		this.arrivalAirport = arrivalAirport;
 		this.departureDate = departureDate;
 		this.arrivalDate = arrivalDate;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
 		this.company = company;
 		this.quantity = quantity;
+		this.formulaTrips = formulaTrips;
+		this.destination = destination;
 	}
-
-	public Flight(int idFlight, String departureAirport, String arrivalAirport, Date departureDate, Date arrivalDate,
-			Date departureTime, Date arrivalTime, String company, int quantity) {
+	
+	public Flight(int idFlight, String departureAirport, Date departureDate, Date arrivalDate, Date departureTime,
+			Date arrivalTime, String company, int quantity, List<FormulaTrip> formulaTrips, Destination destination) {
 		super();
 		this.idFlight = idFlight;
 		this.departureAirport = departureAirport;
-		this.arrivalAirport = arrivalAirport;
 		this.departureDate = departureDate;
 		this.arrivalDate = arrivalDate;
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
 		this.company = company;
 		this.quantity = quantity;
+		this.formulaTrips = formulaTrips;
+		this.destination = destination;
 	}
 
 	// Getters & Setters
@@ -93,13 +100,6 @@ public class Flight implements Serializable {
 		this.departureAirport = departureAirport;
 	}
 
-	public String getArrivalAirport() {
-		return arrivalAirport;
-	}
-
-	public void setArrivalAirport(String arrivalAirport) {
-		this.arrivalAirport = arrivalAirport;
-	}
 
 	public Date getDepartureDate() {
 		return departureDate;
@@ -147,6 +147,22 @@ public class Flight implements Serializable {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public List<FormulaTrip> getFormulaTrips() {
+		return formulaTrips;
+	}
+
+	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
+		this.formulaTrips = formulaTrips;
+	}
+
+	public Destination getDestination() {
+		return destination;
+	}
+
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 }

@@ -34,16 +34,17 @@ public class Destination implements Serializable {
 	// UML To Java Association's Transformation
 	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<FormulaTrip> formulaTrips;
-	
+
 	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<Accommodation> accomodations;
+
+	@OneToMany(mappedBy = "destination", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	private List<Flight> flights;
 
 	// Constructors
 	public Destination() {
 		super();
 	}
-
-
 
 	public Destination(String continent, String country, String city, String description, Boolean available,
 			byte[] photo) {
@@ -56,8 +57,6 @@ public class Destination implements Serializable {
 		this.photo = photo;
 	}
 
-
-
 	public Destination(int idDest, String continent, String country, String city, String description, Boolean available,
 			byte[] photo) {
 		super();
@@ -69,8 +68,6 @@ public class Destination implements Serializable {
 		this.available = available;
 		this.photo = photo;
 	}
-
-
 
 	// Getters & Setters
 	public int getIdDest() {
@@ -128,19 +125,30 @@ public class Destination implements Serializable {
 	public void setFormulaTrips(List<FormulaTrip> formulaTrips) {
 		this.formulaTrips = formulaTrips;
 	}
-	
 
 	public String getDescription() {
 		return description;
 	}
 
-
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	public List<Accommodation> getAccomodations() {
+		return accomodations;
+	}
 
+	public void setAccomodations(List<Accommodation> accomodations) {
+		this.accomodations = accomodations;
+	}
+
+	public List<Flight> getFlights() {
+		return flights;
+	}
+
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
+	}
 
 	@Override
 	public String toString() {
