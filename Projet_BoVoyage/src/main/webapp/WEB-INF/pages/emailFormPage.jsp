@@ -18,7 +18,7 @@
     <body>
       
             <h2>Spring MVC Email Example</h2>
-            <form id="sendEmailForm" method="post" action="sendEmail" enctype="multipart/form-data">
+            <form id="sendEmailForm" method="post" action="sendMail" enctype="multipart/form-data">
                 <table id="emailFormBeanTable" border="0" width="80%">
                     <tr>
                         <td>Email To: </td>
@@ -33,10 +33,7 @@
                         <td><textarea id="mailMessage" cols="50" rows="10" name="message"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Attachment: </td>
-                        <td><input id="mailAttachment" type="file" name="attachFileObj" size="60" /></td>
-                    </tr>
-                    <tr>
+                    
                         <td colspan="2" align="center"><input id="sendEmailBtn" type="submit" value="Send Email" /></td>
                     </tr>
                 </table>
