@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.SendMailSSL;
  
@@ -22,7 +23,7 @@ public class EmailController {
 //    private JavaMailSender mailSenderObj;
  
     @RequestMapping(value = "/emailForm", method = RequestMethod.GET)
-    public ModelAndView showEmailForm(ModelMap model) {
+    public ModelAndView viewEmailForm(ModelMap model) {
         modelViewObj = new ModelAndView("emailFormPage");
         return  modelViewObj;       
     }
@@ -71,7 +72,7 @@ public class EmailController {
     
     // Méthode pour que le CLIENT envoie un mail à l'agence
     @RequestMapping(value = "/sendMail", method = RequestMethod.POST)
-    public ModelAndView sendMail(HttpServletRequest request) {
+    public String sendMail(HttpServletRequest request, RedirectAttributes ra) {
  
         // Récupérer les paramètres de la requête    
         emailSubject = request.getParameter("subject");
@@ -93,12 +94,19 @@ public class EmailController {
 		SendMailSSL sm = new SendMailSSL();
 		try {
 			// Vérif va servir à savoir si le mail est envoyé vu que la fonction sendmail retourne un int
-			sm.sendMail("projet.bovoyage@gmail.com", emailSubject, message);
+			int verif=sm.sendMail("projet.bovoyage@gmail.com", emailSubject, message);
+			
+			if(verif!=0){
+				return "redirect:viewEmailForm";
+			}else{
+				ra.addFlashAttribute("msg", "Impossible to send a message");
+				return "redirect:viewEmailForm";
+			}
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
 		return null;
-	}
+    }
 }
