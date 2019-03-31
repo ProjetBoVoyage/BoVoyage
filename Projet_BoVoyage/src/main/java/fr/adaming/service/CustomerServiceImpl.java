@@ -12,9 +12,9 @@ import fr.adaming.model.Customer;
 @Service
 @Transactional
 public class CustomerServiceImpl implements ICustomerService {
-	
+
 	ICustomerDao cusDao;
-	
+
 	@Autowired
 	public void setDao(ICustomerDao daoToSet) {
 		cusDao = daoToSet;
@@ -23,7 +23,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer getById(int id) {
-		return cusDao.findOne(id);
+		return cusDao.getCustomerById(id);
 	}
 
 	@Override

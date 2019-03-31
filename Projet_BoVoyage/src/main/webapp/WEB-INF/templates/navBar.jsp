@@ -15,7 +15,9 @@
 				<li role="presentation"><a href="">Flights</a></li>
 				<li role="presentation"><a href="">Countries</a></li>
 				<li role="presentation"><a href="">Accommodations</a></li>
-				<li role="presentation"><a href="">Contact Us</a></li>
+				<li role="presentation"><a
+					href="${pageContext.request.contextPath}/contactus/emailForm">Contact
+						Us</a></li>
 
 				<li class="dropdown nav navbar-nav navbar-right"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" role="button"

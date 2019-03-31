@@ -29,7 +29,7 @@
 			<li role="presentation" class="active"><a
 				href="${pageContext.request.contextPath}/start/custo/customerPage">Account</a></li>
 			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/start/custo/customerPersonalInfoPage">Personal
+				href="${pageContext.request.contextPath}/custo/updateLink">Personal
 					Infos</a></li>
 			<li role="presentation"><a href="#">Trips</a></li>
 			<li role="presentation"><a href="#">Payments</a></li>

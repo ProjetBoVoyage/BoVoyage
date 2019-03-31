@@ -2,28 +2,45 @@ package fr.adaming.controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Customer;
-import fr.adaming.model.Insurance;
 import fr.adaming.service.ICustomerService;
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/custo")
 @Scope("session")
 public class CustoController {
 
 	// tranformation UML en JAVA
 	@Autowired
 	private ICustomerService custoService;
+
+	private Customer customer;
+
+	@PostConstruct
+	public void init() {
+
+		Authentication authCxt = SecurityContextHolder.getContext().getAuthentication();
+
+		// recup mail dans ctx
+		int idCu = authCxt.hashCode();
+
+		this.customer = custoService.getById(idCu);
+	}
 
 	/** methode Add custo */
 	// Affiche formulaire
@@ -57,10 +74,10 @@ public class CustoController {
 	}
 
 	// Soumettre le formulauire
-	@RequestMapping(value = "/submitUpdatCustoe", method = RequestMethod.POST)
-	public String submitUpdateCusto(@ModelAttribute("CustoUpdate") Customer cuIn, RedirectAttributes ra) {
+	@RequestMapping(value = "/submitUpdateCusto", method = RequestMethod.POST)
+	public String submitUpdateCusto(@ModelAttribute("custoUpdate") Customer cuIn, RedirectAttributes ra) {
 		// Appel de la méthode service
-		int test = custoService.update(cuIn);
+		int test = custoService.update(this.customer);
 		if (test != 0) {
 			return "redirect:viewCusto";
 		} else {
@@ -68,7 +85,18 @@ public class CustoController {
 			return "redirect:viewUpdateCusto";
 		}
 	}
-	
+
+	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
+	public String modifLien(Model modele, @RequestParam("pId") int id) {
+		Customer cIn = new Customer();
+		cIn.setId(this.customer.getId());
+		Customer cOut = custoService.getById(this.customer.getId());
+
+		modele.addAttribute("custoUpdate", cOut);
+
+		return "customerPersonalInfoPage";
+	}
+
 	/** METHODE SUPPRIMER UN CUSTOMER */
 	@RequestMapping(value = "/viewDeleteCusto", method = RequestMethod.GET)
 	public String viewDeleteCusto(Model modele) {
@@ -89,7 +117,7 @@ public class CustoController {
 			return "redirect:viewDeleteCusto";
 		}
 	}
-	
+
 	/** METHODE RECHERCHER UN CUSTOMER */
 	@RequestMapping(value = "/viewSearchCusto", method = RequestMethod.GET)
 	public String viewSearchCusto(Model modele) {
@@ -108,7 +136,7 @@ public class CustoController {
 		return new ModelAndView("searchCustomerPage", "customers", custoService.getById(cuIn.getId()));
 
 	}
-	
+
 	/** METHODE AFFICHER TOUS CUSTOMERS */
 	// Afficher le tableau
 	@RequestMapping(value = "/viewCusto", method = RequestMethod.GET)
