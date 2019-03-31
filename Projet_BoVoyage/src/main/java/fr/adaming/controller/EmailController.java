@@ -18,6 +18,8 @@ public class EmailController {
     static String message, emailToRecipient, emailSubject, emailMessage, custoName, custoMail, custoTel;
  
     static ModelAndView modelViewObj;
+    
+    int verif;
  
 //    @Autowired
 //    private JavaMailSender mailSenderObj;
@@ -94,19 +96,17 @@ public class EmailController {
 		SendMailSSL sm = new SendMailSSL();
 		try {
 			// Vérif va servir à savoir si le mail est envoyé vu que la fonction sendmail retourne un int
-			int verif=sm.sendMail("projet.bovoyage@gmail.com", emailSubject, message);
-			
-			if(verif!=0){
-				return "redirect:viewEmailForm";
-			}else{
-				ra.addFlashAttribute("msg", "Impossible to send a message");
-				return "redirect:viewEmailForm";
-			}
+			verif=sm.sendMail("projet.bovoyage@gmail.com", emailSubject, message);
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-		return null;
+		if(verif!=0){
+			return "successEmailPage";
+		}else{
+			ra.addFlashAttribute("msg", "Impossible to send a message");
+			return "failEmailPage";
+		}
     }
 }
