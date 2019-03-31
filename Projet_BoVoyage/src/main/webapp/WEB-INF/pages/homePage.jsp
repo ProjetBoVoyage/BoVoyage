@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
-<link rel="stylesheet" href ="assets/css/myStyleSheet.css"/>
+<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
@@ -16,7 +16,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC"
+	rel="stylesheet">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -30,24 +31,10 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top" >
-		<ul class="nav nav-tabs">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/start/custo/customerPage">My
-					Account</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/start/admin/adminPage">Admin
-					Page</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/start/couns/counsellorPage">Counsellor
-					Page</a></li>
+	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 
-		</ul>
-	</nav>
-
-<br/><br/>
+	<br />
+	<br />
 	<section>
 		<!-- Carousel code 1-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -70,7 +57,7 @@
 						alt="Santorino" id="img">
 
 					<div class="carousel-caption d-none d-md-block">
-					
+
 						<h1>SANTORINI - Greece</h1>
 						<h4>Flight + hotel from 349&euro;</h4>
 					</div>
@@ -108,8 +95,7 @@
 
 				<div class="item">
 					<img class="img-responsive center-block"
-						src="https://i.ibb.co/PCvCg0Y/photo.jpg" alt="Havana"
-						id="img">
+						src="https://i.ibb.co/PCvCg0Y/photo.jpg" alt="Havana" id="img">
 					<div class="carousel-caption d-none d-md-block">
 						<h1>LA HAVANA - Cuba</h1>
 						<h4>Flight + hotel from 819&euro;</h4>
@@ -135,26 +121,32 @@
 	</section>
 
 
-	<div style="border-color:gray; border-radius: 70px; text-align: center; ">
-	<h1 style="font-family:Amatic SC, sursive; font-size:7.5vw;">Welcome to Holy-Days</h1>
-	<h3 style="font-family:Amatic SC, sursive; font-size:5vw; ">High Trips for Low Prices</h3>
-	<br/>
+	<div
+		style="border-color: gray; border-radius: 70px; text-align: center;">
+		<h1 style="font-family: Amatic SC, sursive; font-size: 7.5vw;">Welcome
+			to Holy-Days</h1>
+		<h3 style="font-family: Amatic SC, sursive; font-size: 5vw;">High
+			Trips for Low Prices</h3>
+		<br />
 
-	
+
 	</div>
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row" >
+				<div class="row">
 					<c:forEach items="${listDest}" var="d">
 						<div class="col-md-4">
 							<div class="card">
 								<img class="card-img-top" src="photoDest?idDest=${d.idDest}"
 									style="width: 300px; height: 150px" />
 								<div class="card-block">
-									<h3 class="card-title" >${d.city}</h3>
-									<p class="card-text">Interested in travelling to ${d.city} ? <br/> Book a trip Now ! </p>
+									<h3 class="card-title">${d.city}</h3>
+									<p class="card-text">
+										Interested in travelling to ${d.city} ? <br /> Book a trip
+										Now !
+									</p>
 									<p>
 										<a class="btn btn-primary" href="#">Action</a> <a class="btn"
 											href="#">Action</a>
@@ -168,8 +160,8 @@
 			</div>
 		</div>
 	</div>
-<%@include file="footer.jsp"%>
-<%@include file="footerSticky.jsp"%>
+	<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 
 
