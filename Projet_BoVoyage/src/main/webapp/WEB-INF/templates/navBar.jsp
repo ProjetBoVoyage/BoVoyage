@@ -37,6 +37,6 @@
 
 		</ul>
 	</nav>
-<br>
+<br/>
 </body>
 </html>
