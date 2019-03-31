@@ -20,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
-import fr.adaming.model.Admin;
 import fr.adaming.model.Destination;
 import fr.adaming.service.IAccommodationService;
 import fr.adaming.service.IDestinationService;
@@ -55,7 +54,6 @@ public class AccommodationController {
 		modele.addAttribute("accAdd", new Accommodation());
 		List<Destination> destinations = destService.getAll();
 		modele.addAttribute("destinations", destinations);
-		modele.addAttribute("idDest", new Integer(idDest));
 		return "addAccommodationPage";
 	}
 
@@ -65,9 +63,7 @@ public class AccommodationController {
 			throws Exception {
 		// Lier la photo récupérée à la accination
 		acIn.setPhoto(file.getBytes());
-
 		// Appel de la méthode service
-		acIn.setDestination(destService.getById(this.idDest));
 		int test = accService.add(acIn);
 
 		if (test != 0) {
@@ -91,13 +87,12 @@ public class AccommodationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitUpdate", method = RequestMethod.POST)
-	public String submitUpdate(@ModelAttribute("accUpdate") Accommodation acIn,@ModelAttribute("idDest")int idDest, RedirectAttributes ra, MultipartFile file, Model modele)
+	public String submitUpdate(@ModelAttribute("accUpdate") Accommodation acIn, RedirectAttributes ra, MultipartFile file, Model modele)
 			throws Exception {
 		// Lier la photo récupérée à la accination
 		acIn.setPhoto(file.getBytes());
 
 		// Appel de la méthode service
-		acIn.setDestination(destService.getById(idDest));
 		int test = accService.update(acIn);
 		if (test != 0) {
 			return "redirect:viewAcc";

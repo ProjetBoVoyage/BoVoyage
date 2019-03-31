@@ -32,9 +32,6 @@ public class Accommodation implements Serializable {
 	private byte[] photo;
 	private int quantity;
 	
-	@Transient
-	private int idDest;
-
 	// UML To Java Association's Transformation
 	@OneToMany(mappedBy = "accomodation", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
 	private List<FormulaTrip> formulaTrips;
@@ -49,7 +46,7 @@ public class Accommodation implements Serializable {
 	}
 
 	public Accommodation(String name, double price, String stars, byte[] photo, int quantity,
-			List<FormulaTrip> formulaTrips) {
+			List<FormulaTrip> formulaTrips, Destination destination) {
 		super();
 		this.name = name;
 		this.price = price;
@@ -57,10 +54,11 @@ public class Accommodation implements Serializable {
 		this.photo = photo;
 		this.quantity = quantity;
 		this.formulaTrips = formulaTrips;
+		this.destination = destination;
 	}
 
 	public Accommodation(int idAcc, String name, double price, String stars, byte[] photo, int quantity,
-			List<FormulaTrip> formulaTrips) {
+			List<FormulaTrip> formulaTrips, Destination destination) {
 		super();
 		this.idAcc = idAcc;
 		this.name = name;
@@ -69,6 +67,7 @@ public class Accommodation implements Serializable {
 		this.photo = photo;
 		this.quantity = quantity;
 		this.formulaTrips = formulaTrips;
+		this.destination = destination;
 	}
 
 
