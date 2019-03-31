@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.adaming.model.SendMailSSL;
  
 @Controller
-@RequestMapping("/email")
+@RequestMapping("/contactus")
 public class EmailController {
  
     static String message, emailToRecipient, emailSubject, emailMessage, custoName, custoMail, custoTel;

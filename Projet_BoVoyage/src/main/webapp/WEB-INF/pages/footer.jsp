@@ -43,13 +43,13 @@
 				<!-- Grid column -->
 				<div class="col-md-2 mb-3">
 					<h6 class="text-uppercase font-weight-bold">
-						<a href="#!">Contact</a>
+						<a href="${pageContext.request.contextPath}/contactus/emailForm">Contact</a>
 					</h6>
 				</div>
 				<!-- Grid column -->
 				<div class="col-md-2 mb-3">
 					<h6 class="text-uppercase font-weight-bold">
-						<a href="#!">About Us</a>
+						<a href="${pageContext.request.contextPath}/aboutus/about">About Us</a>
 					</h6>
 				</div>
 				<!-- Grid column -->
