@@ -103,7 +103,7 @@ public class EmailController {
 			e.printStackTrace();
 		}
 		if(verif!=0){
-			return "successEmailPage";
+			return "homePage";
 		}else{
 			ra.addFlashAttribute("msg", "Impossible to send a message");
 			return "failEmailPage";

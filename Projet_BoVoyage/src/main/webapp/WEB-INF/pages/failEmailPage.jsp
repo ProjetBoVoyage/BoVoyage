@@ -19,7 +19,7 @@
  
     <body>
         <center>
-            <h2>Spring MVC Email Example</h2>
+            <h2>Fail</h2>
         </center>
         <br /> <br />
         <div id="errorMessage">

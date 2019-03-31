@@ -104,7 +104,7 @@ height:200px;
       <div class="caption">
         <h3>Find a flight</h3>
         <p>Find a flight to this destination at the best price with the best airlines! </p>
-        <p><a href="#" class="btn btn-primary" role="button">Book a flight</a></p>
+        <p><a href="${pageContext.request.contextPath}/formula/viewFlight?pDest=${destination.idDest}" class="btn btn-primary" role="button">Book a flight</a></p>
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@ height:200px;
       <div class="caption">
         <h3>Find a hotel</h3>
         <p>Find an accommodation at this destination at the best price and with the best reviews! </p>
-        <p><a href="#" class="btn btn-primary" role="button">Book a hotel</a></p>
+        <p><a href="${pageContext.request.contextPath}/formula/viewHotel?pDest=${destination.idDest}" class="btn btn-primary" role="button">Book a hotel</a></p>
       </div>
     </div>
   </div>
@@ -148,58 +148,7 @@ height:200px;
   </div>
 </div>
 
-	<table class="table table-striped">
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Destination</th>
-			<th>Price</th>
-			<th>Stars</th>
-			<th>Available</th>
-		</tr>
-
-		<c:forEach items="${listAccDest}" var="a">
-			<tr>
-				<td>${a.idAcc}</td>
-				<td>${a.name}</td>
-				<td>${a.destination.city}, ${a.destination.country}</td>
-				<td>${a.price}</td>
-				<td>${a.stars}</td>
-				<td>${a.quantity}</td>
-			</tr>
-		</c:forEach>
-	</table>
 	
-		<table class="table table-striped">
-		<tr>
-			<th>ID</th>
-			<th>Departure Airport</th>
-			<th>Departure Date</th>
-			<th>Departure Time</th>
-			<th>Arrival Airport</th>
-			<th>Arrival Date</th>
-			<th>Arrival Time</th>
-			<th>Company</th>
-			<th>Quantity</th>
-		</tr>
-
-		<c:forEach items="${listFliDest}" var="f">
-			<tr>
-				<td>${f.idFlight}</td>
-				<td>${f.departureAirport}</td>
-				<td>${f.departureDate}</td>
-				<td>${f.departureTime}</td>
-				<td>${f.destination.city}, ${f.destination.country}</td>
-				<td>${f.arrivalDate}</td>
-				<td>${f.arrivalTime}</td>
-				<td>${f.company}</td>
-				<td>${f.quantity}</td>
-
-			</tr>
-		</c:forEach>
-	</table>
-	
-
 </div>
 </body>
 </html>

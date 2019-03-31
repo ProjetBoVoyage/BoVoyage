@@ -13,7 +13,7 @@
 				<li role="presentation"><a
 					href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
 				<li role="presentation"><a href="">Flights</a></li>
-				<li role="presentation"><a href="">Countries</a></li>
+				<li role="presentation"><a href="${pageContext.request.contextPath}/destination/viewSearchCont">Destinations</a></li>
 				<li role="presentation"><a href="">Accommodations</a></li>
 				<li role="presentation"><a
 					href="${pageContext.request.contextPath}/contactus/emailForm">Contact
