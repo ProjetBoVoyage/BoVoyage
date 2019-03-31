@@ -14,7 +14,7 @@ import fr.adaming.model.SendMailSSL;
 @RequestMapping("/email")
 public class EmailController {
  
-    static String emailToRecipient, emailSubject, emailMessage;
+    static String message, emailToRecipient, emailSubject, emailMessage, custoName, custoMail, custoTel;
  
     static ModelAndView modelViewObj;
  
@@ -69,17 +69,23 @@ public class EmailController {
 //    
     
     
-    // This Method Is Used To Prepare The Email Message And Send It To The Client
+    // Méthode pour que le CLIENT envoie un mail à l'agence
     @RequestMapping(value = "/sendMail", method = RequestMethod.POST)
     public ModelAndView sendMail(HttpServletRequest request) {
  
-        // Reading Email Form Input Parameters      
+        // Récupérer les paramètres de la requête    
         emailSubject = request.getParameter("subject");
+        custoName = request.getParameter("name");
+        custoTel = request.getParameter("telephone");
+        custoMail = request.getParameter("mail");
         emailMessage = request.getParameter("message");
         emailToRecipient = request.getParameter("mailTo");
  
     
-    
+        //Le message qu'on va vraiment envoyer dans le mail:
+        message = "The customer "+ custoName+" ("+ custoMail +" "+custoTel+") sent you a message about "+emailSubject
+		+ "\n"+ emailMessage; 
+        
 	// On envoie un mail 
 
 		// Ici on envoie concrètement le mail en renseignant le destinataire et le message
@@ -87,7 +93,7 @@ public class EmailController {
 		SendMailSSL sm = new SendMailSSL();
 		try {
 			// Vérif va servir à savoir si le mail est envoyé vu que la fonction sendmail retourne un int
-			sm.sendMail(emailToRecipient, emailSubject, emailMessage);
+			sm.sendMail("projet.bovoyage@gmail.com", emailSubject, message);
 
 		} catch (Exception e) {
 
