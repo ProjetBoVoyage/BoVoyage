@@ -132,7 +132,7 @@
 
 	</div>
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="text-align: center;">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
@@ -140,7 +140,7 @@
 						<div class="col-md-4">
 							<div class="card">
 								<img class="card-img-top" src="photoDest?idDest=${d.idDest}"
-									style="width: 300px; height: 150px" />
+									style="width: 300px; height: 150px; border-radius:15%" />
 								<div class="card-block">
 									<h3 class="card-title">${d.city}</h3>
 									<p class="card-text">
