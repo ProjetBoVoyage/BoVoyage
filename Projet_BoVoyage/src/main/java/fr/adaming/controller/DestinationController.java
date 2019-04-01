@@ -208,7 +208,7 @@ public class DestinationController {
 	@RequestMapping(value = "/searchCont", method = RequestMethod.GET)
 	public ModelAndView searchCont(@RequestParam("pCont") @ModelAttribute("destSearch") String continent) {
 
-		return new ModelAndView("searchMapPage", "listDest1", destService.getDestinationByContinent(continent));
+		return new ModelAndView("searchMapPage", "listDestCont", destService.getDestinationByContinent(continent));
 
 	}
 	
@@ -216,7 +216,7 @@ public class DestinationController {
 	public ModelAndView searchKW(@ModelAttribute("destSearchkw") String keyword, HttpServletRequest request) {
 		String kw=request.getParameter("keyword");
 		
-		return new ModelAndView("searchMapPage", "listDest1", destService.getDestinationByKW(kw));
+		return new ModelAndView("searchMapPage", "listDest", destService.getDestinationByKW(kw));
 
 	}
 
