@@ -33,8 +33,7 @@
 
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 
-	<br />
-	<br />
+
 	<section>
 		<!-- Carousel code 1-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -131,14 +130,14 @@
 
 
 	</div>
-
+	<div class="col-sm-6 col-md-1"></div>
 	<div class="container-fluid" style="text-align: center;">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-10">
 				<div class="row">
 					<c:forEach items="${listDest}" var="d">
 						<div class="col-md-4">
-							<div class="card">
+							<div class="card thumbnail" style="max-width:300px">
 								<img class="card-img-top" src="photoDest?idDest=${d.idDest}"
 									style="width: 300px; height: 150px; border-radius:15%" />
 								<div class="card-block">

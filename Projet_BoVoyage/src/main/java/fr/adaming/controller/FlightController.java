@@ -109,6 +109,7 @@ public class FlightController {
 		fIn.setDepartureTime(convertHour(heureDepart));
 
 		int test = fligService.update(fIn);
+		System.out.println(heureArrive + "   " + heureDepart);
 		if (test != 0) {
 			return "redirect:viewFlig";
 		} else {
