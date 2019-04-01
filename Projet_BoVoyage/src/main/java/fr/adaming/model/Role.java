@@ -31,16 +31,13 @@ public class Role implements Serializable {
 		super();
 	}
 
-	public Role(int idRole, String roleName) {
+	public Role(String roleName, Person person) {
 		super();
-		this.idRole = idRole;
 		this.roleName = roleName;
+		this.person = person;
 	}
 
-	public Role(String roleName, Admin admin) {
-		super();
-		this.roleName = roleName;
-	}
+
 
 	// Getters & Setters
 	public String getRoleName() {

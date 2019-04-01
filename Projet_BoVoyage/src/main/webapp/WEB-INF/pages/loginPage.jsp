@@ -33,7 +33,7 @@
 				required />
 		    <input type="submit" value="Login">
 		</form>
-		<form method="get" action="start/newcusto">	
+		<form method="get" action="custo/viewAddCusto">	
 			<input id="log" type="submit" value="Sign Up"> <br>
 		</form>
 	</div>

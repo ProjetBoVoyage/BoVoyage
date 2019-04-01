@@ -1,25 +1,34 @@
 package fr.adaming.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Address;
 import fr.adaming.model.Customer;
-import fr.adaming.model.Person;
+import fr.adaming.model.Role;
 import fr.adaming.service.ICustomerService;
-import fr.adaming.service.IPersonService;
+import fr.adaming.service.IRoleService;
 
 @Controller
 @RequestMapping("/custo")
@@ -31,9 +40,8 @@ public class CustoController {
 	private ICustomerService custoService;
 
 	@Autowired
-	private IPersonService persService;
+	private IRoleService rService;
 
-	private Person person;
 	private Customer customer;
 
 	@PostConstruct
@@ -47,23 +55,45 @@ public class CustoController {
 		this.customer = custoService.getCustomerByMail(mail);
 	}
 
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+		df.setLenient(false);
+
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(df, true));
+	}
+
 	/** methode Add custo */
-	// Affiche formulaire
 	@RequestMapping(value = "/viewAddCusto", method = RequestMethod.GET)
-	public String viewAddCusto(Model modele) {
-		// link Insurance to model MVC
-		modele.addAttribute("custoAdd", new Customer());
-		return "addCustomerPage";
+	public String displayNewCustomerPage(Model model) {
+		// Lier la destination au modele MVC afin de l'utiliser
+		model.addAttribute("custAdd", new Customer());
+
+		Map<String, String> civilityList = new HashMap<String, String>();
+		civilityList.put("Miss", "Miss");
+		civilityList.put("Mrs.", "Mrs.");
+		civilityList.put("Mr.", "Mr.");
+		model.addAttribute("civilityList", civilityList);
+		return "newCustomerPage";
+
 	}
 
 	// submit formulaire
 	@RequestMapping(value = "/submitAddCusto", method = RequestMethod.POST)
-	public String submitAddCusto(@ModelAttribute("custoAdd") Customer cuIn, RedirectAttributes ra) {
+	public String submitAddCusto(@ModelAttribute("custoAdd") Customer cuIn, RedirectAttributes ra,
+			@ModelAttribute("adress") String adress, @ModelAttribute("postalCode") String postalCode,
+			@ModelAttribute("city") String city) {
 		// appel method service
+		cuIn.setActive(true);
+		Address ad = new Address(adress, city, postalCode);
+		cuIn.setAddress(ad);
 		int test = custoService.add(cuIn);
-
+		Role r = new Role("ROLE_CUSTO", custoService.getCustomerByMail(cuIn.getMail()));
 		if (test != 0) {
-			return "redirect:viewCusto";
+			rService.addRole(r);
+			return "homePage";
 		} else {
 			ra.addAttribute("msg", "Adding Customer Failed!");
 			return "redirect:viewAddCusto";
@@ -93,7 +123,7 @@ public class CustoController {
 
 	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
 	public ModelAndView modifLien(Model modele) {
-		return new ModelAndView("customerPersonalInfoPage","customer",this.customer);
+		return new ModelAndView("customerPersonalInfoPage", "customer", this.customer);
 	}
 
 	/** METHODE SUPPRIMER UN CUSTOMER */
