@@ -1,15 +1,20 @@
 package fr.adaming.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Accommodation;
@@ -50,6 +55,18 @@ public class FormulaController {
 		
 		return new ModelAndView("formulaHotel", "destination", destService.getById(idDest));
 
+	}
+	
+	/** METHODE AFFICHER PHOTO */
+	@RequestMapping(value = "/photoAcc", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ResponseBody
+	public byte[] getPhoto(int idAcc) throws IOException {
+		Accommodation acOut = accService.getById(idAcc);
+		if (acOut.getPhoto() == null) { 
+			return new byte[0];
+		} else {
+			return IOUtils.toByteArray(new ByteArrayInputStream(acOut.getPhoto()));
+		}
 	}
 	
 }

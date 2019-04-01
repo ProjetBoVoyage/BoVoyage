@@ -11,7 +11,7 @@
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
 </head>
 <body>
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>

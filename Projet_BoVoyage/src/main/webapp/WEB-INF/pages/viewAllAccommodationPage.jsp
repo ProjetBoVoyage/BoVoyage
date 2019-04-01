@@ -22,6 +22,7 @@
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
+			<th>Description</th>
 			<th>Destination</th>
 			<th>Price</th>
 			<th>Stars</th>
@@ -34,6 +35,7 @@
 			<tr>
 				<td>${a.idAcc}</td>
 				<td>${a.name}</td>
+				<td>${a.description}</td>
 				<td>${a.destination.city}, ${a.destination.country}</td>
 				<td>${a.price}</td>
 				<td>${a.stars}</td>

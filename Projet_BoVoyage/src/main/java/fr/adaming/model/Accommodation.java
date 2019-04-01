@@ -26,6 +26,7 @@ public class Accommodation implements Serializable {
 	@Column(name = "id_acc")
 	private int idAcc;
 	private String name;
+	private String description;
 	private double price;
 	private String stars; 
 	@Lob
@@ -46,7 +47,7 @@ public class Accommodation implements Serializable {
 	}
 
 	public Accommodation(String name, double price, String stars, byte[] photo, int quantity,
-			List<FormulaTrip> formulaTrips, Destination destination) {
+			List<FormulaTrip> formulaTrips, Destination destination, String description) {
 		super();
 		this.name = name;
 		this.price = price;
@@ -55,10 +56,11 @@ public class Accommodation implements Serializable {
 		this.quantity = quantity;
 		this.formulaTrips = formulaTrips;
 		this.destination = destination;
+		this.description = description;
 	}
 
 	public Accommodation(int idAcc, String name, double price, String stars, byte[] photo, int quantity,
-			List<FormulaTrip> formulaTrips, Destination destination) {
+			List<FormulaTrip> formulaTrips, Destination destination, String description) {
 		super();
 		this.idAcc = idAcc;
 		this.name = name;
@@ -68,6 +70,7 @@ public class Accommodation implements Serializable {
 		this.quantity = quantity;
 		this.formulaTrips = formulaTrips;
 		this.destination = destination;
+		this.description = description;
 	}
 
 
@@ -134,6 +137,14 @@ public class Accommodation implements Serializable {
 
 	public void setDestination(Destination destination) {
 		this.destination = destination;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	// To String

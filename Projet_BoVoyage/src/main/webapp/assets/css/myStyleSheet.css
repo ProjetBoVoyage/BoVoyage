@@ -151,29 +151,26 @@ body.admin {
 	text-decoration: none;
 }
 
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 10px;
-	overflow: hidden;
-	background-color: #333;
-}
+/* ul { */
+/* 	list-style-type: none; */
+/* 	margin: 0; */
+/* 	padding: 10px; */
+/* 	overflow: visible; */
+/* 	background-color: #333; */
+/* } */
 
-li {
-	float: right;
-}
 
-li a {
-	display: inline-block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
+/* li a { */
+/* /* 	display: inline-block; */ */
+/* 	color: skyblue; */
+/* 	text-align: center; */
+/* 	padding: 14px 16px; */
+/* 	text-decoration: none; */
+/* } */
 
-li a:hover {
-	background-color: skyblue;
-}
+/* li a:hover { */
+/* 	background-color: skyblue; */
+/* } */
 
 .active {
 	background-color: red;

@@ -20,8 +20,16 @@
 		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idCity"
+				<form:input cssClass="form-control" id="idName"
 					placeholder="Accommodation's Name" path="name" />
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idName" class="col-sm-2 control-label">Description: </label>
+			<div class="col-sm-5">
+				<form:textarea cssClass="form-control" id="idDesctiption"
+					placeholder="Accommodation's Description" path="description" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
