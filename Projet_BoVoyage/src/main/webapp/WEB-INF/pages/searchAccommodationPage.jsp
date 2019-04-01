@@ -39,6 +39,7 @@
 		<tr>
 			<th>ID</th>
 			<th>Accommodation's Name</th>
+			<th>Description</th>
 			<th>Destination</th>
 			<th>Price</th>
 			<th>Stars</th>
@@ -49,6 +50,7 @@
 		<tr>
 			<td>${accommodation.idAcc}</td>
 			<td>${accommodation.name}</td>
+			<td>${accommodation.description}</td>
 			<td>${accommodation.destination.city}, ${accommodation.destination.country}</td>
 			<td>${accommodation.price}</td>
 			<td>${accommodation.stars}</td>

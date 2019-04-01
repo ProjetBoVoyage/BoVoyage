@@ -12,7 +12,6 @@
 
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC"
 	rel="stylesheet">
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
 	type="text/javascript"></script>
@@ -23,6 +22,7 @@
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
 <style>
 .la_base {
 	background-color: #E6F5CA;

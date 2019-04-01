@@ -9,10 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
 <style>
 .imgtext{
 width:100%; height:250px;overflow:hidden;
