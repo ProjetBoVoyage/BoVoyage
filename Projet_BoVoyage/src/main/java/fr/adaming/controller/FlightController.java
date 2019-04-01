@@ -77,7 +77,7 @@ public class FlightController {
 
 	public Date convertHour(String hourTime) {
 
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
 
 		try {
 

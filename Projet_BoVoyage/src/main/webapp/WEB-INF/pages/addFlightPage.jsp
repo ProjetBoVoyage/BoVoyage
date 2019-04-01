@@ -17,8 +17,8 @@
 		cssClass="form-horizontal" cssStyle="margin-top:100px;">
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idDepartureAirport" class="col-sm-2 control-label">Departure Airport:
-			</label>
+			<label for="idDepartureAirport" class="col-sm-2 control-label">Departure
+				Airport: </label>
 			<div class="col-sm-5">
 				<form:input cssClass="form-control" id="idDepartureAirport"
 					placeholder="Departure Airport" path="departureAirport" />
@@ -53,7 +53,7 @@
 			</label>
 			<div class="col-sm-5">
 				<input class="form-control" type="time" id="idDepartureTime"
-					step="2" placeholder="DepartureTime" name="datetimeDepart" />
+					placeholder="DepartureTime" name="datetimeDepart" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
@@ -70,7 +70,7 @@
 			<label for="idArrivalTime" class="col-sm-2 control-label">ArrivalTime:
 			</label>
 			<div class="col-sm-5">
-				<input class="form-control" type="time" id="idArrivalTime" step="2"
+				<input class="form-control" type="time" id="idArrivalTime"
 					placeholder="ArrivalTime" name="datetimeArrive" />
 			</div>
 		</div>
