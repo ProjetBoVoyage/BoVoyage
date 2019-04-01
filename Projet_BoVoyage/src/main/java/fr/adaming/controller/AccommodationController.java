@@ -168,7 +168,7 @@ public class AccommodationController {
 	@ResponseBody
 	public byte[] getPhoto(int idAcc) throws IOException {
 		Accommodation acOut = accService.getById(idAcc);
-		if (acOut.getPhoto() == null) {
+		if (acOut.getPhoto() == null) { 
 			return new byte[0];
 		} else {
 			return IOUtils.toByteArray(new ByteArrayInputStream(acOut.getPhoto()));
