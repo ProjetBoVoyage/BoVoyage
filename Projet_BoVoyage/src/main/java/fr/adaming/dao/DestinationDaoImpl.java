@@ -42,6 +42,27 @@ public class DestinationDaoImpl extends AbstractGenericDao<Destination> implemen
 		return listeDest;
 
 	}
+	
+	// Méthode trouver Dest par mot-clé
+	@Override
+	public List<Destination> getDestinationByKW(String kw) {
+		Session s = sf.getCurrentSession();
+
+		// Requête HQL
+		String req = "FROM Destination as d  WHERE d.continent LIKE :pKW OR d.country LIKE :pKW OR d.city LIKE :pKW OR d.description LIKE :pKW";
+
+		// Récupérer un objet de type Query
+		Query query = s.createQuery(req);
+
+		// Paramètres
+		query.setParameter("pKW", "%" + kw + "%");
+
+		@SuppressWarnings("unchecked")
+		List<Destination> listeDest = query.list();
+
+		return listeDest;
+
+	}
 
 
 }

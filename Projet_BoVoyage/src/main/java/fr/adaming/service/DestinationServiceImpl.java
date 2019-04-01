@@ -53,4 +53,9 @@ public class DestinationServiceImpl implements IDestinationService {
 		return destDao.getDestinationByContinent(continent);
 	}
 
+	@Override
+	public List<Destination> getDestinationByKW(String kw) {
+		return destDao.getDestinationByKW(kw);
+	}
+
 }

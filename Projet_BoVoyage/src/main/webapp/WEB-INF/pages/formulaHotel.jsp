@@ -17,29 +17,22 @@
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 	<br/><br/>
 	    <!-- Colonne vide -->
-    <div class="col-sm-6 col-md-1"></div>
+    <div class="col-sm-6 col-md-3"></div>
     
-<div class="col-sm-12 col-md-10">
+<div class="col-sm-12 col-md-6">
 <center><h1>Hotels in <b>${destination.city}, ${destination.country}</b></h1></center>
 
-<table class="table table-striped">
-		<tr>
-			<th>Name</th>
-			<th>Price per night</th>
-			<th>Stars</th>
-			<th>Photo</th>
-			<th>Choose</th>
-		</tr>
+<table class="table">
 
 		<c:forEach items="${listAccDest}" var="a">
 			<tr>
-				<td>${a.name}</td>
+			<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
+				<td><b>${a.name} </b><span style="color:#FFCE1A;">${a.stars}</span><br/>
+				${a.description}</td>
 				<td>${a.price}</td>
-				<td>${a.stars}</td>
-				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
-			 <td><a class="btn btn-info"
-					href="#"
-					title="Choose">Choose this hotel</a></td>
+			 <td>
+					<input type="radio" name="hotelChoice" id="hotelChoice" checked/>
+					</td>
 			</tr>
 		</c:forEach>
 	</table>

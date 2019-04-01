@@ -38,7 +38,7 @@
 			data-interval="3500">
 			<!-- Indicators -->
 	
-			<ol class="carousel-indicators" style="left:22%">
+			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
