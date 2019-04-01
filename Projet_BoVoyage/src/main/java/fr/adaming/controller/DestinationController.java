@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -195,7 +197,7 @@ public class DestinationController {
 
 	}
 
-	/** METHODE RECHERCHER UNE DESTINATION PAR CONTINENT */
+	/** METHODE RECHERCHER UNE DESTINATION PAR CONTINENT ET MOT CLE*/
 	@RequestMapping(value = "/viewSearchCont", method = RequestMethod.GET)
 	public String viewSearchCont(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
@@ -206,7 +208,15 @@ public class DestinationController {
 	@RequestMapping(value = "/searchCont", method = RequestMethod.GET)
 	public ModelAndView searchCont(@RequestParam("pCont") @ModelAttribute("destSearch") String continent) {
 
-		return new ModelAndView("searchMapPage", "listDestCont", destService.getDestinationByContinent(continent));
+		return new ModelAndView("searchMapPage", "listDest1", destService.getDestinationByContinent(continent));
+
+	}
+	
+	@RequestMapping(value = "/searchKW", method = RequestMethod.POST)
+	public ModelAndView searchKW(@ModelAttribute("destSearchkw") String keyword, HttpServletRequest request) {
+		String kw=request.getParameter("keyword");
+		
+		return new ModelAndView("searchMapPage", "listDest1", destService.getDestinationByKW(kw));
 
 	}
 

@@ -17,5 +17,7 @@ public interface IDestinationService {
 	public int delete(final Destination destination);
 
 	public List<Destination> getDestinationByContinent(String continent);
+	
+	public List<Destination> getDestinationByKW(String kw); 
 
 }

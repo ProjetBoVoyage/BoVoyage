@@ -8,4 +8,5 @@ public interface IDestinationDao extends IGenericDao<Destination>{
 
 	public List<Destination> getDestinationByContinent(String continent);
 	
+	public List<Destination> getDestinationByKW(String kw) ;
 }
