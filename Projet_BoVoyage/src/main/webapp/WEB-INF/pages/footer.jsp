@@ -10,7 +10,7 @@
 </head>
 <body>
 <br/>
-<br/>
+<br/> 
 	<!-- Footer -->
 	<footer class=" footer page-footer font-small indigo">
 
