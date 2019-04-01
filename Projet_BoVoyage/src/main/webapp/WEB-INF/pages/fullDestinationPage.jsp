@@ -117,32 +117,12 @@ height:200px;
       </div>
     </div>
   </div>
-</div>
-<div class="row">
   <div class="col-sm-6 col-md-2">
     <div class="thumbnail">
       <div class="caption">
         <h3>Flight + Hotel</h3>
-        <p>Find a flight and book a hotel for this destination! Check our best deals! </p>
-        <p><a href="#" class="btn btn-primary" role="button">Choose this formula</a></p>
-      </div>
-    </div>
-  </div>
-   <div class="col-sm-6 col-md-2">
-    <div class="thumbnail">
-      <div class="caption">
-        <h3>Flight + Car</h3>
-        <p>Find a flight and get a car for this destination! Check our best deals!</p>
-        <p><a href="#" class="btn btn-primary" role="button">Choose this formula</a></p>
-      </div>
-    </div>
-  </div>
-   <div class="col-sm-6 col-md-2">
-    <div class="thumbnail">
-      <div class="caption">
-        <h3>All inclusive</h3>
-        <p>Find a flight, book a hotel and get a car for this destination! Check our best deals!</p>
-        <p><a href="#" class="btn btn-primary" role="button">Choose this formula</a></p>
+        <p>Find a flight and book an accommodation for this destination! Check our best deals! </p>
+        <p><a href="${pageContext.request.contextPath}/formula/viewHotFli?pDest=${destination.idDest}" class="btn btn-primary" role="button">Choose this formula</a></p>
       </div>
     </div>
   </div>

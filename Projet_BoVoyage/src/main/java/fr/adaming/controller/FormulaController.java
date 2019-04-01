@@ -37,6 +37,8 @@ public class FormulaController {
 	@Autowired
 	private IAccommodationService accService;
 
+	
+	/** FORMULE VOL SEUL */
 	@RequestMapping(value = "/viewFlight", method = RequestMethod.GET)
 	public ModelAndView viewFlightForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
 		
@@ -47,6 +49,7 @@ public class FormulaController {
 
 	}
 	
+	/** FORMULE HOTEL SEUL */
 	@RequestMapping(value = "/viewHotel", method = RequestMethod.GET)
 	public ModelAndView viewHotelForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
 		
@@ -54,6 +57,20 @@ public class FormulaController {
 		modele.addAttribute("listAccDest", listAcc);
 		
 		return new ModelAndView("formulaHotel", "destination", destService.getById(idDest));
+
+	}
+	
+	/** FORMULE HOTEL + VOL */
+	@RequestMapping(value = "/viewHotFli", method = RequestMethod.GET)
+	public ModelAndView viewHotFliForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
+		
+		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
+		modele.addAttribute("listAccDest", listAcc);
+		
+		List<Flight> listFli = fliService.getFliByDestination(destService.getById(idDest));
+		modele.addAttribute("listFliDest", listFli);
+		
+		return new ModelAndView("formulaHotFli", "destination", destService.getById(idDest));
 
 	}
 	
