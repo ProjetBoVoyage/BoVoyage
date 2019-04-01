@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
-<link rel="stylesheet" href="assets/css/myStyleSheet.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
@@ -16,8 +16,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC"
-	rel="stylesheet">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -39,7 +37,8 @@
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
 			data-interval="3500">
 			<!-- Indicators -->
-			<ol class="carousel-indicators">
+	
+			<ol class="carousel-indicators" style="left:22%">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
@@ -122,24 +121,27 @@
 
 	<div
 		style="border-color: gray; border-radius: 70px; text-align: center;">
-		<h1 style="font-family: Amatic SC, sursive; font-size: 7.5vw;">Welcome
+		<h1 class="titre-homepage">Welcome
 			to Holy-Days</h1>
-		<h3 style="font-family: Amatic SC, sursive; font-size: 5vw;">High
-			Trips for Low Prices</h3>
+		<h4 style="font-family: Amatic SC, sursive; font-size: 5vw;">High
+			Trips for Low Prices</h4>
 		<br />
 
 
 	</div>
-	<div class="col-sm-6 col-md-1"></div>
+	<div class="col-sm-6 col-md-2"></div>
 	<div class="container-fluid" style="text-align: center;">
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-8">
 				<div class="row">
 					<c:forEach items="${listDest}" var="d">
 						<div class="col-md-4">
-							<div class="card thumbnail" style="max-width:300px">
-								<img class="card-img-top" src="photoDest?idDest=${d.idDest}"
-									style="width: 300px; height: 150px; border-radius:15%" />
+							<div class="card thumbnail">
+							<div class="img-box">
+								<img class="img-zoom" src="photoDest?idDest=${d.idDest}"
+									style="width:100%;height:100%" />
+									</div>
+									<center><div style="border-top: solid 5px #A8C755;width:100%;"></div></center>
 								<div class="card-block">
 									<h3 class="card-title">${d.city}</h3>
 									<p class="card-text">
