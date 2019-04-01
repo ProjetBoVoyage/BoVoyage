@@ -49,7 +49,7 @@ public class AccommodationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitAdd", method = RequestMethod.POST)
-	public String submitAdd(@ModelAttribute("accAdd") Accommodation acIn, RedirectAttributes ra, MultipartFile file,Model modele)
+	public String submitAdd(@ModelAttribute("accAdd") Accommodation acIn, RedirectAttributes ra, MultipartFile file)
 			throws Exception {
 		// Lier la photo récupérée à la accination
 		acIn.setPhoto(file.getBytes());
@@ -77,7 +77,7 @@ public class AccommodationController {
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitUpdate", method = RequestMethod.POST)
-	public String submitUpdate(@ModelAttribute("accUpdate") Accommodation acIn, RedirectAttributes ra, MultipartFile file, Model modele)
+	public String submitUpdate(@ModelAttribute("accUpdate") Accommodation acIn, RedirectAttributes ra, MultipartFile file)
 			throws Exception {
 		// Lier la photo récupérée à la accination
 		acIn.setPhoto(file.getBytes());
