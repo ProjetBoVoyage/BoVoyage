@@ -30,7 +30,7 @@
 						instructions for configure your parameters</p>
 					<p>
 						<a
-							href="${pageContext.request.contextPath}/start/custo/customerPersonalInfoPage"
+							href="${pageContext.request.contextPath}/custo/updateLink"
 							class="btn btn-primary" role="button">Manage your
 							informations</a>
 					</p>

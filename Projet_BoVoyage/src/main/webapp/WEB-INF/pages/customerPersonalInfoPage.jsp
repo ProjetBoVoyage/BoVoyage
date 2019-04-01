@@ -10,12 +10,11 @@
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 	<div>
 		<h1>
-			WelCome <a style="color: red">Insert name customer</a>
+			Welcome ${customer.name} ${customer.firstname}
 		</h1>
 	</div>
 	<%@include file="/WEB-INF/templates/navBarCusto.jsp"%>
 	<br>
-
 
 </body>
 </html>

@@ -34,7 +34,12 @@ public class StartController {
 	public String displayCustomerSpacePage() {
 		return "customerPage";
 	}
-
+	
+	@RequestMapping(value = "/newcusto", method = RequestMethod.GET)
+	public String displayNewCustomerPage() {
+		return "newCustomerPage";
+		
+	}
 	@RequestMapping(value = "/admin/adminPage", method = RequestMethod.GET)
 	public String displayAdminSpacePage() {
 		return "adminPage";
