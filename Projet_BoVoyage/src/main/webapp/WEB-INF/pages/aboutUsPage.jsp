@@ -108,7 +108,7 @@
 			<div class="numberpaire">
 				<div
 					style="width: 435px; overflow: auto; padding-right: 5px">
-					<b>The team</b><br /> Jeremy "Souk" Souque - the Scrum Master <br />
+					<b>The team</b><br /> Jérémie "Souk" Souque - the Scrum Master <br />
 					Guillaume "Personne" Bonnefant - the Product Owner <br /> Arthur
 					"Toto" Quillent - the Style Wizard<br /> Eléonore "Mousse" Rivet -
 					the Whatever-Has-To-Be-Done Joker<br />
@@ -132,6 +132,8 @@
 	</center>
 </div>
 
-	
+	<br/><br/>
+		<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
 </body>
 </html>
