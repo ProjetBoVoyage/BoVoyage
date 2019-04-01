@@ -3,13 +3,13 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @SuppressWarnings("serial")
 @Entity
@@ -22,24 +22,25 @@ public class ReservationFile implements Serializable {
 	private int id;
 	private String status;
 
-	@OneToMany(mappedBy = "reservationFile", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
-	private List<Trip> tripsRf;
+	@OneToOne
+	@JoinColumn(name = "trip_id", referencedColumnName = "id_trip")
+	private Trip tripRf;
 
 	public ReservationFile() {
 		super();
 	}
 
-	public ReservationFile(String status, List<Trip> trips) {
-		super();
-		this.status = status;
-		this.tripsRf = trips;
-	}
-
-	public ReservationFile(int id, String status, List<Trip> trips) {
+	public ReservationFile(int id, String status, Trip tripRf) {
 		super();
 		this.id = id;
 		this.status = status;
-		this.tripsRf = trips;
+		this.tripRf = tripRf;
+	}
+
+	public ReservationFile(String status, Trip tripRf) {
+		super();
+		this.status = status;
+		this.tripRf = tripRf;
 	}
 
 	public int getId() {
@@ -58,12 +59,12 @@ public class ReservationFile implements Serializable {
 		this.status = status;
 	}
 
-	public List<Trip> getTrips() {
-		return tripsRf;
+	public Trip getTripRf() {
+		return tripRf;
 	}
 
-	public void setTrips(List<Trip> tripsRf) {
-		this.tripsRf = tripsRf;
+	public void setTripRf(Trip tripRf) {
+		this.tripRf = tripRf;
 	}
 
 }

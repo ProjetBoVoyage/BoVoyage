@@ -28,7 +28,7 @@ public class Trip implements Serializable {
 	@JoinColumn(name = "cus_id", referencedColumnName = "id")
 	private Person customerTrip;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "rf_id", referencedColumnName = "id_rf")
 	private ReservationFile reservationFile;
 
