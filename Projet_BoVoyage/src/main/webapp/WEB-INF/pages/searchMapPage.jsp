@@ -114,7 +114,8 @@
 
 	<center>
 		<h1>Find a destination close to you</h1>
-
+	<!-- Un élément HTML pour recueillir l affichage -->
+	<div id="maposition"></div>
 		<div id="map" style="width: 640px; height: 480px"></div>
 	</center>
 
@@ -153,11 +154,6 @@
 			// Fonction de callback en cas de succès
 			function affichePosition(position) {
 
-				var infopos = "Position déterminée : <br>";
-				infopos += "Latitude : " + position.coords.latitude + "<br>";
-				infopos += "Longitude: " + position.coords.longitude + "<br>";
-				infopos += "Altitude : " + position.coords.altitude + "<br>";
-				document.getElementById("maposition").innerHTML = infopos;
 
 				// On instancie un nouvel objet LatLng pour Google Maps
 				var latlng = new google.maps.LatLng(position.coords.latitude,
@@ -210,8 +206,7 @@
 	<script type="text/javascript">
 		var locations = [
 				
-				['<img src="https://images.national-tours.fr/(Image)-image-Cuba-Havana-62-fo_83606761-09032017.jpg" style="width:200px;height:100px"><br/>La Havana from 819 euros <a href="">see more</a>',
-						23.114410, -82.370725, 5 ],
+				['<img src="https://images.national-tours.fr/(Image)-image-Cuba-Havana-62-fo_83606761-09032017.jpg" style="width:200px;height:100px"><br/>La Havana from 819 euros <a href="">see more</a>', 23.114410, -82.370725, 5 ],
 				[ '<img src="http://anthillonline.com/wp-content/uploads/2015/03/Wellington.jpg" style="width:200px;height:100px"><br/>Wellington from 799 euros <a href="">see more</a>', -41.285398, 174.776990, 3 ],
 				[ '<img src="https://rvca738f6h5tbwmj3mxylox3-wpengine.netdna-ssl.com/wp-content/uploads/2018/05/GI_521275152_ElDier_PetraMonestary.jpg" style="width:200px;height:100px"><br/>Petra from 349 euros <a href="">see more</a>', 30.328797, 35.444362, 2 ],
 				[ '<img src="https://micato-woz6qxzwhvcnrugsanv.netdna-ssl.com/wp-content/uploads/2018/09/mt-kilimanjaro-1110x700.jpg" style="width:200px;height:100px"><br/>Nairobi from 579 euros <a href="">see more</a>', -1.291531, 36.835720, 1 ],

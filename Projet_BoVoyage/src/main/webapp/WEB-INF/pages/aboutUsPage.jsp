@@ -85,10 +85,11 @@
 	<br />
 	<br />
 	    <!-- Colonne vide -->
-    <div class="col-sm-6 col-md-3"></div>
+    <div class="col-sm-6 col-md-4"></div>
     
-<div class="col-sm-12 col-md-6">
-	<center>
+
+<div class="row">
+	<div class="col-sm-12 col-md-4">
 		<div class="la_base">
 			<center>
 				<h1>About us</h1>
@@ -129,11 +130,19 @@
 				</div>
 			</div>
 		</div>
-	</center>
+	
 </div>
-
-	<br/><br/>
+</div>
+	<br/><br/><br/><br/>
+		    <!-- Colonne vide -->
+    <div class="col-sm-6 col-md-1"></div>
+	  <div class="row">
+	  <div class="col-sm-12 col-md-10">
 		<%@include file="footer.jsp"%>
 	<%@include file="footerSticky.jsp"%>
+	</div>
+  </div>
+
+	
 </body>
 </html>

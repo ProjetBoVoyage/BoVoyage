@@ -1,4 +1,6 @@
-
+body{
+	background-color: #F2F2F2!important;
+}
 body.login
 {
 	margin: 0;

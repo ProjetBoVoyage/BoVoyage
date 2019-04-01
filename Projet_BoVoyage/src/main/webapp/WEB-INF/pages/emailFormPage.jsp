@@ -151,5 +151,16 @@
 	</form:form>
 	</div>
 
+	<br/><br/><br/><br/>
+		    <!-- Colonne vide -->
+    <div class="col-sm-6 col-md-1"></div>
+	  <div class="row">
+	  <div class="col-sm-12 col-md-12">
+		<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
+	</div>
+  </div>
+
+
 </body>
 </html>
