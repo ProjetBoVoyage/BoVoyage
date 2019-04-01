@@ -18,4 +18,6 @@ public interface ICustomerService {
 
 	public int delete(final Customer customer);
 
+	public Customer getCustomerByMail(String mail);
+
 }

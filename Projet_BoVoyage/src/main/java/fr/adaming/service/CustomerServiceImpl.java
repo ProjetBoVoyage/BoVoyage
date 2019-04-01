@@ -26,9 +26,10 @@ public class CustomerServiceImpl implements ICustomerService {
 	public Customer getById(int id) {
 		return cusDao.findOne(id);
 	}
+
 	@Override
 	public Customer getById2(int id, Person pIn) {
-		
+
 		return cusDao.findOne(id);
 	}
 
@@ -50,6 +51,12 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public int delete(Customer customer) {
 		return cusDao.delete(customer);
+	}
+
+	@Override
+	public Customer getCustomerByMail(String mail) {
+		// TODO Auto-generated method stub
+		return cusDao.getCustomerByMail(mail);
 	}
 
 }

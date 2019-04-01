@@ -31,9 +31,11 @@ public class CustoController {
 	@Autowired
 	private ICustomerService custoService;
 
+	@Autowired
 	private IPersonService persService;
 
 	private Person person;
+	private Customer customer;
 
 	@PostConstruct
 	public void init() {
@@ -43,7 +45,7 @@ public class CustoController {
 		// recup mail dans ctx
 		String mail = authCxt.getName();
 
-		this.person = persService.getPersonByMail(mail);
+		this.customer = custoService.getCustomerByMail(mail);
 	}
 
 	/** methode Add custo */
@@ -81,7 +83,7 @@ public class CustoController {
 	@RequestMapping(value = "/submitUpdateCusto", method = RequestMethod.POST)
 	public String submitUpdateCusto(@ModelAttribute("custoUpdate") Customer cuIn, RedirectAttributes ra) {
 		// Appel de la méthode service
-		int test = custoService.update(cuIn, this.person);
+		int test = custoService.update(cuIn, this.customer);
 		if (test != 0) {
 			return "redirect:viewCusto";
 		} else {
@@ -94,7 +96,7 @@ public class CustoController {
 	public String modifLien(Model modele, @RequestParam("pId") int id) {
 		Customer cIn = new Customer();
 		cIn.setId(id);
-		Customer cOut = custoService.getById2(id, this.person);
+		Customer cOut = custoService.getById2(id, this.customer);
 
 		modele.addAttribute("custoUpdate", cOut);
 
