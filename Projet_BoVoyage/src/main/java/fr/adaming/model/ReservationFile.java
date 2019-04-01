@@ -23,7 +23,7 @@ public class ReservationFile implements Serializable {
 	private String status;
 
 	@OneToMany(mappedBy = "reservationFile", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
-	private List<Trip> trips;
+	private List<Trip> tripsRf;
 
 	public ReservationFile() {
 		super();
@@ -32,14 +32,14 @@ public class ReservationFile implements Serializable {
 	public ReservationFile(String status, List<Trip> trips) {
 		super();
 		this.status = status;
-		this.trips = trips;
+		this.tripsRf = trips;
 	}
 
 	public ReservationFile(int id, String status, List<Trip> trips) {
 		super();
 		this.id = id;
 		this.status = status;
-		this.trips = trips;
+		this.tripsRf = trips;
 	}
 
 	public int getId() {
@@ -59,11 +59,11 @@ public class ReservationFile implements Serializable {
 	}
 
 	public List<Trip> getTrips() {
-		return trips;
+		return tripsRf;
 	}
 
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
+	public void setTrips(List<Trip> tripsRf) {
+		this.tripsRf = tripsRf;
 	}
 
 }

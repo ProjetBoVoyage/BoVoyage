@@ -21,8 +21,8 @@ public class Customer extends Attendant {
 	@Embedded
 	protected Address address;
 
-	@OneToMany(mappedBy = "customer", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
-	private List<Trip> trips;
+	@OneToMany(mappedBy = "customerTrip", cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	private List<Trip> tripsCusto;
 
 	@OneToMany(mappedBy = "person")
 	private List<Role> roles;
@@ -56,7 +56,7 @@ public class Customer extends Attendant {
 		return password;
 	}
 
-	public void setMdpCus(String mdpCus) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -73,11 +73,11 @@ public class Customer extends Attendant {
 	}
 
 	public List<Trip> getTrips() {
-		return trips;
+		return tripsCusto;
 	}
 
 	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
+		this.tripsCusto = trips;
 	}
 
 	public List<Role> getRoles() {
@@ -91,7 +91,7 @@ public class Customer extends Attendant {
 	// To String
 	@Override
 	public String toString() {
-		return "Customer [mdpCus=" + password + ", active=" + active + ", address=" + address + ", trips=" + trips
+		return "Customer [mdpCus=" + password + ", active=" + active + ", address=" + address + ", trips=" + tripsCusto
 				+ ", roles=" + roles + "]";
 	}
 

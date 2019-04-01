@@ -26,7 +26,7 @@ public class Trip implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "cus_id", referencedColumnName = "id")
-	private Person customer;
+	private Person customerTrip;
 
 	@ManyToOne
 	@JoinColumn(name = "rf_id", referencedColumnName = "id_rf")
@@ -46,7 +46,7 @@ public class Trip implements Serializable {
 
 	public Trip(Person customer, FormulaTrip formulaTrip, List<Person> attendants) {
 		super();
-		this.customer = customer;
+		this.customerTrip = customer;
 		this.formulaTrip = formulaTrip;
 		this.attendants = attendants;
 	}
@@ -54,7 +54,7 @@ public class Trip implements Serializable {
 	public Trip(int idTrip, Person customer, FormulaTrip formulaTrip, List<Person> attendants) {
 		super();
 		this.idTrip = idTrip;
-		this.customer = customer;
+		this.customerTrip = customer;
 		this.formulaTrip = formulaTrip;
 		this.attendants = attendants;
 	}
@@ -68,11 +68,11 @@ public class Trip implements Serializable {
 	}
 
 	public Person getCustomer() {
-		return customer;
+		return customerTrip;
 	}
 
 	public void setCustomer(Person customer) {
-		this.customer = customer;
+		this.customerTrip = customer;
 	}
 
 	public FormulaTrip getFormulaTrip() {
