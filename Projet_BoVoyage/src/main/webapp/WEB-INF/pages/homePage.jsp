@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <!-- Ajouter la lib de jstl -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -129,7 +130,33 @@
 
 
 	</div>
-	<div class="col-sm-6 col-md-2"></div>
+	
+	<div class="row">
+		<div class="col-sm-6 col-md-4"></div>
+		
+	<div class="col-md-4">
+	<center>
+			<form:form class="form-horizontal" method="post" action="searchKW"
+		commandName="destSearchkw">
+		
+		<div class="form-group">
+			<div class="col-sm-7">
+							<input class="form-control" type="text" id="keyword"
+					placeholder="Search..." name="keyword"/>
+					</div>
+							<div class="col-sm-2">
+<button type="submit" class="btn btn-primary">Search</button>
+</div>
+			</div>
+		</div>
+			
+	</form:form>
+	</center>
+	</div>
+</div>
+	
+			<div class="col-sm-6 col-md-2"></div>
+
 	<div class="container-fluid" style="text-align: center;">
 		<div class="row">
 			<div class="col-md-8">

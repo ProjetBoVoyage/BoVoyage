@@ -212,13 +212,6 @@ public class DestinationController {
 
 	}
 	
-	@RequestMapping(value = "/searchKW", method = RequestMethod.POST)
-	public ModelAndView searchKW(@ModelAttribute("destSearchkw") String keyword, HttpServletRequest request) {
-		String kw=request.getParameter("keyword");
-		
-		return new ModelAndView("searchMapPage", "listDest", destService.getDestinationByKW(kw));
-
-	}
 
 	/** METHODE AFFICHER TOUTES DESTINATIONS */
 	// Afficher le tableau

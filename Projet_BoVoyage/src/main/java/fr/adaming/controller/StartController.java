@@ -3,14 +3,18 @@ package fr.adaming.controller;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Destination;
 import fr.adaming.service.IDestinationService;
@@ -43,6 +47,15 @@ public class StartController {
 	@RequestMapping(value = "/couns/counsellorPage", method = RequestMethod.GET)
 	public String displayCounsellorSpacePage() {
 		return "counsellorPage";
+	}
+	
+	/** BARRE DE RECHERCHE DESTINATION PAR MOT CLE */
+	@RequestMapping(value = "/searchKW", method = RequestMethod.POST)
+	public ModelAndView searchKW(@ModelAttribute("destSearchkw") String keyword, HttpServletRequest request) {
+		String kw=request.getParameter("keyword");
+		
+		return new ModelAndView("homePage", "listDest", destService.getDestinationByKW(kw));
+
 	}
 	
 	/** METHODE AFFICHER PHOTO */
