@@ -17,15 +17,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
+import fr.adaming.model.Destination;
 import fr.adaming.model.Flight;
 import fr.adaming.model.FormulaAccomodation;
 import fr.adaming.model.FormulaTrip;
 import fr.adaming.service.IAccommodationService;
 import fr.adaming.service.IDestinationService;
 import fr.adaming.service.IFlightService;
+import fr.adaming.service.IFormulaAccommodationService;
 import fr.adaming.service.IFormulaTripService;
 import fr.adaming.service.ITripService;
 
@@ -46,6 +50,8 @@ public class FormulaController {
 	private ITripService tripService;
 	@Autowired
 	private IFormulaTripService ftService;
+	@Autowired
+	private IFormulaAccommodationService faService;
 
 	/** FORMULE VOL SEUL */
 	@RequestMapping(value = "/viewFlight", method = RequestMethod.GET)
@@ -70,11 +76,35 @@ public class FormulaController {
 	}
 
 	@RequestMapping(value = "/selectHotel", method = RequestMethod.GET)
-	public String selectHotelForm(HttpServletRequest request,
-			@RequestParam("pAcc") @ModelAttribute("destSearch") int idAcc, @RequestParam("pFormAcc") FormulaAccomodation formAcc, Model modele) {
-		
+	public ModelAndView selectHotelForm(HttpServletRequest request,
+			@RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc, Model modele) {
 
-		return "cartPage";
+		List<FormulaAccomodation> formacc = faService.getAll();
+		modele.addAttribute("formacc", formacc);
+
+		return new ModelAndView("hotelReservationPage", "hotel", accService.getById(idAcc));
+
+	}
+
+	@RequestMapping(value = "/submitResHotel", method = RequestMethod.POST)
+	public String submitResHotel(RedirectAttributes ra, @RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc)
+			throws Exception {
+
+		Accommodation acOut = accService.getById(idAcc);
+		FormulaTrip formTrip = new FormulaTrip();
+		formTrip.setNameFormTrip("Formule Hôtel Seul");
+		formTrip.setRate(0.9);
+		// Appel de la méthode service
+		int test = ftService.add(formTrip);
+		formTrip.setAccomodation(acOut);
+		formTrip.setDestination(acOut.getDestination());
+
+		if (test != 0) {
+			return "homePage";
+		} else {
+			ra.addFlashAttribute("msg", "Adding Destination Failed");
+			return "hotelReservationPage";
+		}
 
 	}
 
