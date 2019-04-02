@@ -41,12 +41,22 @@
 				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
 					<td><h3><b>${a.name} </b><span style="color:#FFCE1A;text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;">${a.stars}</span></h3><br/>
 					${a.description}</br></br>
-					${a.price}&euro;</td>
+					${a.price}&euro;<br/><br/>
+					<div class="form-group">
+			<label for="idId" class="col-sm-2 control-label">Formula:
+			</label>
+				<select class="col-md-3 form-control" name="pFormAcc" id="pFormAcc">
+					<option value="1">Choose a formula</option>
+					<c:forEach items="${formacc}" var="f">
+						<option value="${f.id}">${f.nameFormAcc}</option>
+					</c:forEach>
+				</select>
+		</div></td>
 	
 				 <td>
 				 <a class="btn btn-info"
 					href="${pageContext.request.contextPath}/formula/selectHotel?pAcc=${a.idAcc}"
-					title="Modifier">Select this Hotel</a> 
+					title="SelectHotel">Select this Hotel</a> 
 				</td>
 				</tr>
 			</c:forEach>
