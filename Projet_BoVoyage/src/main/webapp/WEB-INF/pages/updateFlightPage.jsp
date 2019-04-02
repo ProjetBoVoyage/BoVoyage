@@ -27,7 +27,7 @@
 			<label for="idContinent" class="col-sm-2 control-label">Departure Airport
 			</label>
 			<div class="col-sm-5">
-				<form:select path="airport">
+				<form:select path="departureAirport">
 					<form:options items="${airportList}" />
 				</form:select>
 			</div>

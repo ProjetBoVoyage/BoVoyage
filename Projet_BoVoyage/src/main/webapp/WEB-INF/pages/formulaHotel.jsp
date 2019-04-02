@@ -35,18 +35,21 @@
 <center><h1>Hotels in <b>${destination.city}, ${destination.country}</b></h1></center>
 
 <table class="table">
-
-		<c:forEach items="${listAccDest}" var="a">
-			<tr>
-			<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
-				<td><b>${a.name} </b><span style="color:#FFCE1A;">${a.stars}</span><br/>
-				${a.description}</td>
-				<td>${a.price}</td>
-			 <td>
-					<input type="radio" name="hotelChoice" id="hotelChoice" checked/>
-					</td>
-			</tr>
-		</c:forEach>
+		<form:form action="selectAccomodation" commandName="selectedAcc">
+			<c:forEach items="${listAccDest}" var="a">
+				<tr>
+				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
+					<td><b>${a.name} </b><span style="color:#FFCE1A;">${a.stars}</span><br/>
+					${a.description}</td>
+					<td>${a.price}</td>
+				 <td>
+						<a class="btn btn-info"
+					href="${pageContext.request.contextPath}/formula/hotelonly/select?pId=${a.idAcc}"
+					title="Modifier">Chose this Hotel</a> 
+				</td>
+				</tr>
+			</c:forEach>
+		</form:form>
 	</table>
 
 </div>
