@@ -14,7 +14,7 @@ public interface ICustomerService {
 
 	public int add(final Customer customer);
 
-	public int update(final Customer customer, Person pIn);
+	public int update(final Customer customer);
 
 	public int delete(final Customer customer);
 

@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public int update(Customer customer, Person pIn) {
+	public int update(Customer customer) {
 		return cusDao.update(customer);
 	}
 

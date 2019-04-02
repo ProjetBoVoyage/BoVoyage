@@ -105,24 +105,44 @@ public class CustoController {
 	public String viewUpdateCusto(Model modele) {
 		// Lier la destination au modele MVC afin de l'utiliser
 		modele.addAttribute("custoUpdate", new Customer());
-		return "updateCustomerPage";
+		return "customerPersonalInfoPage";
 	}
 
 	// Soumettre le formulauire
 	@RequestMapping(value = "/submitUpdateCusto", method = RequestMethod.POST)
-	public String submitUpdateCusto(@ModelAttribute("custoUpdate") Customer cuIn, RedirectAttributes ra) {
+	public ModelAndView submitUpdateCusto(Model modele, @ModelAttribute("custoUpdate") Customer cuOut,
+			@ModelAttribute("adress") String adress, @ModelAttribute("postalCode") String postalCode,
+			@ModelAttribute("city") String city, RedirectAttributes ra) {
+
 		// Appel de la méthode service
-		int test = custoService.update(cuIn, this.customer);
+		cuOut.setId(this.customer.getId());
+		cuOut.setActive(true);
+		Address ad = new Address(adress, city, postalCode);
+		cuOut.setAddress(ad);
+		int test = custoService.update(cuOut);
+
+		Map<String, String> civilityList = new HashMap<String, String>();
+		civilityList.put("Miss", "Miss");
+		civilityList.put("Mrs.", "Mrs.");
+		civilityList.put("Mr.", "Mr.");
+		modele.addAttribute("civilityList", civilityList);
+
 		if (test != 0) {
-			return "redirect:viewCusto";
+			return new ModelAndView("customerPersonalInfoPage", "customer", this.customer);
 		} else {
 			ra.addFlashAttribute("msg", "Updating Customer Failed");
-			return "redirect:viewUpdateCusto";
+			return new ModelAndView("viewUpdateCusto");
 		}
 	}
 
 	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
 	public ModelAndView modifLien(Model modele) {
+		Map<String, String> civilityList = new HashMap<String, String>();
+		civilityList.put("Miss", "Miss");
+		civilityList.put("Mrs.", "Mrs.");
+		civilityList.put("Mr.", "Mr.");
+		modele.addAttribute("civilityList", civilityList);
+
 		return new ModelAndView("customerPersonalInfoPage", "customer", this.customer);
 	}
 

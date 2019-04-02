@@ -9,9 +9,7 @@
 <body>
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 	<div>
-		<h1>
-			WelCome <a style="color: red">Insert name customer</a>
-		</h1>
+		<h1>WelCome ${customer.name} ${customer.firstname}</h1>
 	</div>
 	<%@include file="/WEB-INF/templates/navBarCusto.jsp"%>
 
@@ -29,8 +27,7 @@
 					<p>You can consult your personal informations and obtain some
 						instructions for configure your parameters</p>
 					<p>
-						<a
-							href="${pageContext.request.contextPath}/custo/updateLink"
+						<a href="${pageContext.request.contextPath}/custo/updateLink"
 							class="btn btn-primary" role="button">Manage your
 							informations</a>
 					</p>

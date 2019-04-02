@@ -18,6 +18,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/JS/myJavaScript.css" />
 
 
 </head>
