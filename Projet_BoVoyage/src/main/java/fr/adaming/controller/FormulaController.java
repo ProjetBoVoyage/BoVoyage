@@ -87,11 +87,13 @@ public class FormulaController {
 	}
 
 	@RequestMapping(value = "/submitResHotel", method = RequestMethod.POST)
-	public String submitResHotel(@ModelAttribute("formulaTrip") FormulaTrip formTrip, RedirectAttributes ra,
-			@RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc) throws Exception {
-		
-		Accommodation acOut = accService.getById(idAcc);
+	public String submitResHotel(RedirectAttributes ra, @RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc)
+			throws Exception {
 
+		Accommodation acOut = accService.getById(idAcc);
+		FormulaTrip formTrip = new FormulaTrip();
+		formTrip.setNameFormTrip("Formule Hôtel Seul");
+		formTrip.setRate(0.9);
 		// Appel de la méthode service
 		int test = ftService.add(formTrip);
 		formTrip.setAccomodation(acOut);
