@@ -39,20 +39,30 @@
 			<c:forEach items="${listAccDest}" var="a">
 				<tr>
 				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
-					<td><b>${a.name} </b><span style="color:#FFCE1A;">${a.stars}</span><br/>
-					${a.description}</td>
-					<td>${a.price}</td>
+					<td><h3><b>${a.name} </b><span style="color:#FFCE1A;text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;">${a.stars}</span></h3><br/>
+					${a.description}</br></br>
+					${a.price}&euro;</td>
+	
 				 <td>
-						<a class="btn btn-info"
-					href="${pageContext.request.contextPath}/formula/hotelonly/select?pId=${a.idAcc}"
-					title="Modifier">Chose this Hotel</a> 
+				 <a class="btn btn-info"
+					href="${pageContext.request.contextPath}/formula/selectHotel?pAcc=${a.idAcc}"
+					title="Modifier">Select this Hotel</a> 
 				</td>
 				</tr>
 			</c:forEach>
 		</form:form>
 	</table>
 
+
+
+<br/><br/>
+<div style="background-color: #AC2078; border-radius:50px; text-align: center;"> Do you want a car ?<br/>
+Select car for your trip:
+ <input type="radio" name="selectedCar" id="selectedCar"/>
 </div>
+
+</div>
+
 	    <!-- Colonne vide -->
     <div class="col-sm-6 col-md-1"></div>
 </body>
