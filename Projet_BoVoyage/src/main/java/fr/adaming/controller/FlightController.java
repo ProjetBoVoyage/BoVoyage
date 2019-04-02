@@ -4,7 +4,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -54,6 +56,15 @@ public class FlightController {
 		modele.addAttribute("fligAdd", new Flight());
 		List<Destination> destinations = destService.getAll();
 		modele.addAttribute("destinations", destinations);
+		Map<String, String> airportList = new HashMap<String, String>();
+		airportList.put("Bordeaux", "Bordeaux");
+		airportList.put("Lille", "Lille");
+		airportList.put("Lyon", "Lyon");
+		airportList.put("Marseille", "Marseille");
+		airportList.put("Paris", "Paris");
+		airportList.put("Rennes", "Rennes");
+		airportList.put("Toulouse", "Toulouse");
+		modele.addAttribute("airportList", airportList);
 		return "addFlightPage";
 	}
 
@@ -95,6 +106,15 @@ public class FlightController {
 		modele.addAttribute("fligUpdate", new Flight());
 		List<Destination> destinations = destService.getAll();
 		modele.addAttribute("destinations", destinations);
+		Map<String, String> airportList = new HashMap<String, String>();
+		airportList.put("Bordeaux", "Bordeaux");
+		airportList.put("Lille", "Lille");
+		airportList.put("Lyon", "Lyon");
+		airportList.put("Marseille", "Marseille");
+		airportList.put("Paris", "Paris");
+		airportList.put("Rennes", "Rennes");
+		airportList.put("Toulouse", "Toulouse");
+		modele.addAttribute("airportList", airportList);
 		return "updateFlightPage";
 	}
 

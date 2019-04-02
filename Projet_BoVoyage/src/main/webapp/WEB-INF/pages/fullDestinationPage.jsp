@@ -12,7 +12,18 @@
 <!-- Ajouter le fichier Bootstrap -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	type="text/javascript"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
 <style>
 .imgtext{
 width:100%; height:250px;overflow:hidden;

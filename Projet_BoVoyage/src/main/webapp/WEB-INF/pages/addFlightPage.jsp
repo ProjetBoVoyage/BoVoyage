@@ -17,11 +17,12 @@
 		cssClass="form-horizontal" cssStyle="margin-top:100px;">
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idDepartureAirport" class="col-sm-2 control-label">Departure
-				Airport: </label>
+			<label for="idContinent" class="col-sm-2 control-label">Departure Airport
+			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idDepartureAirport"
-					placeholder="Departure Airport" path="departureAirport" />
+				<form:select path="airport">
+					<form:options items="${airportList}" />
+				</form:select>
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
