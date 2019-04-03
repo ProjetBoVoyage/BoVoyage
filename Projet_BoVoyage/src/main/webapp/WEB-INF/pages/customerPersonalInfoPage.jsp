@@ -100,7 +100,7 @@
 			</label>
 			<div class="col-sm-5">
 				<input name="adress" class="form-control" id="idAdress"
-					placeholder="Adress" />
+					placeholder="Address" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
