@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
-import fr.adaming.model.Destination;
 import fr.adaming.model.Flight;
 import fr.adaming.model.FormulaAccomodation;
 import fr.adaming.model.FormulaTrip;
+import fr.adaming.model.Insurance;
 import fr.adaming.service.IAccommodationService;
 import fr.adaming.service.IDestinationService;
 import fr.adaming.service.IFlightService;
 import fr.adaming.service.IFormulaAccommodationService;
 import fr.adaming.service.IFormulaTripService;
+import fr.adaming.service.IInsuranceService;
 import fr.adaming.service.ITripService;
 
 @Controller
@@ -52,6 +52,8 @@ public class FormulaController {
 	private IFormulaTripService ftService;
 	@Autowired
 	private IFormulaAccommodationService faService;
+	@Autowired
+	private IInsuranceService iService;
 
 	/** FORMULE VOL SEUL */
 	@RequestMapping(value = "/viewFlight", method = RequestMethod.GET)
@@ -81,18 +83,26 @@ public class FormulaController {
 
 		List<FormulaAccomodation> formacc = faService.getAll();
 		modele.addAttribute("formacc", formacc);
-
+		List<Insurance> forminsu = iService.getAll();
+		modele.addAttribute("forminsu",forminsu);
 		return new ModelAndView("hotelReservationPage", "hotel", accService.getById(idAcc));
 
 	}
 
 	@RequestMapping(value = "/submitResHotel", method = RequestMethod.POST)
-	public String submitResHotel(RedirectAttributes ra, @RequestParam("pAcc") int idAcc, @ModelAttribute("formulaTrip") FormulaTrip formTrip){
+	public String submitResHotel(RedirectAttributes ra, @RequestParam("pAcc") int idAcc,
+			@ModelAttribute("formulaTrip") FormulaTrip formTrip,
+			@ModelAttribute("formulaAccomodation") FormulaAccomodation formAcc,
+			@ModelAttribute("insurance") Insurance insu,
+			@ModelAttribute("carRental") boolean car) {
 
 		Accommodation acOut = accService.getById(idAcc);
-		//FormulaTrip formTrip = new FormulaTrip();
+		// FormulaTrip formTrip = new FormulaTrip();
 		formTrip.setNameFormTrip("Formule Hôtel Seul");
 		formTrip.setRate(0.9);
+		formTrip.setFormulaAccomodation(formAcc);
+		formTrip.setInsurance(insu);
+		formTrip.setCarRental(car);
 		// Appel de la méthode service
 		int test = ftService.add(formTrip);
 		formTrip.setAccomodation(acOut);
