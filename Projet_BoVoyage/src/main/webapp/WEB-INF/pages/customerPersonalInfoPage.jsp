@@ -27,7 +27,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
-	<div>
+	<div style="padding-top: 50px">
 		<h1>Welcome ${customer.name} ${customer.firstname}</h1>
 	</div>
 	<%@include file="/WEB-INF/templates/navBarCusto.jsp"%>
