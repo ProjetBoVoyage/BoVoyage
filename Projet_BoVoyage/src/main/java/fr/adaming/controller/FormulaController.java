@@ -94,7 +94,7 @@ public class FormulaController {
 		List<FormulaAccomodation> formacc = faService.getAll();
 		modele.addAttribute("formacc", formacc);
 		List<Insurance> forminsu = iService.getAll();
-		modele.addAttribute("forminsu",forminsu);
+		modele.addAttribute("forminsu",forminsu); 
 		modele.addAttribute(new FormulaTrip());
 		modele.addAttribute(new FormulaAccomodation());
 		
