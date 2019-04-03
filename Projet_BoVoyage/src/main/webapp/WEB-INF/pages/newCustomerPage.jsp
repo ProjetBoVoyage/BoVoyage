@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,12 +23,27 @@
 	href="${pageContext.request.contextPath}/assets/css/myStyleSheet.css" />
 </head>
 <body>
-<%@include file="/WEB-INF/templates/navBar.jsp"%>
+	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 
-<h3>${msg}</h3>
+	<div style="padding-top: 50px">
+		<h3 style="color: gray; text-align: center">${msg}</h3>
+	</div>
 	<form:form method="POST" action="submitAddCusto" commandName="custAdd"
 		cssClass="form-horizontal" enctype="multipart/form-data">
-		<div class="col-sm-6 col-md-1" style="padding-top: 50px"></div>
+
+		<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idCivility" class="col-sm-2 control-label">Civility:
+			</label>
+			<div class="col-sm-1">
+				<form:select path="civility"d id="idCivility" cssClass="form-control"
+					cssStyle="margin-bottom: 35px;">
+					<form:options items="${civilityList}" />
+				</form:select>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
@@ -38,49 +53,45 @@
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idSurname" class="col-sm-2 control-label">Surname: </label>
-			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idSurname" placeholder="Surname"
-					path="firstname" />
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-1"></div>
-		<div class="form-group">
-			<label for="idCivility" class="col-sm-2 control-label">Civility:
+			<label for="idSurname" class="col-sm-2 control-label">Surname:
 			</label>
 			<div class="col-sm-5">
-				<form:select path="civility" id="idCivility">
-					<form:options items="${civilityList}" />
-				</form:select>
+				<form:input cssClass="form-control" id="idSurname"
+					placeholder="Surname" path="firstname" />
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idDoB" class="col-sm-2 control-label">Date of
+				Birth: </label>
+			<div class="col-sm-5">
+				<form:input cssClass="form-control" id="idDoB" type="date"
+					pattern="yyyy-MM-dd" path="dob" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idDoB" class="col-sm-2 control-label">Date of Birth:
+			<label for="idPhone" class="col-sm-2 control-label">Phone
+				Number: </label>
+			<div class="col-sm-5">
+				<form:input cssClass="form-control" id="idPhone"
+					placeholder="Phone N°" path="phone" />
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-1"></div>
+		<div class="form-group">
+			<label for="idAdress" class="col-sm-2 control-label">Adress:
 			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idDoB" type="date" pattern="yyyy-MM-dd"
-					path="dob" />
+				<input name="adress" class="form-control" id="idAdress"
+					placeholder="Adress" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idPhone" class="col-sm-2 control-label">Phone Number: </label>
-			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idPhone" placeholder="Phone N°"
-					path="phone" />
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-1"></div>
-		<div class="form-group">
-			<label for="idAdress" class="col-sm-2 control-label">Adress: </label>
-			<div class="col-sm-5">
-				<input name="adress" class="form-control" id="idAdress" placeholder="Adress"/>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-1"></div>
-		<div class="form-group">
-			<label for="idZip" class="col-sm-2 control-label">Postal Code: </label>
+			<label for="idZip" class="col-sm-2 control-label">Postal
+				Code: </label>
 			<div class="col-sm-5">
 				<input class="form-control" id="idZip" placeholder="Postal Code"
 					name="postalCode" />
@@ -96,25 +107,27 @@
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idMailAdress" class="col-sm-2 control-label">Mail Adress: </label>
+			<label for="idMailAdress" class="col-sm-2 control-label">Mail
+				Adress: </label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idMailAdress" placeholder="example@login.fr"
-					path="mail" />
+				<form:input cssClass="form-control" id="idMailAdress"
+					placeholder="example@login.fr" path="mail" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
-			<label for="idPassword" class="col-sm-2 control-label">Password: </label>
+			<label for="idPassword" class="col-sm-2 control-label">Password:
+			</label>
 			<div class="col-sm-5">
-				<form:input cssClass="form-control" id="idPassword" placeholder="**********"
-					path="password" />
+				<form:input cssClass="form-control" id="idPassword"
+					placeholder="**********" path="password" />
 			</div>
 		</div>
 		<div class="col-sm-6 col-md-1"></div>
 		<div class="form-group">
 			<div class="col-sm-offset-4 col-sm-10">
-				<button type="submit" class="btn btn-success" >Sign up !</button>
-		</div>
+				<button type="submit" class="btn btn-success">Sign up !</button>
+			</div>
 		</div>
 	</form:form>
 </body>
