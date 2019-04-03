@@ -82,7 +82,7 @@ public class FormulaController {
 
 		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
 		modele.addAttribute("listAccDest", listAcc);
-
+		
 		return new ModelAndView("formulaHotel", "destination", destService.getById(idDest));
 
 	}
@@ -96,6 +96,8 @@ public class FormulaController {
 		List<Insurance> forminsu = iService.getAll();
 		modele.addAttribute("forminsu",forminsu);
 		this.accOut = accService.getById(idAcc);
+		FormulaTrip formTrip = new FormulaTrip();
+		formTrip.setFormulaAccomodation(new FormulaAccomodation());
 		return new ModelAndView("hotelReservationPage", "hotel", accService.getById(idAcc));
 
 	}
