@@ -27,7 +27,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
-	<br/><br/>
+	<br/><br/> 
 	    <!-- Colonne vide -->
     <div class="col-sm-6 col-md-1"></div>
     
