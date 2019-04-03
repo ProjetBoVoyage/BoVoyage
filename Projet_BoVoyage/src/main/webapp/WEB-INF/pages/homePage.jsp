@@ -32,7 +32,7 @@
 
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 
-
+<br/><br/>
 	<section>
 		<!-- Carousel code 1-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -187,9 +187,13 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
 	<%@include file="footer.jsp"%>
 	<%@include file="footerSticky.jsp"%>
-</body>
+	
+
 
 
 </body>
