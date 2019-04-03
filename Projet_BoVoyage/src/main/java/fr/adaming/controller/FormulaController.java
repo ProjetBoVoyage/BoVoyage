@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
 import fr.adaming.model.Customer;
@@ -50,8 +49,6 @@ public class FormulaController {
 	private IFlightService fliService;
 	@Autowired
 	private IAccommodationService accService;
-	@Autowired
-	private ITripService tripService;
 	@Autowired
 	private IFormulaTripService ftService;
 	@Autowired
