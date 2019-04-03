@@ -2,10 +2,10 @@ package fr.adaming.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
@@ -24,18 +24,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Accommodation;
-import fr.adaming.model.Customer;
+import fr.adaming.model.Cart;
 import fr.adaming.model.Flight;
 import fr.adaming.model.FormulaAccomodation;
 import fr.adaming.model.FormulaTrip;
 import fr.adaming.model.Insurance;
+import fr.adaming.model.Trip;
 import fr.adaming.service.IAccommodationService;
-import fr.adaming.service.ICustomerService;
 import fr.adaming.service.IDestinationService;
 import fr.adaming.service.IFlightService;
 import fr.adaming.service.IFormulaAccommodationService;
 import fr.adaming.service.IFormulaTripService;
 import fr.adaming.service.IInsuranceService;
+import fr.adaming.service.ITripService;
 
 @Controller
 @RequestMapping("/formula")
@@ -57,10 +58,16 @@ public class FormulaController {
 	@Autowired
 	private IInsuranceService iService;
 	@Autowired
-	private ICustomerService custoService;
+	private ITripService tripService;
 
 	private Accommodation accOut;
-	private Customer customer;
+	private Cart cart;
+	
+	@PostConstruct
+	public void init() {
+
+		this.cart = new Cart();
+	}
 
 	public Accommodation getAccOut() {
 		return accOut;
@@ -76,7 +83,7 @@ public class FormulaController {
 
 		List<Flight> listFli = fliService.getFliByDestination(destService.getById(idDest));
 		modele.addAttribute("listFliDest", listFli);
-
+		
 		return new ModelAndView("formulaFlight", "destination", destService.getById(idDest));
 
 	}
@@ -116,26 +123,26 @@ public class FormulaController {
 		// Appel de la méthode service
 
 		int test = ftService.add(formTrip);
-
+		
 		if (test != 0) {
-			Authentication authCxt = SecurityContextHolder.getContext().getAuthentication();
-
-			// recup mail dans ctx
-			String mail = authCxt.getName();
-
-			if (mail != "anonymousUser") {
-				this.customer = custoService.getCustomerByMail(mail);
-				return new ModelAndView("paymentPage","customer",customer);
-			} else {
-				modele.addAttribute("custAdd", new Customer());
-				Map<String, String> civilityList = new HashMap<String, String>();
-				civilityList.put("Miss", "Miss");
-				civilityList.put("Mrs.", "Mrs.");
-				civilityList.put("Mr.", "Mr.");
-				modele.addAttribute("civilityList", civilityList);
-				return  new ModelAndView("newCustomerPage","",null);
+			try {
+				List<Trip> listTrips = this.cart.getTrips();
+				Trip trip = new Trip();
+				trip.setFormulaTrip(formTrip);
+				listTrips.add(trip);
+				this.cart.setTrips(listTrips);
+				tripService.add(trip);
+			} catch (Exception e1) {
+				List<Trip> listTrips = new ArrayList<Trip>();
+				Trip trip = new Trip();
+				trip.setFormulaTrip(formTrip);
+				listTrips.add(trip);
+				System.out.println(listTrips + " "+ cart);
+				this.cart.setTrips(listTrips);
+				tripService.add(trip);
 			}
-			
+			System.out.println(cart);
+			return new ModelAndView("cartPage","msg","this trip has been added to your Cart !");
 		} else {
 			return  new ModelAndView("hotelReservationPage","msg","Something went wrong");
 		}
