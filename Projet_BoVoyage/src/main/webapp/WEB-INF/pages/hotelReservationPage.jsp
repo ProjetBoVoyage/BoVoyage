@@ -42,10 +42,10 @@
 		
 			Choose your formula:<br />
 			<form:select class="col-md-3 form-control"
-				path="formulaAccomodation">
+				path="formulaAccomodation.id">
 				<option value="1">Choose a formula</option>
 				<c:forEach items="${formacc}" var="f">
-					<option value="${f}">${f.nameFormAcc}</option>
+					<option value="${f.id}">${f.nameFormAcc}</option>
 				</c:forEach>
 			</form:select>
 			

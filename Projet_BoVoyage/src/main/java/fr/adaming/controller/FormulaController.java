@@ -54,6 +54,16 @@ public class FormulaController {
 	private IFormulaAccommodationService faService;
 	@Autowired
 	private IInsuranceService iService;
+	
+	private Accommodation accOut;
+	
+	public Accommodation getAccOut() {
+		return accOut;
+	}
+
+	public void setAccOut(Accommodation accOut) {
+		this.accOut = accOut;
+	}
 
 	/** FORMULE VOL SEUL */
 	@RequestMapping(value = "/viewFlight", method = RequestMethod.GET)
@@ -85,28 +95,23 @@ public class FormulaController {
 		modele.addAttribute("formacc", formacc);
 		List<Insurance> forminsu = iService.getAll();
 		modele.addAttribute("forminsu",forminsu);
+		this.accOut = accService.getById(idAcc);
 		return new ModelAndView("hotelReservationPage", "hotel", accService.getById(idAcc));
 
 	}
 
 	@RequestMapping(value = "/submitResHotel", method = RequestMethod.POST)
 	public String submitResHotel(RedirectAttributes ra, @RequestParam("pAcc") int idAcc,
-			@ModelAttribute("formulaTrip") FormulaTrip formTrip,
-			@ModelAttribute("formulaAccomodation") FormulaAccomodation formAcc,
-			@ModelAttribute("insurance") Insurance insu,
-			@ModelAttribute("carRental") boolean car) {
+			@ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
 		Accommodation acOut = accService.getById(idAcc);
 		// FormulaTrip formTrip = new FormulaTrip();
 		formTrip.setNameFormTrip("Formule Hôtel Seul");
 		formTrip.setRate(0.9);
-		formTrip.setFormulaAccomodation(formAcc);
-		formTrip.setInsurance(insu);
-		formTrip.setCarRental(car);
 		// Appel de la méthode service
+		formTrip.setAccomodation(this.accOut);
+		formTrip.setDestination(this.accOut.getDestination());
 		int test = ftService.add(formTrip);
-		formTrip.setAccomodation(acOut);
-		formTrip.setDestination(acOut.getDestination());
 
 		if (test != 0) {
 			return "homePage";
