@@ -32,21 +32,6 @@ public class StartController {
 	@Autowired
 	private IDestinationService destService;
 
-	private ICustomerService custoService;
-
-	private Customer customer;
-
-	@PostConstruct
-	public void init() {
-
-		Authentication authCxt = SecurityContextHolder.getContext().getAuthentication();
-
-		// recup mail dans ctx
-		String mail = authCxt.getName();
-
-		this.customer = custoService.getCustomerByMail(mail);
-	}
-
 	/** AFFICHER HOME PAGE AVEC DESTINATIONS DEDANS */
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String displayWelcomePage(Model modele) {
@@ -55,8 +40,8 @@ public class StartController {
 	}
 
 	@RequestMapping(value = "/custo/customerPage", method = RequestMethod.GET)
-	public ModelAndView displayCustomerSpacePage() {
-		return new ModelAndView("customerPersonalInfoPage", "customer", this.customer);
+	public String displayCustomerSpacePage() {
+		return "customerPage";
 	}
 
 	@RequestMapping(value = "/admin/adminPage", method = RequestMethod.GET)
