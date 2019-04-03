@@ -10,6 +10,8 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,11 +23,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
+import fr.adaming.model.Customer;
 import fr.adaming.model.Flight;
 import fr.adaming.model.FormulaAccomodation;
 import fr.adaming.model.FormulaTrip;
 import fr.adaming.model.Insurance;
 import fr.adaming.service.IAccommodationService;
+import fr.adaming.service.ICustomerService;
 import fr.adaming.service.IDestinationService;
 import fr.adaming.service.IFlightService;
 import fr.adaming.service.IFormulaAccommodationService;
@@ -54,9 +58,12 @@ public class FormulaController {
 	private IFormulaAccommodationService faService;
 	@Autowired
 	private IInsuranceService iService;
-	
+	@Autowired
+	private ICustomerService custoService;
+
 	private Accommodation accOut;
-	
+	private Customer customer;
+
 	public Accommodation getAccOut() {
 		return accOut;
 	}
@@ -82,7 +89,7 @@ public class FormulaController {
 
 		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
 		modele.addAttribute("listAccDest", listAcc);
-		
+
 		return new ModelAndView("formulaHotel", "destination", destService.getById(idDest));
 
 	}
@@ -94,17 +101,16 @@ public class FormulaController {
 		List<FormulaAccomodation> formacc = faService.getAll();
 		modele.addAttribute("formacc", formacc);
 		List<Insurance> forminsu = iService.getAll();
-		modele.addAttribute("forminsu",forminsu); 
+		modele.addAttribute("forminsu", forminsu);
 		modele.addAttribute(new FormulaTrip());
 		modele.addAttribute(new FormulaAccomodation());
-		
+
 		return new ModelAndView("hotelReservationPage", "hotel", accService.getById(idAcc));
 
 	}
 
 	@RequestMapping(value = "/submitResHotel", method = RequestMethod.POST)
-	public String submitResHotel(RedirectAttributes ra,
-			@ModelAttribute("formulaTrip") FormulaTrip formTrip) {
+	public ModelAndView submitResHotel(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
 		// FormulaTrip formTrip = new FormulaTrip();
 		formTrip.setNameFormTrip("Formule Hôtel Seul");
@@ -114,10 +120,20 @@ public class FormulaController {
 		int test = ftService.add(formTrip);
 
 		if (test != 0) {
-			return "paymentPage";
+			Authentication authCxt = SecurityContextHolder.getContext().getAuthentication();
+
+			// recup mail dans ctx
+			String mail = authCxt.getName();
+
+			if (mail != null) {
+				this.customer = custoService.getCustomerByMail(mail);
+				return new ModelAndView("paymentPage","customer",customer);
+			} else {
+				return  new ModelAndView("newCustomerPage","customer",customer);
+			}
+			
 		} else {
-			ra.addFlashAttribute("msg", "Adding Destination Failed");
-			return "hotelReservationPage";
+			return  new ModelAndView("hotelReservationPage","msg","Something went wrong");
 		}
 
 	}
