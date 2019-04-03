@@ -2,7 +2,9 @@ package fr.adaming.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,7 +36,6 @@ import fr.adaming.service.IFlightService;
 import fr.adaming.service.IFormulaAccommodationService;
 import fr.adaming.service.IFormulaTripService;
 import fr.adaming.service.IInsuranceService;
-import fr.adaming.service.ITripService;
 
 @Controller
 @RequestMapping("/formula")
@@ -122,11 +123,17 @@ public class FormulaController {
 			// recup mail dans ctx
 			String mail = authCxt.getName();
 
-			if (mail != null) {
+			if (mail != "anonymousUser") {
 				this.customer = custoService.getCustomerByMail(mail);
 				return new ModelAndView("paymentPage","customer",customer);
 			} else {
-				return  new ModelAndView("newCustomerPage","customer",customer);
+				modele.addAttribute("custAdd", new Customer());
+				Map<String, String> civilityList = new HashMap<String, String>();
+				civilityList.put("Miss", "Miss");
+				civilityList.put("Mrs.", "Mrs.");
+				civilityList.put("Mr.", "Mr.");
+				modele.addAttribute("civilityList", civilityList);
+				return  new ModelAndView("newCustomerPage","",null);
 			}
 			
 		} else {
