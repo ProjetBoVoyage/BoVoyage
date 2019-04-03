@@ -79,7 +79,7 @@ public class FormulaController {
 
 	// FORMULE VOL SEUL
 	/** METHODE AFFICHER PAGE */
-	@RequestMapping(value = "/loneflight/viewFlight", method = RequestMethod.GET)
+	@RequestMapping(value = "/loneflightViewFlight", method = RequestMethod.GET)
 	public ModelAndView viewLoneFlightForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
 
 		List<Flight> listFli = fliService.getFliByDestination(destService.getById(idDest));
@@ -89,7 +89,7 @@ public class FormulaController {
 	}
 
 	/** METHODE AFFICHER PAGE CHOIX FINAL ASSURANCE + VOITURE */
-	@RequestMapping(value = "/loneflight/selectFlight", method = RequestMethod.GET)
+	@RequestMapping(value = "/loneflightSelectFlight", method = RequestMethod.GET)
 	public ModelAndView selectLoneFlightForm(HttpServletRequest request,
 			@RequestParam("pFli") @ModelAttribute("fliSelect") int idFlight, Model modele) {
 
@@ -103,7 +103,7 @@ public class FormulaController {
 	}
 
 	/** METHODE SUBMIT RESERVATION FLIGHT */
-	@RequestMapping(value = "/loneflight/submitResFlight", method = RequestMethod.POST)
+	@RequestMapping(value = "/loneflightSubmitResFlight", method = RequestMethod.POST)
 	public ModelAndView submitResLoneFlight(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
 		// FormulaTrip formTrip = new FormulaTrip();
@@ -140,7 +140,7 @@ public class FormulaController {
 
 	// FORMULE HOTEL SEUL
 	/** METHODE AFFICHER PAGE SELECT HOTEL */
-	@RequestMapping(value = "/lonehotel/viewHotel", method = RequestMethod.GET)
+	@RequestMapping(value = "/lonehotelViewHotel", method = RequestMethod.GET)
 	public ModelAndView viewLoneHotelForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest,
 			Model modele) {
 
@@ -152,7 +152,7 @@ public class FormulaController {
 	}
 
 	/** METHODE AFFICHER PAGE CHOIX FINAL FORMULE HOTEL + ASSURANCE + VOITURE */
-	@RequestMapping(value = "/lonehotel/selectHotel", method = RequestMethod.GET)
+	@RequestMapping(value = "/lonehotelSelectHotel", method = RequestMethod.GET)
 	public ModelAndView selectLoneHotelForm(HttpServletRequest request,
 			@RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc, Model modele) {
 
@@ -170,7 +170,7 @@ public class FormulaController {
 	}
 
 	/** METHODE SUBMIT RESERVATION HOTEL */
-	@RequestMapping(value = "/lonehotel/submitResHotel", method = RequestMethod.POST)
+	@RequestMapping(value = "/lonehotelSubmitResHotel", method = RequestMethod.POST)
 	public ModelAndView submitResLoneHotel(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
 		// FormulaTrip formTrip = new FormulaTrip();
@@ -207,7 +207,7 @@ public class FormulaController {
 
 	// FORMULE HOTEL+FLIGHT
 	/** METHODE AFFICHER PAGE HOTEL*/
-	@RequestMapping(value = "/hotelflight/viewHotel", method = RequestMethod.GET)
+	@RequestMapping(value = "/hotelflightViewHotel", method = RequestMethod.GET)
 	public ModelAndView viewHotelForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
 
 		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
@@ -218,7 +218,7 @@ public class FormulaController {
 	}
 	
 	/** METHODE SUBMIT RESERVATION HOTEL / AFFICHER FLIGHT */
-	@RequestMapping(value = "/hotelflight/viewFlight", method = RequestMethod.POST)
+	@RequestMapping(value = "/hotelflightViewFlight", method = RequestMethod.POST)
 	public ModelAndView submitResHotel(@RequestParam("pHotel") @ModelAttribute("hotel") int idAcc, Model modele) {
 
 		this.monFormTrip.setNameFormTrip("Lone Accommodation Formula");
@@ -234,7 +234,7 @@ public class FormulaController {
 	}
 	
 	/** METHODE AFFICHER PAGE CHOIX FINAL FORMULE HOTEL + ASSURANCE + VOITURE */
-	@RequestMapping(value = "/hotelflight/selectHotelAndFlight", method = RequestMethod.GET)
+	@RequestMapping(value = "/hotelflightSelectHotelAndFlight", method = RequestMethod.GET)
 	public ModelAndView selectHotelandFlightForm(HttpServletRequest request,
 			@RequestParam("pFli") @ModelAttribute("fliSelect") int idFlight, Model modele) {
 
@@ -255,7 +255,7 @@ public class FormulaController {
 	}
 	
 	/** METHODE SUBMIT RESERVATION HOTEL + FLIGHT */
-	@RequestMapping(value = "/hotelflight/submitResHotel", method = RequestMethod.POST)
+	@RequestMapping(value = "/hotelflightSubmitResHotel", method = RequestMethod.POST)
 	public ModelAndView submitResHotelAndFlight(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
 		// Appel de la méthode service
@@ -290,7 +290,7 @@ public class FormulaController {
 	}
 	
 	/** METHODE AFFICHER PHOTO */
-	@RequestMapping(value = "/photoAcc", produces = MediaType.IMAGE_JPEG_VALUE)
+	@RequestMapping(value = "photoAcc", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	public byte[] getPhoto(int idAcc) throws IOException {
 		Accommodation acOut = accService.getById(idAcc);

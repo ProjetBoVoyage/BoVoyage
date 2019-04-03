@@ -40,7 +40,7 @@
 				<tr>
 				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
 					<td><h3><b>${a.name} </b><span style="color:#FFCE1A;text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;">${a.stars}</span></h3><br/>
-					${a.description}</br></br>
+					${a.description}<br/><br/>
 					${a.price}&euro;<br/><br/>
 
 		</div></td>
