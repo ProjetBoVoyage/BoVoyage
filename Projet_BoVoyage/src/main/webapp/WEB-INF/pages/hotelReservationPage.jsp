@@ -34,24 +34,22 @@
 <div class="col-sm-12 col-md-6">
 You have chosen the accommodation ${hotel.name} in ${hotel.destination.city}
 <br/>
-<%-- <form:form method="POST" action="submitResHotel" commandName="formulaTrip" --%>
-<%-- 		cssClass="form-horizontal" cssStyle="margin-top:100px;" --%>
-<%-- 		enctype="multipart/form-data"> --%>
-<%-- 			<form:input cssClass="form-control" id="nameFormTrip" --%>
-<%-- 					placeholder="Name" path="nameFormTrip" /> --%>
+<form:form method="POST" action="submitResHotel" commandName="formulaTrip"
+		cssClass="form-horizontal" cssStyle="margin-top:100px;"
+		enctype="multipart/form-data">
 		
-<!-- Choose your formula:<br/> -->
-<%-- 				<form:select class="col-md-3 form-control" path="formulaAccomodation.id"> --%>
-<!-- 					<option value="1">Choose a formula</option> -->
-<%-- 					<c:forEach items="${formacc}" var="f"> --%>
-<%-- 						<option value="${f.id}">${f.nameFormAcc}</option> --%>
-<%-- 					</c:forEach> --%>
-<%-- 				</form:select> --%>
+Choose your formula:<br/>
+				<form:select class="col-md-3 form-control" path="formulaAccomodation.id">
+					<option value="1">Choose a formula</option>
+					<c:forEach items="${formacc}" var="f">
+						<option value="${f.id}">${f.nameFormAcc}</option>
+					</c:forEach>
+				</form:select>
 				
 				
-<!-- 				<button type="submit" class="btn btn-primary">Book</button> -->
+				<button type="submit" class="btn btn-primary">Book</button>
 				
-<%-- 				</form:form> --%>
+				</form:form>
 </div>
 
 </body>

@@ -207,5 +207,11 @@ public class FlightController {
 	public ModelAndView viewListDest() {
 		return new ModelAndView("viewAllFlightPage", "listFlig", fligService.getAll());
 	}
+	
+	// Afficher le tableau pour les clients
+	@RequestMapping(value = "/viewFlights", method = RequestMethod.GET)
+	public ModelAndView viewListDestCusto() {
+		return new ModelAndView("viewAllFlightCusto", "listFlig", fligService.getAll());
+	}
 
 }

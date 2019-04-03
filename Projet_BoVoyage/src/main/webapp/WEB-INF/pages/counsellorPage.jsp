@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -43,7 +44,6 @@
 
 	<table id="example" class="table table-striped table-bordered"
 		style="width: 100%">
-		<thead>
 			<tr>
 				<th class="th-sm">Trip Number</th>
 				<th class="th-sm">Customer</th>
@@ -53,8 +53,7 @@
 				<th class="th-sm">Number of attendants</th>
 				<th class="th-sm">Operations</th>
 			</tr>
-		</thead>
-		<tbody>
+
 			<c:forEach items="${listFile}" var="f">
 				<tr>
 					<td>${f.trip.id}</td>
@@ -69,7 +68,7 @@
 						href="${pageContext.request.contextPath}/" title="Refused">Refused</a></td>
 
 				</tr>
-		</tbody>
+				</c:forEach>
 		<tfoot>
 			<tr>
 				<th>Trip Number</th>

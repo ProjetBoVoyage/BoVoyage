@@ -156,11 +156,17 @@ public class AccommodationController {
 
 	}
 
-	/** METHODE AFFICHER TOUTES DESTINATIONS */
+	/** METHODE AFFICHER TOUS HOTELS */
 	// Afficher le tableau
 	@RequestMapping(value = "/viewAcc", method = RequestMethod.GET)
-	public ModelAndView viewListDest() {
+	public ModelAndView viewListAcc() {
 		return new ModelAndView("viewAllAccommodationPage", "listAcc", accService.getAll());
+	}
+	
+	// Afficher le tableau pour les clients
+	@RequestMapping(value = "/viewAccCusto", method = RequestMethod.GET)
+	public ModelAndView viewListAccCusto() {
+		return new ModelAndView("viewAllAccommodationCusto", "listAcc", accService.getAll());
 	}
 
 	/** METHODE AFFICHER PHOTO */

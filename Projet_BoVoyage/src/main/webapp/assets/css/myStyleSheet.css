@@ -243,3 +243,13 @@ input {
 	-o-transform: scale(1.05);
 	transform: scale(1.05);
 }
+
+/* NAVBAR STYLE */
+.navbar-inverse {
+    background-color: #A8C755!important;
+    border-color: #A8C755!important;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid!important;
+}
