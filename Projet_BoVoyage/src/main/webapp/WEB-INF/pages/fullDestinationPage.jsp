@@ -115,7 +115,7 @@ height:200px;
       <div class="caption">
         <h3>Find a flight</h3>
         <p>Find a flight to this destination at the best price with the best airlines! </p>
-        <p><a href="${pageContext.request.contextPath}/formula/viewFlight?pDest=${destination.idDest}" class="btn btn-primary" role="button">Book a flight</a></p>
+        <p><a href="${pageContext.request.contextPath}/formula/loneflight/viewFlight/?pDest=${destination.idDest}" class="btn btn-primary" role="button">Book a flight</a></p>
       </div>
     </div>
   </div>
@@ -124,7 +124,7 @@ height:200px;
       <div class="caption">
         <h3>Find a hotel</h3>
         <p>Find an accommodation at this destination at the best price and with the best reviews! </p>
-        <p><a href="${pageContext.request.contextPath}/formula/viewHotel?pDest=${destination.idDest}" class="btn btn-primary" role="button">Book a hotel</a></p>
+        <p><a href="${pageContext.request.contextPath}/formula/lonehotel/viewHotel?pDest=${destination.idDest}" class="btn btn-primary" role="button">Book a hotel</a></p>
       </div>
     </div>
   </div>
@@ -133,7 +133,7 @@ height:200px;
       <div class="caption">
         <h3>Flight + Hotel</h3>
         <p>Find a flight and book an accommodation for this destination! Check our best deals! </p>
-        <p><a href="${pageContext.request.contextPath}/formula/viewHotFli?pDest=${destination.idDest}" class="btn btn-primary" role="button">Choose this formula</a></p>
+        <p><a href="${pageContext.request.contextPath}/formula/hotelflight/viewHotel?pDest=${destination.idDest}" class="btn btn-primary" role="button">Choose this formula</a></p>
       </div>
     </div>
   </div>
