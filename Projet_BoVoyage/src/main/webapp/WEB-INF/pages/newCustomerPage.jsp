@@ -25,9 +25,10 @@
 <body>
 <%@include file="/WEB-INF/templates/navBar.jsp"%>
 
+<h3>${msg}</h3>
 	<form:form method="POST" action="submitAddCusto" commandName="custAdd"
-		cssClass="form-horizontal" enctype="multipart/form-data" cssStyle="margin-top:100px;">
-		<div class="col-sm-6 col-md-1"></div>
+		cssClass="form-horizontal" enctype="multipart/form-data">
+		<div class="col-sm-6 col-md-1" style="padding-top: 50px"></div>
 		<div class="form-group">
 			<label for="idName" class="col-sm-2 control-label">Name: </label>
 			<div class="col-sm-5">
