@@ -51,7 +51,7 @@
 			style="position: fixed; width: 100%; z-index: 1000">
 			<ul class="nav nav-tabs">
 
-				<li style=" padding: 5px !important">
+				<li style=" padding: 5px !important"> 
 					<img src="https://i.ibb.co/dpHsdDj/travel-2.png" style="width:40px;">
 				</li>
 				<li role="presentation"><a
