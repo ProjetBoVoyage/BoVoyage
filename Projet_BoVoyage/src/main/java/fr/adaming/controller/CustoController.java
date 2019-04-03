@@ -102,9 +102,9 @@ public class CustoController {
 
 	/** METHODE MODIFIER UN CUSTOMER */
 	@RequestMapping(value = "/viewUpdateCusto", method = RequestMethod.GET)
-	public String viewUpdateCusto(Model modele) {
+	public String viewUpdateCusto(Model modele, @ModelAttribute("custoUpdate") Customer cuOut) {
 		// Lier la destination au modele MVC afin de l'utiliser
-		modele.addAttribute("custoUpdate", new Customer());
+		modele.addAttribute("custoUpdate", cuOut);
 		return "customerPersonalInfoPage";
 	}
 
@@ -136,7 +136,7 @@ public class CustoController {
 	}
 
 	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
-	public ModelAndView modifLien(Model modele) {
+	public ModelAndView modifLien(Model modele, @ModelAttribute("custoUpdate") Customer cuOut) {
 		Map<String, String> civilityList = new HashMap<String, String>();
 		civilityList.put("Miss", "Miss");
 		civilityList.put("Mrs.", "Mrs.");
