@@ -45,12 +45,6 @@
 					<div class="form-group">
 			<label for="idId" class="col-sm-2 control-label">Formula:
 			</label>
-				<select class="col-md-3 form-control" name="pFormAcc" id="pFormAcc">
-					<option value="1">Choose a formula</option>
-					<c:forEach items="${formacc}" var="f">
-						<option value="${f.id}">${f.nameFormAcc}</option>
-					</c:forEach>
-				</select>
 		</div></td>
 	
 				 <td>
@@ -66,14 +60,19 @@
 
 
 <br/><br/>
-<div style="background-color: #AC2078; border-radius:50px; text-align: center;"> Do you want a car ?<br/>
-Select car for your trip:
- <input type="radio" name="selectedCar" id="selectedCar"/>
-</div>
+
 
 </div>
 
-	    <!-- Colonne vide -->
-    <div class="col-sm-6 col-md-1"></div>
+	<br/><br/><br/><br/>
+		    <!-- Colonne vide -->
+    <div class="col-sm-6 col-md-3"></div>
+	  <div class="row">
+	  <div class="col-sm-12 col-md-7">
+		<%@include file="footer.jsp"%>
+	<%@include file="footerSticky.jsp"%>
+	</div>
+  </div>
+
 </body>
 </html>

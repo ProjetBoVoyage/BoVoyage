@@ -103,20 +103,18 @@ public class FormulaController {
 	}
 
 	@RequestMapping(value = "/submitResHotel", method = RequestMethod.POST)
-	public String submitResHotel(RedirectAttributes ra, @RequestParam("pAcc") int idAcc,
+	public String submitResHotel(RedirectAttributes ra,
 			@ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
-		Accommodation acOut = accService.getById(idAcc);
 		// FormulaTrip formTrip = new FormulaTrip();
 		formTrip.setNameFormTrip("Formule Hôtel Seul");
 		formTrip.setRate(0.9);
 		// Appel de la méthode service
-		formTrip.setAccomodation(this.accOut);
-		formTrip.setDestination(this.accOut.getDestination());
+
 		int test = ftService.add(formTrip);
 
 		if (test != 0) {
-			return "homePage";
+			return "paymentPage";
 		} else {
 			ra.addFlashAttribute("msg", "Adding Destination Failed");
 			return "hotelReservationPage";

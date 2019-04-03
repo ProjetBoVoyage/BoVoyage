@@ -63,6 +63,7 @@
 
 			<button type="submit" class="btn btn-primary">Book</button>
 			<form:input type="hidden" path="accomodation.idAcc" value="${hotel.idAcc}"/>
+					<form:input type="hidden" path="destination.idDest" value="${hotel.destination.idDest}"/>
 		</form:form>
 	</div>
 
