@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -39,22 +40,22 @@
 			object):</p>
 		<br>
 		<div class="row">
-			<c:forEach items="${listDest}" var="d">
+			<c:forEach items="${listFT}" var="fTrip">
 				<div class="media">
 					<div class="media-left">
 						<img
-							src="http://www.lutryvoyages.ch/fr/0_gross/Destinations/Artique---Antarctique-/208449.jpg"
+							src="photoDest?idDest=${fTrip.destination.idDest}"
 							class="media-object" style="width: 25vw">
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">
-							Lieu pays ${trip.destination.country}, <small><i>
-									continent ${trip.destination.continent}</i></small>
+							Lieu pays ${fTrip.destination.country}, <small><i>
+									continent ${fTrip.destination.continent}</i></small>
 						</h4>
 						<h4 class="media-heading">Formule choisie
-							${trip.formulaTrip.nameFormTrip}</h4>
+							${fTrip.nameFormTrip}</h4>
 						<p>Description de la destination
-							${trip.destination.description }</p>
+							${fTrip.destination.description }</p>
 
 						<div class="col-md-4">
 							<div class="card" style="border-radius: 0px !important">
@@ -62,7 +63,7 @@
 
 								<div class="img-box">
 									<img
-										src="http://www.lutryvoyages.ch/fr/0_gross/Destinations/Artique---Antarctique-/208449.jpg"
+										src="photoAcc?idAcc=${fTrip.accomodation.idAcc}"
 										style="height: 10vw; max-height: 125px; position: absolute;" />
 								</div>
 								<div class="card-block"></div>
@@ -70,19 +71,18 @@
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<h2 class="media-heading">----</h2>
 
 								<div class="card-block" style="padding-bottom: 20px">
-									<h3>Nom de l'hotel ${trip.accomodation.name}</h3>
+									<h3><label>${fTrip.accomodation.name}</label></h3>
 									<p style="">
-										prix ${trip.accomodation.price} ? <br /> etoile
-										${trip.accomodation.stars }
+										prix ${fTrip.accomodation.price} &euro; <br /> etoile
+										${fTrip.accomodation.stars }
 									</p>
 								</div>
 
 								<div class="card-block">
 									<h3>formule de logement
-										${trip.formulaaccomodation.nameFormAcc}</h3>
+										${fTrip.formulaAccomodation.nameFormAcc}</h3>
 								</div>
 							</div>
 						</div>
@@ -94,16 +94,16 @@
 
 								<div class="card-block" style="padding-bottom: 20px">
 									<h3>Departure</h3>
-									<p>Lieu ${trip.destination.departureAirport }</p>
-									<p>Date et heure ${trip.destination.departureDate }
-										${trip.destination.departureTime }</p>
+									<p>Lieu ${fTrip.flight.departureAirport }</p>
+									<p>Date et heure ${fTrip.flight.departureDate }
+										${fTrip.flight.departureTime }</p>
 								</div>
 
 								<div class="card-block">
 									<h3>Arrival</h3>
-									<p>Lieu ${trip.destination.arrivalAirport }</p>
-									<p>Date et heure ${trip.destination.arrivalDate }
-										${trip.destination.rrivalTime }</p>
+									<p>Lieu ${fTrip.flight.arrivalAirport }</p>
+									<p>Date et heure ${fTrip.flight.arrivalDate }
+										${fTrip.flight.arrivalTime }</p>
 								</div>
 							</div>
 						</div>

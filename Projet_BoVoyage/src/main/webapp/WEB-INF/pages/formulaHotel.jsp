@@ -47,7 +47,7 @@
 	
 				 <td>
 				 <a class="btn btn-info"
-					href="${pageContext.request.contextPath}/formula/selectHotel?pAcc=${a.idAcc}"
+					href="${pageContext.request.contextPath}/formula/lonehotelSelectHotel?pAcc=${a.idAcc}"
 					title="SelectHotel">Select this Hotel</a> 
 				</td>
 				</tr>

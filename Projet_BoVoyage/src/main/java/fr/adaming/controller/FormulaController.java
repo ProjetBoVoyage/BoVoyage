@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Accommodation;
 import fr.adaming.model.Cart;
+import fr.adaming.model.Destination;
 import fr.adaming.model.Flight;
 import fr.adaming.model.FormulaAccomodation;
 import fr.adaming.model.FormulaTrip;
@@ -60,12 +61,14 @@ public class FormulaController {
 	private Accommodation accOut;
 	private Cart cart;
 	private FormulaTrip monFormTrip;
+	private FormulaTrip formTripHotel;
 
 	@PostConstruct
 	public void init() {
 
 		this.cart = new Cart();
 		this.monFormTrip = new FormulaTrip();
+		this.formTripHotel = new FormulaTrip();
 		
 	}
 
@@ -146,7 +149,9 @@ public class FormulaController {
 
 		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
 		modele.addAttribute("listAccDest", listAcc);
-
+		
+		this.formTripHotel.setDestination(destService.getById(idDest));
+		
 		return new ModelAndView("formulaHotel", "destination", destService.getById(idDest));
 
 	}
@@ -156,6 +161,8 @@ public class FormulaController {
 	public ModelAndView selectLoneHotelForm(HttpServletRequest request,
 			@RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc, Model modele) {
 
+		this.formTripHotel.setAccomodation(accService.getById(idAcc));
+		
 		List<FormulaAccomodation> formacc = faService.getAll();
 		modele.addAttribute("formacc", formacc);
 
@@ -171,40 +178,54 @@ public class FormulaController {
 
 	/** METHODE SUBMIT RESERVATION HOTEL */
 	@RequestMapping(value = "/lonehotelSubmitResHotel", method = RequestMethod.POST)
-	public ModelAndView submitResLoneHotel(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
+	public String submitResLoneHotel(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
+		
 		// FormulaTrip formTrip = new FormulaTrip();
-		formTrip.setNameFormTrip("Lone Accommodation Formula");
-		formTrip.setRate(1);
+		this.formTripHotel.setNameFormTrip("Lone Accommodation");
+		this.formTripHotel.setRate(1);
+		this.formTripHotel.setCarRental(formTrip.isCarRental());
+		this.formTripHotel.setFormulaAccomodation(faService.getById(formTrip.getFormulaAccomodation().getId()));
+		this.formTripHotel.setInsurance(iService.getById(formTrip.getInsurance().getIdInsu()));
 		// Appel de la méthode service
 
-		int test = ftService.add(formTrip);
-
+		int test = ftService.add(this.formTripHotel);
 		if (test != 0) {
 			try {
 				List<Trip> listTrips = this.cart.getTrips();
 				Trip trip = new Trip();
-				trip.setFormulaTrip(formTrip);
+				trip.setFormulaTrip(this.formTripHotel);
 				listTrips.add(trip);
 				this.cart.setTrips(listTrips);
 				tripService.add(trip);
 			} catch (Exception e1) {
 				List<Trip> listTrips = new ArrayList<Trip>();
 				Trip trip = new Trip();
-				trip.setFormulaTrip(formTrip);
+				trip.setFormulaTrip(this.formTripHotel);
 				listTrips.add(trip);
-				System.out.println(listTrips + " " + cart);
-				this.cart.setTrips(listTrips);
 				tripService.add(trip);
+				this.cart.setTrips(listTrips);
+				
 			}
-			System.out.println(cart);
-			return new ModelAndView("cartPage", "msg", "this trip has been added to your Cart !");
+			return"redirect:lonehotelViewCart";
 		} else {
-			return new ModelAndView("hotelReservationPage", "msg", "Something went wrong");
+			return "hotelReservationPage";
 		}
 
 	}
+	/** METHODE AFFICHER PAGE PANIER*/
+	@RequestMapping(value = "/lonehotelViewCart", method = RequestMethod.GET)
+	public ModelAndView viewCartFromHotelForm(Model modele) {
 
+		List<Trip> listTrips = this.cart.getTrips();
+		List<FormulaTrip> listFT = new ArrayList<FormulaTrip>();
+		for (Trip elem : listTrips){
+			FormulaTrip ft = elem.getFormulaTrip();
+			listFT.add(ft);
+		}
+		
+		return new ModelAndView("cartPage", "listFT", listFT);
+	}
 	// FORMULE HOTEL+FLIGHT
 	/** METHODE AFFICHER PAGE HOTEL*/
 	@RequestMapping(value = "/hotelflightViewHotel", method = RequestMethod.GET)
@@ -292,12 +313,23 @@ public class FormulaController {
 	/** METHODE AFFICHER PHOTO */
 	@RequestMapping(value = "photoAcc", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
-	public byte[] getPhoto(int idAcc) throws IOException {
+	public byte[] getPhotoAcc(int idAcc) throws IOException {
 		Accommodation acOut = accService.getById(idAcc);
 		if (acOut.getPhoto() == null) {
 			return new byte[0];
 		} else {
 			return IOUtils.toByteArray(new ByteArrayInputStream(acOut.getPhoto()));
+		}
+	}
+	
+	@RequestMapping(value = "photoDest", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ResponseBody
+	public byte[] getPhotoDest(int idDest) throws IOException {
+		Destination desOut = destService.getById(idDest);
+		if (desOut.getPhoto() == null) {
+			return new byte[0];
+		} else {
+			return IOUtils.toByteArray(new ByteArrayInputStream(desOut.getPhoto()));
 		}
 	}
 
