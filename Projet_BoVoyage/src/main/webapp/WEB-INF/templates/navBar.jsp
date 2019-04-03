@@ -29,7 +29,7 @@
     border-bottom: 0px solid!important;
 }
 
-a {
+.nav > li > a {
     color: #FFF!important;
     text-decoration: none;
     font-size: 16px!important;
