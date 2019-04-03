@@ -145,6 +145,14 @@ public class FormulaTrip implements Serializable {
 	public void setCarRental(boolean carRental) {
 		this.carRental = carRental;
 	}
+	
+	public Flight getFlight() {
+		return flight;
+	}
+
+	public void setFlight(Flight flight) {
+		this.flight = flight;
+	}
 
 	@Override
 	public String toString() {

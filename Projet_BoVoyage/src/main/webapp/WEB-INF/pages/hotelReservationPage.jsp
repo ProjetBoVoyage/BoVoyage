@@ -54,9 +54,9 @@
 			
 			<br/>Do you want an Insurance ?
 			<form:select class="col-md-3 form-control"
-				path="insurance.id">
+				path="insurance.idInsu">
 				<option value="1">Choose an Insurance</option>
-				<c:forEach items="${forminsu}" var="u">
+				<c:forEach items="${forminsu}" var="i">
 					<option value="${i.idInsu}">${i.name}</option>
 				</c:forEach>
 			</form:select>

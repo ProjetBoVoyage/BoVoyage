@@ -95,9 +95,9 @@ public class FormulaController {
 		modele.addAttribute("formacc", formacc);
 		List<Insurance> forminsu = iService.getAll();
 		modele.addAttribute("forminsu",forminsu);
-		this.accOut = accService.getById(idAcc);
-		FormulaTrip formTrip = new FormulaTrip();
-		formTrip.setFormulaAccomodation(new FormulaAccomodation());
+		modele.addAttribute(new FormulaTrip());
+		modele.addAttribute(new FormulaAccomodation());
+		
 		return new ModelAndView("hotelReservationPage", "hotel", accService.getById(idAcc));
 
 	}
