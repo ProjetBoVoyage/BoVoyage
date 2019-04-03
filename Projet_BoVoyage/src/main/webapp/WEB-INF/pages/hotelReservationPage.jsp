@@ -30,10 +30,12 @@
 	<%@include file="/WEB-INF/templates/navBar.jsp"%>
 	<br />
 	<br />
-	<!-- Colonne vide -->
-	<div class="col-sm-6 col-md-3"></div>
-
-	<div class="col-sm-12 col-md-6">
+	    <!-- Colonne vide -->
+    <div class="col-sm-6 col-md-3"></div>
+    
+<div class="col-sm-12 col-md-6">
+	<div
+		style="background-color: #AC2078; border-radius:50px; text-align: center;">
 		You have chosen the accommodation ${hotel.name} in
 		${hotel.destination.city} <br />
 		<form:form method="POST" action="submitResHotel"
@@ -49,8 +51,12 @@
 				</c:forEach>
 			</form:select>
 			
+			<table><tr>
 			<br/>Do you want a Car ? 
+			<td><img src="http://niakas.com/wp-content/uploads/2015/02/category-C-Hyundai-i20.png" style="width:100px"></td><td></td>
 			<form:checkbox path="carRental"/>
+			</tr>
+			</table>
 			
 			<br/>Do you want an Insurance ?
 			<form:select class="col-md-3 form-control"
@@ -66,6 +72,6 @@
 					<form:input type="hidden" path="destination.idDest" value="${hotel.destination.idDest}"/>
 		</form:form>
 	</div>
-
+</div>
 </body>
 </html>
