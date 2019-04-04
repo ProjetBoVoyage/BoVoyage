@@ -42,31 +42,32 @@
 
 
 		<table class="table table-striped">
+			<tr>
+				<th>Departure Airport</th>
+				<th>Departure Date</th>
+				<th>Departure Time</th>
+				<th>Arrival Airport</th>
+				<th>Arrival Date</th>
+				<th>Arrival Time</th>
+				<th>Company</th>
+				<th>Choose</th>
+			</tr>
+
+			<c:forEach items="${listFliDest}" var="f">
 				<tr>
-					<th>Departure Airport</th>
-					<th>Departure Date</th>
-					<th>Departure Time</th>
-					<th>Arrival Airport</th>
-					<th>Arrival Date</th>
-					<th>Arrival Time</th>
-					<th>Company</th>
-					<th>Choose</th>
+					<td>${f.departureAirport}</td>
+					<td>${f.departureDate}</td>
+					<td>${f.departureTime}</td>
+					<td>${f.destination.city},${f.destination.country}</td>
+					<td>${f.arrivalDate}</td>
+					<td>${f.arrivalTime}</td>
+					<td>${f.company}</td>
+					<td><a class="btn btn-info"
+						href="${pageContext.request.contextPath}/formula/hotelflightSelectHotelAndFlight?pFli=${f.idFlight}&ft=${ft}">Choose
+							this flight</a></td>
+
 				</tr>
-
-				<c:forEach items="${listFliDest}" var="f">
-					<tr>
-						<td>${f.departureAirport}</td>
-						<td>${f.departureDate}</td>
-						<td>${f.departureTime}</td>
-						<td>${f.destination.city},${f.destination.country}</td>
-						<td>${f.arrivalDate}</td>
-						<td>${f.arrivalTime}</td>
-						<td>${f.company}</td>
-						<td><a class="btn btn-info" href="${pageContext.request.contextPath}/formula/hotelflightSelectHotelAndFlight?pFli=${f.idFlight}"/>
-							title="Choose">Choose this flight</a></td>
-
-					</tr>
-				</c:forEach>
+			</c:forEach>
 		</table>
 	</div>
 	<!-- Colonne vide -->

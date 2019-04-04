@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Accommodation;
 import fr.adaming.model.Cart;
@@ -60,16 +61,14 @@ public class FormulaController {
 
 	private Accommodation accOut;
 	private Cart cart;
-	private FormulaTrip monFormTrip;
 	private FormulaTrip formTripHotel;
 
 	@PostConstruct
 	public void init() {
 
 		this.cart = new Cart();
-		this.monFormTrip = new FormulaTrip();
 		this.formTripHotel = new FormulaTrip();
-		
+
 	}
 
 	public Accommodation getAccOut() {
@@ -83,7 +82,8 @@ public class FormulaController {
 	// FORMULE VOL SEUL
 	/** METHODE AFFICHER PAGE */
 	@RequestMapping(value = "/loneflightViewFlight", method = RequestMethod.GET)
-	public ModelAndView viewLoneFlightForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
+	public ModelAndView viewLoneFlightForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest,
+			Model modele) {
 
 		List<Flight> listFli = fliService.getFliByDestination(destService.getById(idDest));
 		modele.addAttribute("listFliDest", listFli);
@@ -149,9 +149,9 @@ public class FormulaController {
 
 		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
 		modele.addAttribute("listAccDest", listAcc);
-		
+
 		this.formTripHotel.setDestination(destService.getById(idDest));
-		
+
 		return new ModelAndView("formulaHotel", "destination", destService.getById(idDest));
 
 	}
@@ -162,7 +162,7 @@ public class FormulaController {
 			@RequestParam("pAcc") @ModelAttribute("accSelect") int idAcc, Model modele) {
 
 		this.formTripHotel.setAccomodation(accService.getById(idAcc));
-		
+
 		List<FormulaAccomodation> formacc = faService.getAll();
 		modele.addAttribute("formacc", formacc);
 
@@ -180,7 +180,6 @@ public class FormulaController {
 	@RequestMapping(value = "/lonehotelSubmitResHotel", method = RequestMethod.POST)
 	public String submitResLoneHotel(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
 
-		
 		// FormulaTrip formTrip = new FormulaTrip();
 		this.formTripHotel.setNameFormTrip("Lone Accommodation");
 		this.formTripHotel.setRate(1);
@@ -205,111 +204,144 @@ public class FormulaController {
 				listTrips.add(trip);
 				tripService.add(trip);
 				this.cart.setTrips(listTrips);
-				
+
 			}
-			return"redirect:lonehotelViewCart";
+			return "redirect:lonehotelViewCart";
 		} else {
 			return "hotelReservationPage";
 		}
 
 	}
-	/** METHODE AFFICHER PAGE PANIER*/
+
+	/** METHODE AFFICHER PAGE PANIER */
 	@RequestMapping(value = "/lonehotelViewCart", method = RequestMethod.GET)
 	public ModelAndView viewCartFromHotelForm(Model modele) {
 
 		List<Trip> listTrips = this.cart.getTrips();
 		List<FormulaTrip> listFT = new ArrayList<FormulaTrip>();
-		for (Trip elem : listTrips){
+		for (Trip elem : listTrips) {
 			FormulaTrip ft = elem.getFormulaTrip();
 			listFT.add(ft);
 		}
-		
+
 		return new ModelAndView("cartPage", "listFT", listFT);
 	}
+
 	// FORMULE HOTEL+FLIGHT
-	/** METHODE AFFICHER PAGE HOTEL*/
+	/** METHODE AFFICHER PAGE HOTEL */
 	@RequestMapping(value = "/hotelflightViewHotel", method = RequestMethod.GET)
 	public ModelAndView viewHotelForm(@RequestParam("pDest") @ModelAttribute("destSearch") int idDest, Model modele) {
 
 		List<Accommodation> listAcc = accService.getAccByDestination((destService.getById(idDest)));
 
 		modele.addAttribute("listAccDest", listAcc);
-		
+
 		return new ModelAndView("formulaHotFliHotel", "destination", destService.getById(idDest));
 	}
-	
-	/** METHODE SUBMIT RESERVATION HOTEL / AFFICHER FLIGHT */
-	@RequestMapping(value = "/hotelflightViewFlight", method = RequestMethod.POST)
-	public ModelAndView submitResHotel(@RequestParam("pHotel") @ModelAttribute("hotel") int idAcc, Model modele) {
 
-		this.monFormTrip.setNameFormTrip("Lone Accommodation Formula");
-		this.monFormTrip.setRate(0.8);
-		this.monFormTrip.setAccomodation(accService.getById(idAcc));
-		
-		List<Flight> listFli = fliService.getFliByDestination((accService.getById(idAcc).getDestination()));
+	/** METHODE SUBMIT RESERVATION HOTEL */
+	@RequestMapping(value = "/hotelflightSelectHotel", method = RequestMethod.GET)
+	public String submitResHotel(@RequestParam("pHotel") int idAcc, Model modele, RedirectAttributes ra) {
 
-		modele.addAttribute("listFliDest", listFli);
-		
-		return new ModelAndView("formulaHotFliFlight", "destination", accService.getById(idAcc).getDestination());
-		
+		FormulaTrip ft = new FormulaTrip();
+		ft.setNameFormTrip("Hotel and Flight");
+		ft.setRate(0.8);
+		ft.setAccomodation(accService.getById(idAcc));
+		ft.setDestination(destService.getById(accService.getById(idAcc).getDestination().getIdDest()));
+		ftService.add(ft);
+		FormulaTrip ftBis = ftService.getAll().get(ftService.getAll().size() - 1);
+		ra.addAttribute("ft", ftBis.getId());
+		ra.addAttribute("idAcc", idAcc);
+		return "redirect:hotelflightViewFlight";
+
 	}
-	
+
+	/** MEHODE AFFICHER FLIGHT */
+	@RequestMapping(value = "/hotelflightViewFlight", method = RequestMethod.GET)
+	public ModelAndView viewFlight(Model modele, @RequestParam("idAcc") int id, @RequestParam("ft") int ft) {
+
+		modele.addAttribute("destination", destService.getById(accService.getById(id).getDestination().getIdDest()));
+		modele.addAttribute("ft", Integer.toString(ft));
+		List<Flight> listFli = fliService
+				.getFliByDestination(destService.getById(accService.getById(id).getDestination().getIdDest()));
+		return new ModelAndView("formulaHotFliFlight", "listFliDest", listFli);
+	}
+
 	/** METHODE AFFICHER PAGE CHOIX FINAL FORMULE HOTEL + ASSURANCE + VOITURE */
 	@RequestMapping(value = "/hotelflightSelectHotelAndFlight", method = RequestMethod.GET)
-	public ModelAndView selectHotelandFlightForm(HttpServletRequest request,
-			@RequestParam("pFli") @ModelAttribute("fliSelect") int idFlight, Model modele) {
+	public ModelAndView selectHotelandFlightForm(HttpServletRequest request, @RequestParam("pFli") int idFlight,
+			Model modele, @RequestParam("ft") String ft) {
 
-		this.monFormTrip.setFlight(fliService.getById(idFlight));
-		
+		FormulaTrip ftBis = ftService.getById(Integer.parseInt(ft));
+		ftBis.setFlight(fliService.getById(idFlight));
+		ftService.update(ftBis);
 		List<FormulaAccomodation> formacc = faService.getAll();
 		modele.addAttribute("formacc", formacc);
 
 		List<Insurance> forminsu = iService.getAll();
 		modele.addAttribute("forminsu", forminsu);
 
+		modele.addAttribute("ft", Integer.toString(ftBis.getId()));
 		modele.addAttribute(new FormulaTrip());
 		modele.addAttribute(new FormulaAccomodation());
-		
-		int idAcc = this.monFormTrip.getAccomodation().getIdAcc();
+
+		int idAcc = ftBis.getAccomodation().getIdAcc();
 		return new ModelAndView("formulaHotFliReservationPage", "hotel", accService.getById(idAcc));
 
 	}
-	
+
 	/** METHODE SUBMIT RESERVATION HOTEL + FLIGHT */
 	@RequestMapping(value = "/hotelflightSubmitResHotel", method = RequestMethod.POST)
-	public ModelAndView submitResHotelAndFlight(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip) {
+	public String submitResHotelAndFlight(Model modele, @ModelAttribute("formulaTrip") FormulaTrip formTrip,
+			@RequestParam("ft") String ft) {
 
 		// Appel de la méthode service
-		this.monFormTrip.setCarRental(formTrip.isCarRental());
-		this.monFormTrip.setFormulaAccomodation(formTrip.getFormulaAccomodation());
-		
-		int test = ftService.add(this.monFormTrip);
+		FormulaTrip ftBis = ftService.getById(Integer.parseInt(ft));
+		ftBis.setCarRental(formTrip.isCarRental());
+		ftBis.setFormulaAccomodation(formTrip.getFormulaAccomodation());
+
+		int test = ftService.update(ftBis);
 
 		if (test != 0) {
 			try {
 				List<Trip> listTrips = this.cart.getTrips();
 				Trip trip = new Trip();
-				trip.setFormulaTrip(formTrip);
+				trip.setFormulaTrip(ftBis);
 				listTrips.add(trip);
 				this.cart.setTrips(listTrips);
 				tripService.add(trip);
 			} catch (Exception e1) {
 				List<Trip> listTrips = new ArrayList<Trip>();
 				Trip trip = new Trip();
-				trip.setFormulaTrip(formTrip);
+				trip.setFormulaTrip(ftBis);
+				trip.setAttendants(null);
+				trip.setCustomer(null);
 				listTrips.add(trip);
 				System.out.println(listTrips + " " + cart);
 				this.cart.setTrips(listTrips);
 				tripService.add(trip);
 			}
-			System.out.println(cart);
-			return new ModelAndView("cartPage", "msg", "this trip has been added to your Cart !");
+			return "redirect:hotelflightViewCart";
 		} else {
-			return new ModelAndView("formulaHotFliReservationPage", "msg", "Something went wrong");
+			return "hotelReservationPage";
 		}
 
 	}
-	
+
+	/** METHODE AFFICHER PAGE PANIER */
+	@RequestMapping(value = "/hotelflightViewCart", method = RequestMethod.GET)
+	public ModelAndView viewCartFromHotelFlightForm(Model modele) {
+
+		List<Trip> listTrips = this.cart.getTrips();
+		List<FormulaTrip> listFT = new ArrayList<FormulaTrip>();
+		for (Trip elem : listTrips) {
+			FormulaTrip ft = elem.getFormulaTrip();
+			listFT.add(ft);
+		}
+
+		return new ModelAndView("cartPage", "listFT", listFT);
+	}
+
 	/** METHODE AFFICHER PHOTO */
 	@RequestMapping(value = "photoAcc", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
@@ -321,7 +353,7 @@ public class FormulaController {
 			return IOUtils.toByteArray(new ByteArrayInputStream(acOut.getPhoto()));
 		}
 	}
-	
+
 	@RequestMapping(value = "photoDest", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	public byte[] getPhotoDest(int idDest) throws IOException {

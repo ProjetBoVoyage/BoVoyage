@@ -45,7 +45,7 @@
 		You have chosen the accommodation <b>${hotel.name}</b> in
 		<b>${hotel.destination.city}, ${hotel.destination.country}</b>. <br />
 		It's a great choice! Only a few steps before you can enjoy your holy-days...<br /><br />
-		<form:form method="POST" action="hotelflightSubmitResHotel"
+		<form:form method="POST" action="hotelflightSubmitResHotel?ft=${ft}"
 			commandName="formulaTrip" cssClass="form-horizontal" enctype="multipart/form-data">
 		
 			<h3 class="card-title" style="font-size:20px; text-align:center">Choose you accommodation formula:</h3><br />
