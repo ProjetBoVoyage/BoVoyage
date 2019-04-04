@@ -35,35 +35,29 @@
 	<br>
 
 	<div class="container">
-		<h2>Nested Media Objects</h2>
-		<p>Media objects can also be nested (a media object inside a media
-			object):</p>
+		<h2>Cart</h2>
 		<br>
 		<div class="row">
 			<c:forEach items="${listFT}" var="fTrip">
 				<div class="media">
 					<div class="media-left">
-						<img
-							src="photoDest?idDest=${fTrip.destination.idDest}"
+						<img src="photoDest?idDest=${fTrip.destination.idDest}"
 							class="media-object" style="width: 25vw">
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">
-							Lieu pays ${fTrip.destination.country}, <small><i>
-									continent ${fTrip.destination.continent}</i></small>
+							${fTrip.destination.country}, <small><i>
+									${fTrip.destination.continent}</i></small>
 						</h4>
-						<h4 class="media-heading">Formule choisie
-							${fTrip.nameFormTrip}</h4>
-						<p>Description de la destination
-							${fTrip.destination.description }</p>
+						<h4 class="media-heading">${fTrip.nameFormTrip}</h4>
+						<p>${fTrip.destination.description }</p>
 
 						<div class="col-md-4">
 							<div class="card" style="border-radius: 0px !important">
 								<h2 class="media-heading">Accomodation</h2>
 
 								<div class="img-box">
-									<img
-										src="photoAcc?idAcc=${fTrip.accomodation.idAcc}"
+									<img src="photoAcc?idAcc=${fTrip.accomodation.idAcc}"
 										style="height: 10vw; max-height: 125px; position: absolute;" />
 								</div>
 								<div class="card-block"></div>
@@ -73,16 +67,17 @@
 							<div class="card">
 
 								<div class="card-block" style="padding-bottom: 20px">
-									<h3><label>${fTrip.accomodation.name}</label></h3>
+									<h3>
+										<label>${fTrip.accomodation.name}</label>
+									</h3>
 									<p style="">
-										prix ${fTrip.accomodation.price} &euro; <br /> etoile
-										${fTrip.accomodation.stars }
+										<b>Price :</b> ${fTrip.accomodation.price} &euro; <br /> <b>Rating
+											: </b> ${fTrip.accomodation.stars }
 									</p>
 								</div>
 
 								<div class="card-block">
-									<h3>formule de logement
-										${fTrip.formulaAccomodation.nameFormAcc}</h3>
+									<h3>${fTrip.formulaAccomodation.nameFormAcc}</h3>
 								</div>
 							</div>
 						</div>
@@ -90,20 +85,23 @@
 
 						<div class="col-md-4" style="border-radius: 0px !important">
 							<div class="card">
-								<h2 class="media-heading">Flight</h2>
+								<h2 class="media-heading">Options</h2>
 
 								<div class="card-block" style="padding-bottom: 20px">
-									<h3>Departure</h3>
-									<p>Lieu ${fTrip.flight.departureAirport }</p>
-									<p>Date et heure ${fTrip.flight.departureDate }
-										${fTrip.flight.departureTime }</p>
+									<h3>Insurance</h3>
+									<b>${fTrip.insurance.name }</b>
+									<p>
+										<b>Price : </b>${fTrip.insurance.price } &euro;
+									</p>
 								</div>
 
 								<div class="card-block">
-									<h3>Arrival</h3>
-									<p>Lieu ${fTrip.flight.arrivalAirport }</p>
-									<p>Date et heure ${fTrip.flight.arrivalDate }
-										${fTrip.flight.arrivalTime }</p>
+									<h3>Car</h3>
+									<div style="text-align: justify;">
+										<b>AVIS®</b><br /> <b>Category C</b> (<i>Hyundai i20</i>) <br />
+										<b>Price :</b> 65 &euro;
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -113,6 +111,38 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+
+	<div class="container">
+		<form method="post" action="${initParam['posturl']}">
+
+			<input type="hidden" name="upload" value="1" /> <input type="hidden"
+				name="return" value="${initParam['returnurl']}" /> <input
+				type="hidden" name="cmd" value="_cart" /> <input type="hidden"
+				name="business" value="${initParam['business']}" />
+
+			<!-- Product 1 -->
+			<input type="hidden" name="item_name_1" value="Product 1" /> <input
+				type="hidden" name="item_number_1" value="p1" /> <input
+				type="hidden" name="amount_1" value="2" /> <input type="hidden"
+				name="quantity_1" value="3" />
+
+			<!-- Product 2 -->
+			<input type="hidden" name="item_name_2" value="Product 2" /> <input
+				type="hidden" name="item_number_2" value="p2" /> <input
+				type="hidden" name="amount_2" value="3" /> <input type="hidden"
+				name="quantity_2" value="4" />
+
+			<!-- Product 1 -->
+			<input type="hidden" name="item_name_3" value="Product 3" /> <input
+				type="hidden" name="item_number_3" value="p3" /> <input
+				type="hidden" name="amount_3" value="3" /> <input type="hidden"
+				name="quantity_3" value="2" /> <input type="image"
+				src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"
+				style="width: 150px;" />
+
+
+		</form>
 	</div>
 </body>
 </html>
