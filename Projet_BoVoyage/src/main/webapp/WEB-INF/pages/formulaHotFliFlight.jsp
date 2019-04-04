@@ -42,8 +42,6 @@
 
 
 		<table class="table table-striped">
-			<form:form action="hotelflightSelectHotelAndFlight"
-				commandName="fliSelect">
 				<tr>
 					<th>Departure Airport</th>
 					<th>Departure Date</th>
@@ -69,7 +67,6 @@
 
 					</tr>
 				</c:forEach>
-			</form:form>
 		</table>
 	</div>
 	<!-- Colonne vide -->
