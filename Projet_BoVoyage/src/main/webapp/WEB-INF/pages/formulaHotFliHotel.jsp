@@ -32,22 +32,21 @@
     <div class="col-sm-6 col-md-3"></div>
     
 <div class="col-sm-12 col-md-6">
+<br/><br/>
 <center><h1>Hotels in <b>${destination.city}, ${destination.country}</b></h1></center>
 
 <table class="table">
-		<form:form action="selectAccomodation" commandName="selectedAcc">
-			<c:forEach items="${listAccDest}" var="a">
+			<c:forEach items="${destination}" var="a">
 				<tr>
 				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
 					<td><h3><b>${a.name} </b><span style="color:#FFCE1A;text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;">${a.stars}</span></h3><br/>
-					${a.description}</br></br>
+					${a.description}<br/><br/>
 					${a.price}&euro;<br/><br/>
-
-		</div></td>
+				</td>
 	
 				 <td>
 				 <a class="btn btn-info"
-					href="${pageContext.request.contextPath}/formula/selectHotel?pAcc=${a.idAcc}"
+					href="${pageContext.request.contextPath}/formula/hotelflightViewFlight?pHotel=${a.idAcc}"
 					title="SelectHotel">Select this Hotel</a> 
 				</td>
 				</tr>

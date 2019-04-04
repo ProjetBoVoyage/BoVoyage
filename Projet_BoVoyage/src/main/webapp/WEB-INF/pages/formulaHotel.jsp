@@ -35,7 +35,6 @@
 <center><h1>Hotels in <b>${destination.city}, ${destination.country}</b></h1></center>
 
 <table class="table">
-		<form:form action="selectAccomodation" commandName="selectedAcc">
 			<c:forEach items="${listAccDest}" var="a">
 				<tr>
 				<td><img src="photoAcc?idAcc=${a.idAcc}" width="300px" /></td>
@@ -52,7 +51,6 @@
 				</td>
 				</tr>
 			</c:forEach>
-		</form:form>
 	</table>
 
 
