@@ -51,20 +51,25 @@
 			style="position: fixed; width: 100%; z-index: 1000">
 			<ul class="nav nav-tabs">
 
-				<li style=" padding: 5px !important"> 
-					<img src="https://i.ibb.co/dpHsdDj/travel-2.png" style="width:40px;">
+				<li style="padding: 5px !important"><img
+					src="https://i.ibb.co/dpHsdDj/travel-2.png" style="width: 40px;">
 				</li>
 				<li role="presentation"><a
 					href="${pageContext.request.contextPath}/start/welcome">Home</a></li>
-<!-- 				<li role="presentation"><a -->
-<%-- 					href="${pageContext.request.contextPath}/flight/viewFlights">Flights</a></li> --%>
+				<!-- 				<li role="presentation"><a -->
+				<%-- 					href="${pageContext.request.contextPath}/flight/viewFlights">Flights</a></li> --%>
 				<li role="presentation"><a
 					href="${pageContext.request.contextPath}/destination/viewSearchCont">Destinations</a></li>
-<!-- 				<li role="presentation"><a -->
-<%-- 					href="${pageContext.request.contextPath}/accommodation/viewAccCusto">Accommodations</a></li> --%>
+				<!-- 				<li role="presentation"><a -->
+				<%-- 					href="${pageContext.request.contextPath}/accommodation/viewAccCusto">Accommodations</a></li> --%>
 				<li role="presentation"><a
 					href="${pageContext.request.contextPath}/contactus/emailForm">Contact
 						Us</a></li>
+
+				<li class="navbar-right" ><a
+					href="${pageContext.request.contextPath}/formula/hotelflightViewCart"><img
+						src="https://i.ibb.co/rdXLWLm/cart.png" style="width: 30px;"></a>
+				</li>
 
 				<li class="dropdown nav navbar-nav navbar-right"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" role="button"
