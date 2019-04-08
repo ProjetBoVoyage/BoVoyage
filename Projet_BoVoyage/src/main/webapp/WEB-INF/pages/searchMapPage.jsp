@@ -226,7 +226,7 @@
 				[ '<img src="https://www.goldcar.es/assets/img/oficinas/background/alquilar_coche_santorini_oficina_goldcar.jpg" style="width:200px;height:100px"><br/>Santorini from 389 euros <a href="">see more</a>', 36.400450, 25.461483, 6 ],
 				[ '<img src="https://polarsteps.s3.amazonaws.com/u_74874/8a12684d-fd88-4948-8d7c-430024362edc_photoalbum069857714126271710F1A0085-Edit.JPG" style="width:200px;height:100px"><br/>Koh Phing Kan from 759 euros <a href="">see more</a>', 8.274710, 98.501226, 7 ],
 				[ '<img src="https://iceland.nordicvisitor.com/images/1/iceland/summer/faskrudsfjodur-east-iceland.jpg" style="width:200px;height:100px"><br/>Faskrudsfjodurt from 429 euros <a href="">see more</a>', 64.929431, -14.011259, 8 ],
-				[ '<img src="https://cdn.civitatis.com/paises-bajos/amsterdam/galeria/casas-barco-amsterdam.jpg" style="width:200px;height:100px"><br/>Amsterdam from 369 euros <a href="">see more</a>', 52.368107, 4.904162, 9 ], ];
+				[ '<img src="https://cdn.civitatis.com/paises-bajos/amsterdam/galeria/casas-barco-amsterdam.jpg" style="width:200px;height:100px"><br/>Amsterdam from 369 euros <a href="${pageContext.request.contextPath}/destination/searchFullDest?pDest=1">see more</a>', 52.368107, 4.904162, 9 ], ];
 
 		var infowindow = new google.maps.InfoWindow();
 
